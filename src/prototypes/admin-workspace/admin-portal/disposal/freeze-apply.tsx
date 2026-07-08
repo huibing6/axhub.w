@@ -2,9 +2,10 @@
  * @name 冻结申请
  */
 import { useState } from 'react';
-import { theme, Typography, Card, Space, Input, Select, Button, Table, Form, Row, Col, DatePicker, Tabs, Checkbox, message } from 'antd';
+import { theme, Typography, Card, Space, Input, Select, Button, Table, Row, Col, DatePicker, Tabs, message } from 'antd';
 import PortalLayout from '../../common/portal-layout';
 import { adminGroups } from '../../common/menu-data';
+import CategoryFreeze from './category-freeze';
 
 const { RangePicker } = DatePicker;
 
@@ -118,8 +119,8 @@ export default function FreezeApply() {
           },
           {
             key: 'productFreeze',
-            label: '准入产品冻结',
-            children: <div style={{ padding: 40, textAlign: 'center', color: t.colorTextQuaternary }}>准入产品冻结（待开发）</div>,
+            label: '服务品类冻结',
+            children: <CategoryFreeze />,
           },
         ]}
       />
