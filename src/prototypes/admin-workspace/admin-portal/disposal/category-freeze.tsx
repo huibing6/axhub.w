@@ -101,8 +101,6 @@ export default function CategoryFreeze() {
           <Col>
             <Space>
               <Button type="primary" danger onClick={() => message.success('新建服务品类冻结申请')}>新建服务品类冻结申请</Button>
-              <Button onClick={() => message.info('批量提交审批')}>批量提交审批</Button>
-              <Button onClick={() => message.info('导出')}>导出</Button>
             </Space>
           </Col>
         </Row>
