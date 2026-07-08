@@ -16,7 +16,6 @@ const searchFields = [
   { key: 'flowStatus', label: '流程状态', type: 'select' as const, options: ['请选择', '待提交', '审批中', '已通过', '已驳回'] },
   { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停交易权限', '取消服务商准入资格'] },
   { key: 'applyTime', label: '申请时间', type: 'range' as const },
-  { key: 'batchName', label: '批次名称', type: 'select' as const, options: ['请选择', '2026年第一批', '2026年第二批'] },
 ];
 
 const columns = [
@@ -103,9 +102,6 @@ export default function FreezeApply() {
                         <Button type="primary" danger onClick={() => message.success('新建服务商冻结申请')}>新建服务商冻结申请</Button>
                         <Button onClick={() => message.info('批量提交审批')}>批量提交审批</Button>
                       </Space>
-                    </Col>
-                    <Col>
-                      <Button>表格定制</Button>
                     </Col>
                   </Row>
                 </Card>
