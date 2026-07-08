@@ -40,7 +40,6 @@ jobs:
 
       - name: Build
         run: pnpm build
-        continue-on-error: true
 
       - name: Debug dist contents
         run: |
@@ -61,7 +60,6 @@ jobs:
 
       - name: Generate static HTML
         run: node scripts/generate-dist-html.js
-        continue-on-error: true
 
       - name: Debug after generate
         run: |
