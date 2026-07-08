@@ -2,6 +2,7 @@
   "name": "axhub",
   "version": "0.3.5",
   "private": true,
+  "packageManager": "pnpm@9.15.4",
   "description": "Axhub Make（AI 辅助生成原型工具）",
   "type": "module",
   "scripts": {
