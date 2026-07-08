@@ -48,7 +48,6 @@ export default function FreezeApply() {
       <Button type="link" size="small">编辑</Button>
       <Button type="link" size="small" danger>删除</Button>
       <Button type="link" size="small">冻结历史</Button>
-      <Button type="link" size="small">预警信息</Button>
     </Space>
   );
 
