@@ -11,7 +11,6 @@ const { RangePicker } = DatePicker;
 const searchFields = [
   { key: 'spCode', label: '服务商编码', placeholder: '请输入' },
   { key: 'spName', label: '服务商名称', placeholder: '请输入' },
-  { key: 'spType', label: '服务商类型', type: 'select' as const, options: ['请选择', '制造商', '贸易商', '服务商'] },
   { key: 'mgmtType', label: '服务商管理类型', type: 'select' as const, options: ['请选择', '所属企业管理', '总部管理'] },
   { key: 'adminUnit', label: '管理单位', type: 'select' as const, options: ['请选择', '长庆油田分公司', '大庆油田分公司'] },
   { key: 'flowStatus', label: '流程状态', type: 'select' as const, options: ['请选择', '待提交', '审批中', '已通过', '已驳回'] },
@@ -24,7 +23,6 @@ const columns = [
   { key: 'applyType', title: '申请类型', width: 160, dataIndex: 'applyType', ellipsis: true },
   { key: 'spCode', title: '服务商编码', width: 120, dataIndex: 'spCode', sorter: true, ellipsis: true },
   { key: 'spName', title: '服务商名称', width: 200, dataIndex: 'spName', sorter: true, ellipsis: true },
-  { key: 'spType', title: '服务商类型', width: 100, dataIndex: 'spType', sorter: true, ellipsis: true },
   { key: 'mgmtType', title: '服务商管理类型', width: 140, dataIndex: 'mgmtType', sorter: true, ellipsis: true },
   { key: 'freezeReason', title: '冻结原因', width: 180, dataIndex: 'freezeReason', ellipsis: true },
   { key: 'flowStatus', title: '流程状态', width: 100, dataIndex: 'flowStatus', ellipsis: true },
@@ -32,12 +30,12 @@ const columns = [
 ];
 
 const tableData = [
-  { index: 1, applyType: '暂停交易权限', spCode: '1002020681', spName: '测试服务商20260509', spType: '制造商', mgmtType: '所属企业管理', freezeReason: '未年审', flowStatus: '待提交' },
-  { index: 2, applyType: '暂停交易权限', spCode: '38671240', spName: '天津销售服务商考试0718…', spType: '贸易商', mgmtType: '所属企业管理', freezeReason: '资质到期', flowStatus: '待提交' },
-  { index: 3, applyType: '暂停交易权限', spCode: '38671240', spName: '天津销售服务商考试0718…', spType: '贸易商', mgmtType: '所属企业管理', freezeReason: '服务商稽核总部未通过', flowStatus: '待提交' },
-  { index: 4, applyType: '取消服务商准入资格', spCode: '1000145303', spName: '盐城市长胜石化机械有限…', spType: '制造商', mgmtType: '所属企业管理', freezeReason: '其它', flowStatus: '待提交' },
-  { index: 5, applyType: '暂停交易权限', spCode: '1000347223', spName: '章丘市永清寺篷布厂', spType: '制造商', mgmtType: '所属企业管理', freezeReason: '服务商稽核总部未通过', flowStatus: '待提交' },
-  { index: 6, applyType: '暂停交易权限', spCode: '1000060596', spName: '盖州水泵厂', spType: '制造商', mgmtType: '所属企业管理', freezeReason: '现场考察', flowStatus: '待提交' },
+  { index: 1, applyType: '暂停交易权限', spCode: '1002020681', spName: '测试服务商20260509', mgmtType: '所属企业管理', freezeReason: '未年审', flowStatus: '待提交' },
+  { index: 2, applyType: '暂停交易权限', spCode: '38671240', spName: '天津销售服务商考试0718…', mgmtType: '所属企业管理', freezeReason: '资质到期', flowStatus: '待提交' },
+  { index: 3, applyType: '暂停交易权限', spCode: '38671240', spName: '天津销售服务商考试0718…', mgmtType: '所属企业管理', freezeReason: '服务商稽核总部未通过', flowStatus: '待提交' },
+  { index: 4, applyType: '取消服务商准入资格', spCode: '1000145303', spName: '盐城市长胜石化机械有限…', mgmtType: '所属企业管理', freezeReason: '其它', flowStatus: '待提交' },
+  { index: 5, applyType: '暂停交易权限', spCode: '1000347223', spName: '章丘市永清寺篷布厂', mgmtType: '所属企业管理', freezeReason: '服务商稽核总部未通过', flowStatus: '待提交' },
+  { index: 6, applyType: '暂停交易权限', spCode: '1000060596', spName: '盖州水泵厂', mgmtType: '所属企业管理', freezeReason: '现场考察', flowStatus: '待提交' },
 ];
 
 export default function FreezeApply() {
@@ -104,8 +102,6 @@ export default function FreezeApply() {
                       <Space>
                         <Button type="primary" danger onClick={() => message.success('新建服务商冻结申请')}>新建服务商冻结申请</Button>
                         <Button onClick={() => message.info('批量提交审批')}>批量提交审批</Button>
-                        <Button onClick={() => message.info('导出')}>导出</Button>
-                        <Button onClick={() => message.info('批量冻结')}>批量冻结</Button>
                       </Space>
                     </Col>
                     <Col>
