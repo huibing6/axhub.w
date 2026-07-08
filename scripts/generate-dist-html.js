@@ -115,6 +115,20 @@ if (fs.existsSync(srcBootstrap)) {
       console.log(`✓ ${file} 已复制到 dist/assets`);
     }
   }
+
+  // 复制 chunks 目录（bootstrap 依赖 vendor-react.js 等）
+  const srcChunksDir = path.join(adminDir, 'assets', 'chunks');
+  if (fs.existsSync(srcChunksDir)) {
+    const destChunksDir = path.join(destAssetsDir, 'chunks');
+    if (!fs.existsSync(destChunksDir)) {
+      fs.mkdirSync(destChunksDir, { recursive: true });
+    }
+    const chunkFiles = fs.readdirSync(srcChunksDir);
+    for (const file of chunkFiles) {
+      fs.copyFileSync(path.join(srcChunksDir, file), path.join(destChunksDir, file));
+    }
+    console.log(`✓ chunks/ 目录已复制到 dist/assets/chunks (${chunkFiles.length} 个文件)`);
+  }
 } else {
   console.warn('⚠ html-template-bootstrap.js 不存在，请先构建 prototype-admin');
 }
