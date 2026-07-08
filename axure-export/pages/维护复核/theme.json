@@ -1,0 +1,286 @@
+{
+  "colors": {
+    "background": [
+      {
+        "value": "rgba(255, 255, 255, 0)",
+        "count": 28,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 21,
+        "tags": [
+          "div",
+          "input"
+        ]
+      },
+      {
+        "value": "rgb(250, 250, 250)",
+        "count": 18,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(223, 231, 252)",
+        "count": 6,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(238, 25, 24)",
+        "count": 2,
+        "tags": [
+          "div"
+        ]
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(51, 51, 51)",
+        "count": 2183,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span",
+          "br"
+        ]
+      },
+      {
+        "value": "rgb(0, 153, 255)",
+        "count": 60,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(255, 0, 0)",
+        "count": 30,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "count": 20,
+        "tags": [
+          "body",
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 10,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(153, 153, 153)",
+        "count": 8,
+        "tags": [
+          "input"
+        ]
+      }
+    ],
+    "border": [
+      {
+        "value": "rgb(51, 51, 51)",
+        "count": 2183,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span",
+          "br"
+        ]
+      },
+      {
+        "value": "rgb(0, 153, 255)",
+        "count": 60,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(255, 0, 0)",
+        "count": 30,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "count": 20,
+        "tags": [
+          "body",
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 10,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(118, 118, 118)",
+        "count": 8,
+        "tags": [
+          "input"
+        ]
+      }
+    ]
+  },
+  "typography": {
+    "families": [
+      {
+        "value": "\"Arial Normal\", Arial",
+        "count": 2273,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span",
+          "input"
+        ]
+      },
+      {
+        "value": "\"Arial Negreta\", \"Arial Normal\", Arial",
+        "count": 36,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span",
+          "br"
+        ]
+      },
+      {
+        "value": "\"Times New Roman\"",
+        "count": 2,
+        "tags": [
+          "body",
+          "div"
+        ]
+      }
+    ],
+    "textStyles": [
+      {
+        "size": "13px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 2043,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span",
+          "input"
+        ]
+      },
+      {
+        "size": "14px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 130,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "12px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 80,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "14px",
+        "lineHeight": "normal",
+        "weight": "700",
+        "count": 20,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "18px",
+        "lineHeight": "normal",
+        "weight": "700",
+        "count": 16,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span",
+          "br"
+        ]
+      },
+      {
+        "size": "16px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 12,
+        "tags": [
+          "body",
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "11px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 10,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      }
+    ]
+  },
+  "spacing": [
+    {
+      "value": "1px 0px",
+      "count": 8,
+      "tags": [
+        "input"
+      ]
+    }
+  ],
+  "radius": []
+}

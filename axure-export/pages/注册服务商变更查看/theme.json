@@ -1,0 +1,233 @@
+{
+  "colors": {
+    "background": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 6,
+        "tags": [
+          "div",
+          "input"
+        ]
+      },
+      {
+        "value": "rgba(255, 255, 255, 0)",
+        "count": 4,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(231, 11, 18)",
+        "count": 1,
+        "tags": [
+          "div"
+        ]
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(51, 51, 51)",
+        "count": 757,
+        "tags": [
+          "div",
+          "p",
+          "span",
+          "img"
+        ]
+      },
+      {
+        "value": "rgb(0, 153, 255)",
+        "count": 30,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "count": 6,
+        "tags": [
+          "body",
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 5,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(153, 153, 153)",
+        "count": 4,
+        "tags": [
+          "input"
+        ]
+      }
+    ],
+    "border": [
+      {
+        "value": "rgb(51, 51, 51)",
+        "count": 757,
+        "tags": [
+          "div",
+          "p",
+          "span",
+          "img"
+        ]
+      },
+      {
+        "value": "rgb(0, 153, 255)",
+        "count": 30,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "count": 6,
+        "tags": [
+          "body",
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 5,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(118, 118, 118)",
+        "count": 4,
+        "tags": [
+          "input"
+        ]
+      }
+    ]
+  },
+  "typography": {
+    "families": [
+      {
+        "value": "\"Arial Normal\", Arial",
+        "count": 795,
+        "tags": [
+          "div",
+          "p",
+          "span",
+          "img",
+          "input"
+        ]
+      },
+      {
+        "value": "\"Arial Negreta\", \"Arial Normal\", Arial",
+        "count": 5,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "\"Times New Roman\"",
+        "count": 2,
+        "tags": [
+          "body",
+          "div"
+        ]
+      }
+    ],
+    "textStyles": [
+      {
+        "size": "13px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 765,
+        "tags": [
+          "div",
+          "p",
+          "span",
+          "img",
+          "input"
+        ]
+      },
+      {
+        "size": "14px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 20,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "18px",
+        "lineHeight": "normal",
+        "weight": "700",
+        "count": 5,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "20px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 5,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "28px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 5,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "16px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 2,
+        "tags": [
+          "body",
+          "div"
+        ]
+      }
+    ]
+  },
+  "spacing": [
+    {
+      "value": "1px 0px",
+      "count": 4,
+      "tags": [
+        "input"
+      ]
+    }
+  ],
+  "radius": []
+}

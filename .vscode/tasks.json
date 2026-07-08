@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "vendor:sync",
+			"problemMatcher": [],
+			"label": "npm: vendor:sync",
+			"detail": "node scripts/sync-vendor-package.mjs",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}npx -y axhub-make . --no-start

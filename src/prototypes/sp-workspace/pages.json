@@ -1,0 +1,10 @@
+{
+  "pages": [
+    { "name": "服务商工作台", "path": "sp" },
+    { "name": "关键人员管理", "path": "personnel" },
+    { "name": "现场考察", "path": "inspection" },
+    { "name": "草稿管理", "path": "sp/draft-list" },
+    { "name": "注册申请详情", "path": "sp/register-detail" },
+    { "name": "准入申请详情", "path": "sp/admission-detail" }
+  ]
+}

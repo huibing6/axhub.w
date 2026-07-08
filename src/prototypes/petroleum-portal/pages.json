@@ -1,0 +1,20 @@
+{
+  "pages": [
+    {
+      "name": "服务商工作台",
+      "path": "sp"
+    },
+    {
+      "name": "服务商管理端",
+      "path": "admin"
+    },
+    {
+      "name": "关键人员管理",
+      "path": "personnel"
+    },
+    {
+      "name": "现场考察",
+      "path": "inspection"
+    }
+  ]
+}

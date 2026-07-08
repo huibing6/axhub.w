@@ -1,0 +1,51 @@
+{
+  "colors": {
+    "background": [],
+    "text": [
+      {
+        "value": "rgb(0, 0, 0)",
+        "count": 2,
+        "tags": [
+          "body",
+          "div"
+        ]
+      }
+    ],
+    "border": [
+      {
+        "value": "rgb(0, 0, 0)",
+        "count": 2,
+        "tags": [
+          "body",
+          "div"
+        ]
+      }
+    ]
+  },
+  "typography": {
+    "families": [
+      {
+        "value": "\"Times New Roman\"",
+        "count": 2,
+        "tags": [
+          "body",
+          "div"
+        ]
+      }
+    ],
+    "textStyles": [
+      {
+        "size": "16px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 2,
+        "tags": [
+          "body",
+          "div"
+        ]
+      }
+    ]
+  },
+  "spacing": [],
+  "radius": []
+}

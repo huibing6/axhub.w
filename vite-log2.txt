@@ -1,0 +1,15 @@
+
+✅ Dev server info written to .axhub\make\.dev-server-info.json
+   Local:   http://localhost:51720
+   Network: http://192.168.236.109:51720
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m2959[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m51720[22m/[39m
+  [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.236.109:[1m51720[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[主项目] 请求 asset: /assets/simple-editor.css?v=1776790982743&axv=1782491263640 -> 路径: D:\axhub\admin\assets\simple-editor.css 存在: false
+[主项目] ❌ asset 文件不存在
+[主项目] 请求 asset: /assets/spec-template-bootstrap.css?v=1776790982743&axv=1782491263640 -> 路径: D:\axhub\admin\assets\spec-template-bootstrap.css 存在: false
+[主项目] ❌ asset 文件不存在

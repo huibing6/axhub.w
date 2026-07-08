@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* YMZEC (雲夢澤) 供应商管理系统主题 Token */
+:root {
+  /* Background Colors */
+  --background: #ffffff;
+  --foreground: rgba(0, 0, 0, 0.85);
+
+  /* Surface Colors */
+  --card: #ffffff;
+  --card-foreground: rgba(0, 0, 0, 0.85);
+  --popover: #ffffff;
+  --popover-foreground: rgba(0, 0, 0, 0.85);
+
+  /* Primary - YMZEC Brand Red */
+  --primary: #ff4d4f;
+  --primary-foreground: #ffffff;
+
+  /* Secondary */
+  --secondary: #f5f5f5;
+  --secondary-foreground: rgba(0, 0, 0, 0.65);
+
+  /* Muted */
+  --muted: #f5f5f5;
+  --muted-foreground: rgba(0, 0, 0, 0.45);
+
+  /* Accent */
+  --accent: #ff4d4f;
+  --accent-foreground: #ffffff;
+
+  /* Subtle - lighter text */
+  --subtle: rgba(0, 0, 0, 0.45);
+
+  /* Destructive */
+  --destructive: #ff4d4f;
+  --destructive-foreground: #ffffff;
+
+  /* Success */
+  --success: #52c41a;
+  --success-foreground: #ffffff;
+
+  /* Warning */
+  --warning: #faad14;
+  --warning-foreground: #ffffff;
+
+  /* Border */
+  --border: #e8e8e8;
+  --border-subtle: #f0f0f0;
+  --input: #d9d9d9;
+  --ring: #ff4d4f;
+
+  /* Chart Colors */
+  --chart-1: #ff4d4f;
+  --chart-2: #fa8c16;
+  --chart-3: #fadb14;
+  --chart-4: #52c41a;
+  --chart-5: #1677ff;
+
+  /* Radius - YMZEC uses small radius for professional look */
+  --radius: 0.25rem;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: rgba(0, 0, 0, 0.85);
+  --sidebar-primary: #ff4d4f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fff1f0;
+  --sidebar-accent-foreground: #ff4d4f;
+  --sidebar-border: #f0f0f0;
+  --sidebar-ring: #ff4d4f;
+
+  /* Layout specific */
+  --header-bg: #ffffff;
+  --header-border: #f0f0f0;
+  --content-bg: #f5f5f5;
+  --table-header-bg: #fafafa;
+  --table-row-hover: #f5f5f5;
+}
+
+/* Dark mode support */
+.dark {
+  --background: #141414;
+  --foreground: rgba(255, 255, 255, 0.85);
+
+  --card: #1f1f1f;
+  --card-foreground: rgba(255, 255, 255, 0.85);
+  --popover: #1f1f1f;
+  --popover-foreground: rgba(255, 255, 255, 0.85);
+
+  --primary: #ff4d4f;
+  --primary-foreground: #ffffff;
+
+  --secondary: #2a2a2a;
+  --secondary-foreground: rgba(255, 255, 255, 0.65);
+
+  --muted: #2a2a2a;
+  --muted-foreground: rgba(255, 255, 255, 0.45);
+
+  --accent: #ff4d4f;
+  --accent-foreground: #ffffff;
+
+  --subtle: rgba(255, 255, 255, 0.45);
+
+  --destructive: #ff4d4f;
+  --destructive-foreground: #ffffff;
+
+  --success: #52c41a;
+  --success-foreground: #ffffff;
+
+  --warning: #faad14;
+  --warning-foreground: #ffffff;
+
+  --border: #424242;
+  --border-subtle: #303030;
+  --input: #595959;
+  --ring: #ff4d4f;
+
+  --sidebar: #1f1f1f;
+  --sidebar-foreground: rgba(255, 255, 255, 0.85);
+  --sidebar-primary: #ff4d4f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2a1415;
+  --sidebar-accent-foreground: #ff7875;
+  --sidebar-border: #424242;
+  --sidebar-ring: #ff4d4f;
+
+  --header-bg: #1f1f1f;
+  --header-border: #303030;
+  --content-bg: #141414;
+  --table-header-bg: #262626;
+  --table-row-hover: #2a2a2a;
+}
+
+@theme inline {
+  /* Font family - System fonts for Chinese support */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+  /* Map CSS variables to Tailwind theme */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-subtle: var(--subtle);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* YMZEC uses small radius for professional business UI */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+
+  /* Layout colors */
+  --color-header-bg: var(--header-bg);
+  --color-header-border: var(--header-border);
+  --color-content-bg: var(--content-bg);
+  --color-table-header-bg: var(--table-header-bg);
+  --color-table-row-hover: var(--table-row-hover);
+
+  /* Sidebar colors */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

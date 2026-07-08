@@ -1,0 +1,894 @@
+{
+  "sitemap": [
+    {
+      "pageName": "20261031版本",
+      "type": "Folder",
+      "url": "",
+      "children": [
+        {
+          "pageName": "服务商端",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "入口-企业中心首页",
+              "type": "Wireframe",
+              "url": "入口-企业中心首页.html",
+              "children": [
+                {
+                  "pageName": "自助注册服务商",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "服务商工作台",
+                      "type": "Wireframe",
+                      "url": "服务商工作台.html"
+                    },
+                    {
+                      "pageName": "注册服务商",
+                      "type": "Wireframe",
+                      "url": "注册服务商.html"
+                    },
+                    {
+                      "pageName": "注册服务商信息变更",
+                      "type": "Wireframe",
+                      "url": "注册服务商信息变更.html"
+                    }
+                  ]
+                },
+                {
+                  "pageName": "服务商管理自助服务",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "正式准入申请",
+                      "type": "Wireframe",
+                      "url": "正式准入申请.html"
+                    },
+                    {
+                      "pageName": "信息维护",
+                      "type": "Wireframe",
+                      "url": "信息维护.html"
+                    },
+                    {
+                      "pageName": "资质维护",
+                      "type": "Wireframe",
+                      "url": "资质维护.html"
+                    },
+                    {
+                      "pageName": "服务维护",
+                      "type": "Wireframe",
+                      "url": "服务维护.html"
+                    }
+                  ]
+                },
+                {
+                  "pageName": "服务商管理信息查询",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "信息查询",
+                      "type": "Wireframe",
+                      "url": "信息查询.html"
+                    },
+                    {
+                      "pageName": "进度查询",
+                      "type": "Wireframe",
+                      "url": "进度查询.html"
+                    },
+                    {
+                      "pageName": "冻结解冻查询",
+                      "type": "Wireframe",
+                      "url": "冻结解冻查询.html"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "pageName": "管理单位端",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "入口-云梦泽首页",
+              "type": "Wireframe",
+              "url": "入口-云梦泽首页.html",
+              "children": [
+                {
+                  "pageName": "服务商工作台",
+                  "type": "Wireframe",
+                  "url": "服务商工作台_1.html"
+                },
+                {
+                  "pageName": "服务商注册审核",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "服务商注册审核",
+                      "type": "Wireframe",
+                      "url": "服务商注册审核.html"
+                    },
+                    {
+                      "pageName": "服务商注册查看",
+                      "type": "Wireframe",
+                      "url": "服务商注册查看.html"
+                    },
+                    {
+                      "pageName": "注册服务商变更审核",
+                      "type": "Wireframe",
+                      "url": "注册服务商变更审核.html"
+                    },
+                    {
+                      "pageName": "注册服务商变更查看",
+                      "type": "Wireframe",
+                      "url": "注册服务商变更查看.html"
+                    }
+                  ]
+                },
+                {
+                  "pageName": "准入办理",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "信息录入",
+                      "type": "Wireframe",
+                      "url": "信息录入.html"
+                    },
+                    {
+                      "pageName": "信息编辑",
+                      "type": "Wireframe",
+                      "url": "信息编辑.html"
+                    },
+                    {
+                      "pageName": "信息复核",
+                      "type": "Wireframe",
+                      "url": "信息复核.html"
+                    },
+                    {
+                      "pageName": "信息查询",
+                      "type": "Wireframe",
+                      "url": "信息查询_1.html"
+                    }
+                  ]
+                },
+                {
+                  "pageName": "信息变更",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "维护编辑",
+                      "type": "Wireframe",
+                      "url": "维护编辑.html"
+                    },
+                    {
+                      "pageName": "维护复核",
+                      "type": "Wireframe",
+                      "url": "维护复核.html"
+                    },
+                    {
+                      "pageName": "维护查询",
+                      "type": "Wireframe",
+                      "url": "维护查询.html"
+                    }
+                  ]
+                },
+                {
+                  "pageName": "处置管理",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "冻结申请",
+                      "type": "Wireframe",
+                      "url": "冻结申请.html"
+                    },
+                    {
+                      "pageName": "解冻申请",
+                      "type": "Wireframe",
+                      "url": "解冻申请.html"
+                    },
+                    {
+                      "pageName": "冻结解冻查询",
+                      "type": "Wireframe",
+                      "url": "冻结解冻查询_1.html"
+                    },
+                    {
+                      "pageName": "复核",
+                      "type": "Wireframe",
+                      "url": "复核.html"
+                    }
+                  ]
+                },
+                {
+                  "pageName": "MDG信息查询",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "MDG信息查询",
+                      "type": "Wireframe",
+                      "url": "mdg信息查询.html"
+                    }
+                  ]
+                },
+                {
+                  "pageName": "管理目录",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "服务管理目录",
+                      "type": "Wireframe",
+                      "url": "服务管理目录.html"
+                    }
+                  ]
+                },
+                {
+                  "pageName": "服务商信息查询",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "注册服务商查询",
+                      "type": "Wireframe",
+                      "url": "注册服务商查询.html"
+                    },
+                    {
+                      "pageName": "正式服务商查询",
+                      "type": "Wireframe",
+                      "url": "正式服务商查询.html"
+                    },
+                    {
+                      "pageName": "准入服务分类查询",
+                      "type": "Wireframe",
+                      "url": "准入服务分类查询.html"
+                    },
+                    {
+                      "pageName": "流程查询",
+                      "type": "Wireframe",
+                      "url": "流程查询.html"
+                    }
+                  ]
+                },
+                {
+                  "pageName": "基础设置",
+                  "type": "Folder",
+                  "url": "",
+                  "children": [
+                    {
+                      "pageName": "专业服务目录配置",
+                      "type": "Wireframe",
+                      "url": "专业服务目录配置.html"
+                    },
+                    {
+                      "pageName": "要件配置",
+                      "type": "Wireframe",
+                      "url": "要件配置.html"
+                    },
+                    {
+                      "pageName": "冻结资质文件设定",
+                      "type": "Wireframe",
+                      "url": "冻结资质文件设定.html"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pageName": "20261231版本",
+      "type": "Folder",
+      "url": "",
+      "children": [
+        {
+          "pageName": "服务商端",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "关键人员管理",
+              "type": "Folder",
+              "url": "",
+              "children": [
+                {
+                  "pageName": "关键人员新增",
+                  "type": "Wireframe",
+                  "url": "关键人员新增.html"
+                },
+                {
+                  "pageName": "关键人员审批",
+                  "type": "Wireframe",
+                  "url": "关键人员审批.html"
+                },
+                {
+                  "pageName": "关键人员查看",
+                  "type": "Wireframe",
+                  "url": "关键人员查看.html"
+                }
+              ]
+            },
+            {
+              "pageName": "服务商现场考察",
+              "type": "Folder",
+              "url": "",
+              "children": [
+                {
+                  "pageName": "现场考察管理",
+                  "type": "Wireframe",
+                  "url": "现场考察管理.html"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "pageName": "管理端",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "服务商现场考察",
+              "type": "Folder",
+              "url": "",
+              "children": [
+                {
+                  "pageName": "现场考察管理",
+                  "type": "Wireframe",
+                  "url": "现场考察管理_1.html"
+                },
+                {
+                  "pageName": "现场考察审核",
+                  "type": "Wireframe",
+                  "url": "现场考察审核.html"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pageName": "草稿",
+      "type": "Folder",
+      "url": "",
+      "children": [
+        {
+          "pageName": "注册服务商-草稿",
+          "type": "Wireframe",
+          "url": "注册服务商-草稿.html"
+        },
+        {
+          "pageName": "正式准入申请-草稿",
+          "type": "Wireframe",
+          "url": "正式准入申请-草稿.html"
+        },
+        {
+          "pageName": "服务商注册审核-草稿",
+          "type": "Wireframe",
+          "url": "服务商注册审核-草稿.html"
+        },
+        {
+          "pageName": "信息编辑",
+          "type": "Wireframe",
+          "url": "信息编辑_1.html"
+        },
+        {
+          "pageName": "供应商端-服务目录变更-第一版",
+          "type": "Wireframe",
+          "url": "供应商端-服务目录变更-第一版.html"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "pageName": "服务商工作台",
+      "type": "Wireframe",
+      "url": "服务商工作台.html"
+    },
+    {
+      "pageName": "注册服务商",
+      "type": "Wireframe",
+      "url": "注册服务商.html"
+    },
+    {
+      "pageName": "注册服务商信息变更",
+      "type": "Wireframe",
+      "url": "注册服务商信息变更.html"
+    },
+    {
+      "pageName": "正式准入申请",
+      "type": "Wireframe",
+      "url": "正式准入申请.html"
+    },
+    {
+      "pageName": "信息维护",
+      "type": "Wireframe",
+      "url": "信息维护.html"
+    },
+    {
+      "pageName": "资质维护",
+      "type": "Wireframe",
+      "url": "资质维护.html"
+    },
+    {
+      "pageName": "服务维护",
+      "type": "Wireframe",
+      "url": "服务维护.html"
+    },
+    {
+      "pageName": "信息查询",
+      "type": "Wireframe",
+      "url": "信息查询.html"
+    },
+    {
+      "pageName": "进度查询",
+      "type": "Wireframe",
+      "url": "进度查询.html"
+    },
+    {
+      "pageName": "冻结解冻查询",
+      "type": "Wireframe",
+      "url": "冻结解冻查询.html"
+    },
+    {
+      "pageName": "入口-企业中心首页",
+      "type": "Wireframe",
+      "url": "入口-企业中心首页.html",
+      "children": [
+        {
+          "pageName": "自助注册服务商",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "服务商工作台",
+              "type": "Wireframe",
+              "url": "服务商工作台.html"
+            },
+            {
+              "pageName": "注册服务商",
+              "type": "Wireframe",
+              "url": "注册服务商.html"
+            },
+            {
+              "pageName": "注册服务商信息变更",
+              "type": "Wireframe",
+              "url": "注册服务商信息变更.html"
+            }
+          ]
+        },
+        {
+          "pageName": "服务商管理自助服务",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "正式准入申请",
+              "type": "Wireframe",
+              "url": "正式准入申请.html"
+            },
+            {
+              "pageName": "信息维护",
+              "type": "Wireframe",
+              "url": "信息维护.html"
+            },
+            {
+              "pageName": "资质维护",
+              "type": "Wireframe",
+              "url": "资质维护.html"
+            },
+            {
+              "pageName": "服务维护",
+              "type": "Wireframe",
+              "url": "服务维护.html"
+            }
+          ]
+        },
+        {
+          "pageName": "服务商管理信息查询",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "信息查询",
+              "type": "Wireframe",
+              "url": "信息查询.html"
+            },
+            {
+              "pageName": "进度查询",
+              "type": "Wireframe",
+              "url": "进度查询.html"
+            },
+            {
+              "pageName": "冻结解冻查询",
+              "type": "Wireframe",
+              "url": "冻结解冻查询.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pageName": "服务商工作台",
+      "type": "Wireframe",
+      "url": "服务商工作台_1.html"
+    },
+    {
+      "pageName": "服务商注册审核",
+      "type": "Wireframe",
+      "url": "服务商注册审核.html"
+    },
+    {
+      "pageName": "服务商注册查看",
+      "type": "Wireframe",
+      "url": "服务商注册查看.html"
+    },
+    {
+      "pageName": "注册服务商变更审核",
+      "type": "Wireframe",
+      "url": "注册服务商变更审核.html"
+    },
+    {
+      "pageName": "注册服务商变更查看",
+      "type": "Wireframe",
+      "url": "注册服务商变更查看.html"
+    },
+    {
+      "pageName": "信息录入",
+      "type": "Wireframe",
+      "url": "信息录入.html"
+    },
+    {
+      "pageName": "信息编辑",
+      "type": "Wireframe",
+      "url": "信息编辑.html"
+    },
+    {
+      "pageName": "信息复核",
+      "type": "Wireframe",
+      "url": "信息复核.html"
+    },
+    {
+      "pageName": "信息查询",
+      "type": "Wireframe",
+      "url": "信息查询_1.html"
+    },
+    {
+      "pageName": "维护编辑",
+      "type": "Wireframe",
+      "url": "维护编辑.html"
+    },
+    {
+      "pageName": "维护复核",
+      "type": "Wireframe",
+      "url": "维护复核.html"
+    },
+    {
+      "pageName": "维护查询",
+      "type": "Wireframe",
+      "url": "维护查询.html"
+    },
+    {
+      "pageName": "冻结申请",
+      "type": "Wireframe",
+      "url": "冻结申请.html"
+    },
+    {
+      "pageName": "解冻申请",
+      "type": "Wireframe",
+      "url": "解冻申请.html"
+    },
+    {
+      "pageName": "冻结解冻查询",
+      "type": "Wireframe",
+      "url": "冻结解冻查询_1.html"
+    },
+    {
+      "pageName": "复核",
+      "type": "Wireframe",
+      "url": "复核.html"
+    },
+    {
+      "pageName": "MDG信息查询",
+      "type": "Wireframe",
+      "url": "mdg信息查询.html"
+    },
+    {
+      "pageName": "服务管理目录",
+      "type": "Wireframe",
+      "url": "服务管理目录.html"
+    },
+    {
+      "pageName": "注册服务商查询",
+      "type": "Wireframe",
+      "url": "注册服务商查询.html"
+    },
+    {
+      "pageName": "正式服务商查询",
+      "type": "Wireframe",
+      "url": "正式服务商查询.html"
+    },
+    {
+      "pageName": "准入服务分类查询",
+      "type": "Wireframe",
+      "url": "准入服务分类查询.html"
+    },
+    {
+      "pageName": "流程查询",
+      "type": "Wireframe",
+      "url": "流程查询.html"
+    },
+    {
+      "pageName": "专业服务目录配置",
+      "type": "Wireframe",
+      "url": "专业服务目录配置.html"
+    },
+    {
+      "pageName": "要件配置",
+      "type": "Wireframe",
+      "url": "要件配置.html"
+    },
+    {
+      "pageName": "冻结资质文件设定",
+      "type": "Wireframe",
+      "url": "冻结资质文件设定.html"
+    },
+    {
+      "pageName": "入口-云梦泽首页",
+      "type": "Wireframe",
+      "url": "入口-云梦泽首页.html",
+      "children": [
+        {
+          "pageName": "服务商工作台",
+          "type": "Wireframe",
+          "url": "服务商工作台_1.html"
+        },
+        {
+          "pageName": "服务商注册审核",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "服务商注册审核",
+              "type": "Wireframe",
+              "url": "服务商注册审核.html"
+            },
+            {
+              "pageName": "服务商注册查看",
+              "type": "Wireframe",
+              "url": "服务商注册查看.html"
+            },
+            {
+              "pageName": "注册服务商变更审核",
+              "type": "Wireframe",
+              "url": "注册服务商变更审核.html"
+            },
+            {
+              "pageName": "注册服务商变更查看",
+              "type": "Wireframe",
+              "url": "注册服务商变更查看.html"
+            }
+          ]
+        },
+        {
+          "pageName": "准入办理",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "信息录入",
+              "type": "Wireframe",
+              "url": "信息录入.html"
+            },
+            {
+              "pageName": "信息编辑",
+              "type": "Wireframe",
+              "url": "信息编辑.html"
+            },
+            {
+              "pageName": "信息复核",
+              "type": "Wireframe",
+              "url": "信息复核.html"
+            },
+            {
+              "pageName": "信息查询",
+              "type": "Wireframe",
+              "url": "信息查询_1.html"
+            }
+          ]
+        },
+        {
+          "pageName": "信息变更",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "维护编辑",
+              "type": "Wireframe",
+              "url": "维护编辑.html"
+            },
+            {
+              "pageName": "维护复核",
+              "type": "Wireframe",
+              "url": "维护复核.html"
+            },
+            {
+              "pageName": "维护查询",
+              "type": "Wireframe",
+              "url": "维护查询.html"
+            }
+          ]
+        },
+        {
+          "pageName": "处置管理",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "冻结申请",
+              "type": "Wireframe",
+              "url": "冻结申请.html"
+            },
+            {
+              "pageName": "解冻申请",
+              "type": "Wireframe",
+              "url": "解冻申请.html"
+            },
+            {
+              "pageName": "冻结解冻查询",
+              "type": "Wireframe",
+              "url": "冻结解冻查询_1.html"
+            },
+            {
+              "pageName": "复核",
+              "type": "Wireframe",
+              "url": "复核.html"
+            }
+          ]
+        },
+        {
+          "pageName": "MDG信息查询",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "MDG信息查询",
+              "type": "Wireframe",
+              "url": "mdg信息查询.html"
+            }
+          ]
+        },
+        {
+          "pageName": "管理目录",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "服务管理目录",
+              "type": "Wireframe",
+              "url": "服务管理目录.html"
+            }
+          ]
+        },
+        {
+          "pageName": "服务商信息查询",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "注册服务商查询",
+              "type": "Wireframe",
+              "url": "注册服务商查询.html"
+            },
+            {
+              "pageName": "正式服务商查询",
+              "type": "Wireframe",
+              "url": "正式服务商查询.html"
+            },
+            {
+              "pageName": "准入服务分类查询",
+              "type": "Wireframe",
+              "url": "准入服务分类查询.html"
+            },
+            {
+              "pageName": "流程查询",
+              "type": "Wireframe",
+              "url": "流程查询.html"
+            }
+          ]
+        },
+        {
+          "pageName": "基础设置",
+          "type": "Folder",
+          "url": "",
+          "children": [
+            {
+              "pageName": "专业服务目录配置",
+              "type": "Wireframe",
+              "url": "专业服务目录配置.html"
+            },
+            {
+              "pageName": "要件配置",
+              "type": "Wireframe",
+              "url": "要件配置.html"
+            },
+            {
+              "pageName": "冻结资质文件设定",
+              "type": "Wireframe",
+              "url": "冻结资质文件设定.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "pageName": "关键人员新增",
+      "type": "Wireframe",
+      "url": "关键人员新增.html"
+    },
+    {
+      "pageName": "关键人员审批",
+      "type": "Wireframe",
+      "url": "关键人员审批.html"
+    },
+    {
+      "pageName": "关键人员查看",
+      "type": "Wireframe",
+      "url": "关键人员查看.html"
+    },
+    {
+      "pageName": "现场考察管理",
+      "type": "Wireframe",
+      "url": "现场考察管理.html"
+    },
+    {
+      "pageName": "现场考察管理",
+      "type": "Wireframe",
+      "url": "现场考察管理_1.html"
+    },
+    {
+      "pageName": "现场考察审核",
+      "type": "Wireframe",
+      "url": "现场考察审核.html"
+    },
+    {
+      "pageName": "注册服务商-草稿",
+      "type": "Wireframe",
+      "url": "注册服务商-草稿.html"
+    },
+    {
+      "pageName": "正式准入申请-草稿",
+      "type": "Wireframe",
+      "url": "正式准入申请-草稿.html"
+    },
+    {
+      "pageName": "服务商注册审核-草稿",
+      "type": "Wireframe",
+      "url": "服务商注册审核-草稿.html"
+    },
+    {
+      "pageName": "信息编辑",
+      "type": "Wireframe",
+      "url": "信息编辑_1.html"
+    },
+    {
+      "pageName": "供应商端-服务目录变更-第一版",
+      "type": "Wireframe",
+      "url": "供应商端-服务目录变更-第一版.html"
+    }
+  ],
+  "logo": ""
+}

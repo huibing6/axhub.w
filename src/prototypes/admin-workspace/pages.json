@@ -1,0 +1,9 @@
+{
+  "pages": [
+    { "name": "服务商管理工作台", "path": "admin" },
+    { "name": "注册审核详情", "path": "admin/reg-detail" },
+    { "name": "准入办理详情", "path": "admin/admission-detail" },
+    { "name": "变更详情", "path": "admin/change-detail" },
+    { "name": "处置详情", "path": "admin/disposal-detail" }
+  ]
+}

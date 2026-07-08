@@ -1,0 +1,248 @@
+{
+  "colors": {
+    "background": [
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 5,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(247, 248, 250)",
+        "count": 4,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgba(255, 255, 255, 0)",
+        "count": 3,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(238, 25, 24)",
+        "count": 1,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(217, 65, 48)",
+        "count": 1,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(255, 247, 230)",
+        "count": 1,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(250, 251, 252)",
+        "count": 1,
+        "tags": [
+          "div"
+        ]
+      },
+      {
+        "value": "rgb(239, 90, 161)",
+        "count": 1,
+        "tags": [
+          "div"
+        ]
+      }
+    ],
+    "text": [
+      {
+        "value": "rgb(51, 51, 51)",
+        "count": 142,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 10,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(204, 153, 0)",
+        "count": 5,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(0, 102, 255)",
+        "count": 5,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "count": 2,
+        "tags": [
+          "body",
+          "div"
+        ]
+      }
+    ],
+    "border": [
+      {
+        "value": "rgb(51, 51, 51)",
+        "count": 142,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 10,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(204, 153, 0)",
+        "count": 5,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(0, 102, 255)",
+        "count": 5,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "rgb(0, 0, 0)",
+        "count": 2,
+        "tags": [
+          "body",
+          "div"
+        ]
+      }
+    ]
+  },
+  "typography": {
+    "families": [
+      {
+        "value": "\"Arial Normal\", Arial",
+        "count": 132,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "\"Arial Negreta\", \"Arial Normal\", Arial",
+        "count": 30,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "value": "\"Times New Roman\"",
+        "count": 2,
+        "tags": [
+          "body",
+          "div"
+        ]
+      }
+    ],
+    "textStyles": [
+      {
+        "size": "13px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 97,
+        "tags": [
+          "div",
+          "img",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "16px",
+        "lineHeight": "normal",
+        "weight": "700",
+        "count": 30,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "14px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 20,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "20px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 10,
+        "tags": [
+          "div",
+          "p",
+          "span"
+        ]
+      },
+      {
+        "size": "16px",
+        "lineHeight": "normal",
+        "weight": "400",
+        "count": 7,
+        "tags": [
+          "body",
+          "div",
+          "p",
+          "span"
+        ]
+      }
+    ]
+  },
+  "spacing": [],
+  "radius": []
+}
