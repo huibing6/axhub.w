@@ -42,7 +42,17 @@ jobs:
         run: pnpm build
         continue-on-error: true
 
+      - name: Debug dist contents
+        run: |
+          echo "=== dist directory ==="
+          ls -la dist/ 2>/dev/null || echo "dist not found"
+          echo "=== dist subdirs ==="
+          find dist/ -type f 2>/dev/null | head -50 || echo "no files"
+          echo "=== admin template ==="
+          ls -la admin/html-template.html 2>/dev/null || echo "template not found"
+
       - name: Create dist directory if not exists
+        if: always()
         run: |
           if [ ! -d "dist" ]; then
             mkdir -p dist
@@ -52,6 +62,11 @@ jobs:
       - name: Generate static HTML
         run: node scripts/generate-dist-html.js
         continue-on-error: true
+
+      - name: Debug after generate
+        run: |
+          echo "=== dist after generate ==="
+          find dist/ -name "*.html" 2>/dev/null | head -20 || echo "no html files"
 
       - name: Create root index.html
         run: |
