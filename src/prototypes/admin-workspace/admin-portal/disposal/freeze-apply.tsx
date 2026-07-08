@@ -44,10 +44,10 @@ export default function FreezeApply() {
 
   const actionColumn = (_: any, record: any) => (
     <Space size={4}>
-      <Button type="link" size="small">查看</Button>
-      <Button type="link" size="small">编辑</Button>
-      <Button type="link" size="small" danger>删除</Button>
-      <Button type="link" size="small">冻结历史</Button>
+      <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button>
+      <Button type="link" size="small" style={{ color: '#1677ff' }}>编辑</Button>
+      <Button type="link" size="small" style={{ color: '#ff4d4f' }}>删除</Button>
+      <Button type="link" size="small" style={{ color: '#1677ff' }}>冻结历史</Button>
     </Space>
   );
 
