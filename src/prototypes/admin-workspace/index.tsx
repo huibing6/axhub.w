@@ -37,6 +37,7 @@ const AdminInspectionInput = lazy(() => import('./admin-portal/inspection/inspec
 const AdminProcessTrack = lazy(() => import('./admin-portal/process-track/process-track'));
 const AdminProcessTrackDetail = lazy(() => import('./admin-portal/process-track/process-track-detail'));
 const AdminFreezeApply = lazy(() => import('./admin-portal/disposal/freeze-apply'));
+const AdminFreezeApplyCreate = lazy(() => import('./admin-portal/disposal/freeze-apply-create'));
 const AdminUnfreezeApply = lazy(() => import('./admin-portal/disposal/unfreeze-apply'));
 const AdminFreezeQuery = lazy(() => import('./admin-portal/disposal/freeze-query'));
 const AdminReview = lazy(() => import('./admin-portal/disposal/review'));
@@ -86,6 +87,7 @@ const pageMap: Record<string, React.LazyExoticComponent<any>> = {
   '/admin/process-track': AdminProcessTrack,
   '/admin/process-track-detail': AdminProcessTrackDetail,
   '/admin/freeze-apply': AdminFreezeApply,
+  '/admin/freeze-apply-create': AdminFreezeApplyCreate,
   '/admin/unfreeze-apply': AdminUnfreezeApply,
   '/admin/freeze-query': AdminFreezeQuery,
   '/admin/review': AdminReview,

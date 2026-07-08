@@ -98,7 +98,7 @@ export default function FreezeApply() {
                   <Row justify="space-between" align="middle">
                     <Col>
                       <Space>
-                        <Button type="primary" danger onClick={() => message.success('新建服务商冻结申请')}>新建服务商冻结申请</Button>
+                        <Button type="primary" danger onClick={() => { window.location.hash = '#/admin/freeze-apply-create'; }}>新建服务商冻结申请</Button>
                         <Button onClick={() => message.info('批量提交审批')}>批量提交审批</Button>
                       </Space>
                     </Col>
