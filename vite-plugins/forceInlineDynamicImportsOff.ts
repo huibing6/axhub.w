@@ -11,7 +11,7 @@ export function forceInlineDynamicImportsOff(enable: boolean): Plugin {
       const outputs = Array.isArray(output) ? output : output ? [output] : [];
       outputs.forEach((item) => {
         if (item) {
-          item.inlineDynamicImports = false;
+          item.inlineDynamicImports = true;
         }
       });
     }

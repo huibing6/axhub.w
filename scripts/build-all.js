@@ -36,9 +36,14 @@ for (const key of entryKeys) {
   const result = spawnSync('npx', ['vite', 'build'], {
     cwd: workspaceRoot,
     env: { ...process.env, ENTRY_KEY: key },
-    stdio: 'inherit'
+    stdio: 'inherit',
+    shell: true
   });
 
+  if (result.error) {
+    console.error(`构建 ${key} 出错:`, result.error.message);
+    process.exit(1);
+  }
   if (result.status !== 0) {
     console.error(`构建 ${key} 失败，退出码 ${result.status}`);
     process.exit(result.status ?? 1);
