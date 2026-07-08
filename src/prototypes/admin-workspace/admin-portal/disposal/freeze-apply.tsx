@@ -2,135 +2,136 @@
  * @name 冻结申请
  */
 import { useState } from 'react';
-import { theme, Typography, Card, Space, Input, Select, Button, Table, Form, Row, Col, Modal, message } from 'antd';
+import { theme, Typography, Card, Space, Input, Select, Button, Table, Form, Row, Col, DatePicker, Tabs, Checkbox, message } from 'antd';
 import PortalLayout from '../../common/portal-layout';
 import { adminGroups } from '../../common/menu-data';
-import { useFilterData } from '../../common/hooks';
 
-const filterFields = [
-  { key: 'code', label: '服务商编码', placeholder: '请输入' },
-  { key: 'name', label: '服务商名称', placeholder: '请输入' },
-  { key: 'adminUnit', label: '管理单位', type: 'select' as const, options: ['全部', '长庆油田分公司', '大庆油田分公司'] },
-  { key: 'mgmtType', label: '服务商管理类型', type: 'select' as const, options: ['全部', '所属企业管理', '总部管理'] },
+const { RangePicker } = DatePicker;
+
+const searchFields = [
+  { key: 'spCode', label: '服务商编码', placeholder: '请输入' },
+  { key: 'spName', label: '服务商名称', placeholder: '请输入' },
+  { key: 'spType', label: '服务商类型', type: 'select' as const, options: ['请选择', '制造商', '贸易商', '服务商'] },
+  { key: 'mgmtType', label: '服务商管理类型', type: 'select' as const, options: ['请选择', '所属企业管理', '总部管理'] },
+  { key: 'adminUnit', label: '管理单位', type: 'select' as const, options: ['请选择', '长庆油田分公司', '大庆油田分公司'] },
+  { key: 'flowStatus', label: '流程状态', type: 'select' as const, options: ['请选择', '待提交', '审批中', '已通过', '已驳回'] },
+  { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停交易权限', '取消服务商准入资格'] },
+  { key: 'applyTime', label: '申请时间', type: 'range' as const },
+  { key: 'batchName', label: '批次名称', type: 'select' as const, options: ['请选择', '2026年第一批', '2026年第二批'] },
 ];
 
 const columns = [
-  { key: 'index', title: '序号', width: 60, align: 'center' as const, dataIndex: 'index' },
-  { key: 'code', title: '服务商编码', width: 120, dataIndex: 'code', ellipsis: true },
-  { key: 'name', title: '服务商名称', width: 200, dataIndex: 'name', ellipsis: true },
-  { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
-  { key: 'adminUnit', title: '管理单位', width: 140, dataIndex: 'adminUnit', ellipsis: true },
-  { key: 'status', title: '状态', width: 100, dataIndex: 'status', ellipsis: true },
-  { key: 'action', title: '操作', width: 100, align: 'center' as const, dataIndex: 'action' },
+  { key: 'applyType', title: '申请类型', width: 160, dataIndex: 'applyType', ellipsis: true },
+  { key: 'spCode', title: '服务商编码', width: 120, dataIndex: 'spCode', sorter: true, ellipsis: true },
+  { key: 'spName', title: '服务商名称', width: 200, dataIndex: 'spName', sorter: true, ellipsis: true },
+  { key: 'spType', title: '服务商类型', width: 100, dataIndex: 'spType', sorter: true, ellipsis: true },
+  { key: 'mgmtType', title: '服务商管理类型', width: 140, dataIndex: 'mgmtType', sorter: true, ellipsis: true },
+  { key: 'freezeReason', title: '冻结原因', width: 180, dataIndex: 'freezeReason', ellipsis: true },
+  { key: 'flowStatus', title: '流程状态', width: 100, dataIndex: 'flowStatus', ellipsis: true },
+  { key: 'action', title: '操作', width: 240, align: 'center' as const, fixed: 'right' as const },
 ];
 
 const tableData = [
-  { index: '1', code: '1000020022', name: '中海油能源发展股份有限公司', mgmtType: '所属企业管理', adminUnit: '长庆油田分公司', status: '正常', action: null },
-  { index: '2', code: '1000020022', name: '杰瑞石油装备技术有限公司', mgmtType: '总部管理', adminUnit: '长庆油田分公司', status: '正常', action: null },
-  { index: '3', code: '1000020022', name: '中海油能源发展股份有限公司', mgmtType: '所属企业管理', adminUnit: '长庆油田分公司', status: '已冻结', action: null },
-  { index: '4', code: '1000020022', name: '杰瑞石油装备技术有限公司', mgmtType: '总部管理', adminUnit: '长庆油田分公司', status: '正常', action: null },
+  { index: 1, applyType: '暂停交易权限', spCode: '1002020681', spName: '测试服务商20260509', spType: '制造商', mgmtType: '所属企业管理', freezeReason: '未年审', flowStatus: '待提交' },
+  { index: 2, applyType: '暂停交易权限', spCode: '38671240', spName: '天津销售服务商考试0718…', spType: '贸易商', mgmtType: '所属企业管理', freezeReason: '资质到期', flowStatus: '待提交' },
+  { index: 3, applyType: '暂停交易权限', spCode: '38671240', spName: '天津销售服务商考试0718…', spType: '贸易商', mgmtType: '所属企业管理', freezeReason: '服务商稽核总部未通过', flowStatus: '待提交' },
+  { index: 4, applyType: '取消服务商准入资格', spCode: '1000145303', spName: '盐城市长胜石化机械有限…', spType: '制造商', mgmtType: '所属企业管理', freezeReason: '其它', flowStatus: '待提交' },
+  { index: 5, applyType: '暂停交易权限', spCode: '1000347223', spName: '章丘市永清寺篷布厂', spType: '制造商', mgmtType: '所属企业管理', freezeReason: '服务商稽核总部未通过', flowStatus: '待提交' },
+  { index: 6, applyType: '暂停交易权限', spCode: '1000060596', spName: '盖州水泵厂', spType: '制造商', mgmtType: '所属企业管理', freezeReason: '现场考察', flowStatus: '待提交' },
 ];
 
 export default function FreezeApply() {
   const { token: t } = theme.useToken();
-  const [searchValues, setSearchValues] = useState<Record<string, string>>({});
-  const [freezeModalOpen, setFreezeModalOpen] = useState(false);
-  const [freezeType, setFreezeType] = useState('请选择');
-  const [freezeReason, setFreezeReason] = useState('');
-  const { setFilter, filteredData } = useFilterData(tableData, filterFields);
+  const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+  const [searchCollapsed, setSearchCollapsed] = useState(true);
 
-  const processedData = filteredData.map(d => ({
-    ...d,
-    action: d.status === '已冻结' ? <Typography.Text type="secondary">已冻结</Typography.Text> : <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => setFreezeModalOpen(true)}>申请冻结</Button>,
-  }));
+  const actionColumn = (_: any, record: any) => (
+    <Space size={4}>
+      <Button type="link" size="small">查看</Button>
+      <Button type="link" size="small">编辑</Button>
+      <Button type="link" size="small" danger>删除</Button>
+      <Button type="link" size="small">冻结历史</Button>
+      <Button type="link" size="small">预警信息</Button>
+    </Space>
+  );
+
+  const enhancedColumns = columns.map(c => c.key === 'action' ? { ...c, render: actionColumn } : c);
 
   return (
     <PortalLayout groups={adminGroups} activePath="/admin/freeze-apply" portalType="admin">
-      <Typography.Text type="secondary" style={{ display: 'block', marginBottom: 8 }}>
-        <Typography.Text style={{ color: t.colorPrimary }}>注册服务商审核</Typography.Text>
-      </Typography.Text>
-      <Typography.Title level={4}>冻结申请</Typography.Title>
-      <Card size="small" variant="outlined" style={{ marginBottom: 16 }}>
-        <Space direction="vertical" style={{ width: '100%' }} size={12}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 12 }}>
-            {filterFields.map((f, i) => (
-              <Space key={i} size={8}>
-                <Typography.Text style={{ whiteSpace: 'nowrap' }}>{f.label}</Typography.Text>
-                {f.type === 'select' ? (
-                  <Select value={searchValues[f.key] || '全部'} onChange={v => setSearchValues(prev => ({ ...prev, [f.key]: v }))} style={{ width: 200 }}>
-                    {f.options.map(o => <Select.Option key={o} value={o}>{o}</Select.Option>)}
-                  </Select>
-                ) : (
-                  <Input placeholder={f.placeholder} style={{ width: 200 }} value={searchValues[f.key] || ''} onChange={e => setSearchValues(prev => ({ ...prev, [f.key]: e.target.value }))} />
-                )}
-              </Space>
-            ))}
-          </div>
-          <Button type="primary" onClick={() => { Object.entries(searchValues).forEach(([k, v]) => setFilter(k, v)); }}>查询</Button>
-        </Space>
-      </Card>
-      <Card size="small" variant="outlined" title="冻结申请信息">
-        <Row gutter={16}>
-          <Col span={12}>
-            <Form.Item label="服务商编码" required validateStatus="error" help="请输入服务商编码">
-              <Input placeholder="请输入服务商编码" />
-            </Form.Item>
-          </Col>
-          <Col span={12}>
-            <Form.Item label="服务商名称">
-              <Input readOnly />
-            </Form.Item>
-          </Col>
-          <Col span={12}>
-            <Form.Item label="冻结类型" required>
-              <Select defaultValue="请选择" style={{ width: '100%' }}>
-                <Select.Option value="请选择">请选择</Select.Option>
-                <Select.Option value="资质过期冻结">资质过期冻结</Select.Option>
-                <Select.Option value="违规冻结">违规冻结</Select.Option>
-                <Select.Option value="其他冻结">其他冻结</Select.Option>
-              </Select>
-            </Form.Item>
-          </Col>
-          <Col span={12}>
-            <Form.Item label="冻结原因" required>
-              <Input placeholder="请输入冻结原因" />
-            </Form.Item>
-          </Col>
-        </Row>
-        <Form.Item label="附件上传">
-          <div
-            style={{ border: '2px dashed ' + t.colorBorderSecondary, borderRadius: 8, padding: 24, textAlign: 'center', color: t.colorTextQuaternary, cursor: 'pointer' }}
-            onClick={() => message.success('附件上传成功')}
-          >
-            点击或拖拽文件到此区域上传
-          </div>
-        </Form.Item>
-      </Card>
-      <Row justify="center" style={{ marginTop: 16 }}>
-        <Space size={16}>
-          <Button type="primary" onClick={() => { message.success('冻结申请已提交'); }}>提交</Button>
-          <Button>取消</Button>
-        </Space>
-      </Row>
-      <Modal open={freezeModalOpen} title="冻结申请" onCancel={() => setFreezeModalOpen(false)} footer={null} destroyOnClose>
-        <Form layout="vertical">
-          <Form.Item label="冻结类型" required>
-            <Select value={freezeType} onChange={setFreezeType} style={{ width: '100%' }}>
-              <Select.Option value="请选择">请选择</Select.Option>
-              <Select.Option value="资质过期冻结">资质过期冻结</Select.Option>
-              <Select.Option value="违规冻结">违规冻结</Select.Option>
-              <Select.Option value="其他冻结">其他冻结</Select.Option>
-            </Select>
-          </Form.Item>
-          <Form.Item label="冻结原因" required>
-            <Input placeholder="请输入冻结原因" value={freezeReason} onChange={e => setFreezeReason(e.target.value)} />
-          </Form.Item>
-          <Space style={{ width: '100%', justifyContent: 'flex-end' }}>
-            <Button onClick={() => setFreezeModalOpen(false)}>取消</Button>
-            <Button type="primary" onClick={() => { message.success('冻结申请已提交'); setFreezeModalOpen(false); }}>提交</Button>
-          </Space>
-        </Form>
-      </Modal>
+      <Tabs
+        defaultActiveKey="spFreeze"
+        items={[
+          {
+            key: 'spFreeze',
+            label: <span style={{ color: t.colorPrimary, fontWeight: 600 }}>服务商冻结</span>,
+            children: (
+              <>
+                <Card size="small" variant="outlined" style={{ marginBottom: 16 }}
+                  title={<Typography.Title level={5} style={{ margin: 0 }}>服务商冻结</Typography.Title>}
+                  extra={<Button type="text" icon={<span style={{ fontSize: 18 }}>{searchCollapsed ? '▾' : '▴'}</span>} onClick={() => setSearchCollapsed(!searchCollapsed)} />}
+                >
+                  {!searchCollapsed && (
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px 24px', marginBottom: 16 }}>
+                      {searchFields.map(f => (
+                        <div key={f.key} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                          <Typography.Text style={{ whiteSpace: 'nowrap', minWidth: 90, textAlign: 'right' }}>{f.label}：</Typography.Text>
+                          {f.type === 'select' ? (
+                            <Select defaultValue={f.options?.[0]} style={{ flex: 1 }}>
+                              {f.options?.map(o => <Select.Option key={o} value={o}>{o}</Select.Option>)}
+                            </Select>
+                          ) : f.type === 'range' ? (
+                            <RangePicker style={{ flex: 1 }} />
+                          ) : (
+                            <Input placeholder={f.placeholder} style={{ flex: 1 }} />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {!searchCollapsed && (
+                    <Row justify="end">
+                      <Space>
+                        <Button type="primary">查询</Button>
+                        <Button>重置</Button>
+                      </Space>
+                    </Row>
+                  )}
+                </Card>
+                <Card size="small" variant="outlined" style={{ marginBottom: 16 }}>
+                  <Row justify="space-between" align="middle">
+                    <Col>
+                      <Space>
+                        <Button type="primary" danger onClick={() => message.success('新建服务商冻结申请')}>新建服务商冻结申请</Button>
+                        <Button onClick={() => message.info('批量提交审批')}>批量提交审批</Button>
+                        <Button onClick={() => message.info('导出')}>导出</Button>
+                        <Button onClick={() => message.info('批量冻结')}>批量冻结</Button>
+                      </Space>
+                    </Col>
+                    <Col>
+                      <Button>表格定制</Button>
+                    </Col>
+                  </Row>
+                </Card>
+                <Table
+                  rowSelection={{ selectedRowKeys, onChange: setSelectedRowKeys }}
+                  columns={enhancedColumns}
+                  dataSource={tableData}
+                  rowKey="index"
+                  size="middle"
+                  scroll={{ x: 1200 }}
+                  pagination={{ pageSize: 10, showSizeChanger: true, showTotal: total => `共 ${total} 条` }}
+                />
+              </>
+            ),
+          },
+          {
+            key: 'productFreeze',
+            label: '准入产品冻结',
+            children: <div style={{ padding: 40, textAlign: 'center', color: t.colorTextQuaternary }}>准入产品冻结（待开发）</div>,
+          },
+        ]}
+      />
     </PortalLayout>
   );
 }
