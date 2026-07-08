@@ -26,7 +26,7 @@ export default function FreezeApplyCreate() {
               key: 'create',
               label: <span style={{ color: activeTab === 'create' ? t.colorPrimary : undefined, fontWeight: activeTab === 'create' ? 600 : 400 }}>冻结申请创建</span>,
               children: (
-                <Form form={form} layout="horizontal" labelCol={{ span: 4 }} wrapperCol={{ span: 16 }} style={{ marginTop: 24 }}>
+                <Form form={form} layout="horizontal" labelCol={{ span: 3 }} wrapperCol={{ span: 18 }} style={{ marginTop: 24 }}>
                   <Form.Item label="服务商编码">
                     <Select placeholder="请选择" allowClear />
                   </Form.Item>
@@ -43,7 +43,7 @@ export default function FreezeApplyCreate() {
                     <Input value="中国石油天然气集团有限公司" disabled />
                   </Form.Item>
                   <Form.Item label="申请类型" required>
-                    <Select placeholder="请选择">
+                    <Select defaultValue="暂停交易权限">
                       <Select.Option value="暂停交易权限">暂停交易权限</Select.Option>
                       <Select.Option value="取消服务商准入资格">取消服务商准入资格</Select.Option>
                     </Select>
@@ -53,6 +53,18 @@ export default function FreezeApplyCreate() {
                       <Select.Option value="正常">正常</Select.Option>
                       <Select.Option value="已冻结">已冻结</Select.Option>
                     </Select>
+                  </Form.Item>
+                  <Form.Item label="冻结原因" required>
+                    <Select placeholder="请选择">
+                      <Select.Option value="资质过期">资质过期</Select.Option>
+                      <Select.Option value="违规操作">违规操作</Select.Option>
+                      <Select.Option value="稽核未通过">稽核未通过</Select.Option>
+                      <Select.Option value="现场考察不合格">现场考察不合格</Select.Option>
+                      <Select.Option value="其他">其他</Select.Option>
+                    </Select>
+                  </Form.Item>
+                  <Form.Item label="冻结时效">
+                    <Input placeholder="请输入" suffix="月" />
                   </Form.Item>
                   <Form.Item label="备注意见" required>
                     <Input.TextArea rows={4} placeholder="请输入备注" />
