@@ -29,18 +29,22 @@ const columns = [
   { key: 'categoryCode', title: '服务品类编码', width: 120, dataIndex: 'categoryCode', sorter: true, ellipsis: true },
   { key: 'categoryName', title: '服务品类名称', width: 180, dataIndex: 'categoryName', sorter: true, ellipsis: true },
   { key: 'catalogLevel', title: '目录级别', width: 100, dataIndex: 'catalogLevel', ellipsis: true },
+  { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
+  { key: 'workType', title: '工作单类型', width: 100, dataIndex: 'workType', ellipsis: true },
+  { key: 'adminUnit', title: '管理单位', width: 140, dataIndex: 'adminUnit', ellipsis: true },
+  { key: 'applyTime', title: '申请时间', width: 140, dataIndex: 'applyTime', ellipsis: true },
   { key: 'freezeReason', title: '冻结原因', width: 140, dataIndex: 'freezeReason', ellipsis: true },
   { key: 'flowStatus', title: '流程状态', width: 100, dataIndex: 'flowStatus', ellipsis: true },
   { key: 'action', title: '操作', width: 220, align: 'center' as const, fixed: 'right' as const },
 ];
 
 const tableData = [
-  { index: 1, applyType: '暂停准入服务品类交易权限', spCode: '1001605660', spName: '宏鑫致远（北京）科技有…', categoryCode: 'A51120104', categoryName: '信创服务器', catalogLevel: '一级物资', freezeReason: '其它', flowStatus: '待提交' },
-  { index: 2, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020303', categoryName: '聚乙烯绝缘仪表电缆', catalogLevel: '一级物资', freezeReason: '产品资质到期', flowStatus: '待提交' },
-  { index: 3, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020302', categoryName: '交联聚乙烯绝缘仪表电缆', catalogLevel: '一级物资', freezeReason: '产品资质到期', flowStatus: '待提交' },
-  { index: 4, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020301', categoryName: '聚氯乙烯绝缘仪表电缆', catalogLevel: '一级物资', freezeReason: '产品资质到期', flowStatus: '待提交' },
-  { index: 5, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020304', categoryName: '氟塑料绝缘仪表电缆', catalogLevel: '一级物资', freezeReason: '产品资质到期', flowStatus: '待提交' },
-  { index: 6, applyType: '暂停准入服务品类交易权限', spCode: '1000154310', spName: '安徽怡和电缆有限公司', categoryCode: 'A47020304', categoryName: '氟塑料绝缘仪表电缆', catalogLevel: '二级物资', freezeReason: '产品资质到期', flowStatus: '待提交' },
+  { index: 1, applyType: '暂停准入服务品类交易权限', spCode: '1001605660', spName: '宏鑫致远（北京）科技有…', categoryCode: 'A51120104', categoryName: '信创服务器', catalogLevel: '一级物资', mgmtType: '总部管理', workType: '冻结申请', adminUnit: '中国石油天然气集团有限公司', applyTime: '2025-12-19 09:15', freezeReason: '其它', flowStatus: '待提交' },
+  { index: 2, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020303', categoryName: '聚乙烯绝缘仪表电缆', catalogLevel: '一级物资', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '产品资质到期', flowStatus: '待提交' },
+  { index: 3, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020302', categoryName: '交联聚乙烯绝缘仪表电缆', catalogLevel: '一级物资', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '产品资质到期', flowStatus: '待提交' },
+  { index: 4, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020301', categoryName: '聚氯乙烯绝缘仪表电缆', catalogLevel: '一级物资', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '产品资质到期', flowStatus: '待提交' },
+  { index: 5, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020304', categoryName: '氟塑料绝缘仪表电缆', catalogLevel: '一级物资', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '产品资质到期', flowStatus: '待提交' },
+  { index: 6, applyType: '暂停准入服务品类交易权限', spCode: '1000154310', spName: '安徽怡和电缆有限公司', categoryCode: 'A47020304', categoryName: '氟塑料绝缘仪表电缆', catalogLevel: '二级物资', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '大庆油田分公司', applyTime: '2025-12-17 10:20', freezeReason: '产品资质到期', flowStatus: '待提交' },
 ];
 
 export default function CategoryFreeze() {
@@ -109,7 +113,7 @@ export default function CategoryFreeze() {
         dataSource={tableData}
         rowKey="index"
         size="middle"
-        scroll={{ x: 1400 }}
+        scroll={{ x: 1800 }}
         pagination={{ pageSize: 10, showSizeChanger: true, showTotal: total => `共 ${total} 条` }}
       />
     </>
