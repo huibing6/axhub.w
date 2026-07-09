@@ -55,7 +55,7 @@ export default function CategoryFreeze() {
   const actionColumn = (_: any, record: any) => (
     <Space size={4}>
       <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button>
-      <Button type="link" size="small" style={{ color: '#1677ff' }}>编辑</Button>
+      <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => window.location.hash = '#/admin/category-freeze-edit'}>编辑</Button>
       <Button type="link" size="small" style={{ color: '#1677ff' }}>冻结历史</Button>
       <Button type="link" size="small" style={{ color: '#ff4d4f' }}>删除</Button>
     </Space>
@@ -100,7 +100,7 @@ export default function CategoryFreeze() {
         <Row justify="space-between" align="middle">
           <Col>
             <Space>
-              <Button type="primary" danger onClick={() => message.success('新建服务品类冻结申请')}>新建服务品类冻结申请</Button>
+              <Button type="primary" danger onClick={() => window.location.hash = '#/admin/category-freeze-create'}>新建服务品类冻结申请</Button>
             </Space>
           </Col>
         </Row>
