@@ -45,20 +45,20 @@ const productColumns = [
   { key: 'spCode', title: '服务商编码', width: 120, dataIndex: 'spCode', sorter: true, ellipsis: true },
   { key: 'spName', title: '服务商名称', width: 180, dataIndex: 'spName', sorter: true, ellipsis: true },
   { key: 'spType', title: '服务商类型', width: 100, dataIndex: 'spType', ellipsis: true },
-  { key: 'categoryCode', title: '产品编码', width: 120, dataIndex: 'categoryCode', ellipsis: true },
-  { key: 'categoryName', title: '产品名称', width: 180, dataIndex: 'categoryName', ellipsis: true },
-  { key: 'catalogLevel', title: '物资级别', width: 100, dataIndex: 'catalogLevel', ellipsis: true },
+  { key: 'categoryCode', title: '服务品类编码', width: 120, dataIndex: 'categoryCode', ellipsis: true },
+  { key: 'categoryName', title: '服务品类名称', width: 180, dataIndex: 'categoryName', ellipsis: true },
+  { key: 'catalogLevel', title: '目录级别', width: 100, dataIndex: 'catalogLevel', ellipsis: true },
   { key: 'source', title: '准入类型', width: 100, dataIndex: 'source', ellipsis: true },
   { key: 'action', title: '操作', width: 200, align: 'center' as const, fixed: 'right' as const },
 ];
 
 const productData = [
-  { index: 1, applyType: '恢复准入产品交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'A46892001', categoryName: '低压成套开关设备', catalogLevel: '一级物资', source: '其它' },
-  { index: 2, applyType: '恢复准入产品交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'A46892002', categoryName: '低压成套开关设备', catalogLevel: '一级物资', source: '其它' },
-  { index: 3, applyType: '恢复准入产品交易权限', spCode: '1000816195', spName: '成都新宝科技有限公司', spType: '制造商', categoryCode: 'A14016309', categoryName: '粘土及用粘土配制料', catalogLevel: '一级物资', source: '产品资质到期' },
-  { index: 4, applyType: '恢复准入产品交易权限', spCode: '1000594108', spName: '安徽江淮汽车集团锻…', spType: '制造商', categoryCode: 'A40815601', categoryName: '皮卡', catalogLevel: '一级物资', source: '产品资质到期' },
-  { index: 5, applyType: '恢复准入产品交易权限', spCode: '1000434112', spName: '上海美科阀门科技有…', spType: '制造商', categoryCode: 'A52920302', categoryName: '中压球阀及闸阀', catalogLevel: '一级物资', source: '产品资质' },
-  { index: 6, applyType: '恢复准入产品交易权限', spCode: '1000434112', spName: '上海美科阀门科技有…', spType: '制造商', categoryCode: 'A52920302', categoryName: '中压球阀及闸阀', catalogLevel: '一级物资', source: '产品资质' },
+  { index: 1, applyType: '恢复准入服务品类交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'A46892001', categoryName: '低压成套开关设备', catalogLevel: '一级', source: '其它' },
+  { index: 2, applyType: '恢复准入服务品类交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'A46892002', categoryName: '低压成套开关设备', catalogLevel: '一级', source: '其它' },
+  { index: 3, applyType: '恢复准入服务品类交易权限', spCode: '1000816195', spName: '成都新宝科技有限公司', spType: '制造商', categoryCode: 'A14016309', categoryName: '粘土及用粘土配制料', catalogLevel: '一级', source: '服务品类资质到期' },
+  { index: 4, applyType: '恢复准入服务品类交易权限', spCode: '1000594108', spName: '安徽江淮汽车集团锻…', spType: '制造商', categoryCode: 'A40815601', categoryName: '皮卡', catalogLevel: '一级', source: '服务品类资质到期' },
+  { index: 5, applyType: '恢复准入服务品类交易权限', spCode: '1000434112', spName: '上海美科阀门科技有…', spType: '制造商', categoryCode: 'A52920302', categoryName: '中压球阀及闸阀', catalogLevel: '一级', source: '服务品类资质' },
+  { index: 6, applyType: '恢复准入服务品类交易权限', spCode: '1000434112', spName: '上海美科阀门科技有…', spType: '制造商', categoryCode: 'A52920302', categoryName: '中压球阀及闸阀', catalogLevel: '一级', source: '服务品类资质' },
 ];
 
 export default function UnfreezeApply() {
@@ -79,7 +79,7 @@ export default function UnfreezeApply() {
 
   const productActionColumn = (_: any, record: any) => (
     <Space size={4}>
-      <Button type="link" size="small" style={{ color: '#1677ff' }}>查看产品信息</Button>
+      <Button type="link" size="small" style={{ color: '#1677ff' }}>查看服务品类信息</Button>
       <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => window.location.hash = '#/admin/category-unfreeze-history'}>冻结历史</Button>
       <Button type="link" size="small" style={{ color: '#1677ff' }}>编辑</Button>
       <Button type="link" size="small" style={{ color: '#ff4d4f' }}>删除</Button>
