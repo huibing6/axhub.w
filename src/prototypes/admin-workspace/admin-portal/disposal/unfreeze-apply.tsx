@@ -133,9 +133,6 @@ export default function UnfreezeApply() {
                     <Col>
                       <Space>
                         <Button type="primary" danger onClick={() => window.location.hash = '#/admin/unfreeze-apply-create'}>新建服务商解冻申请</Button>
-                        <Button onClick={() => message.info('批量提交审批')}>批量提交审批</Button>
-                        <Button onClick={() => message.info('导出')}>导出</Button>
-                        <Button onClick={() => message.info('跳转解冻')}>跳转解冻</Button>
                       </Space>
                     </Col>
                   </Row>
@@ -193,8 +190,6 @@ export default function UnfreezeApply() {
                     <Col>
                       <Space>
                         <Button type="primary" danger onClick={() => window.location.hash = '#/admin/category-unfreeze-create'}>新建服务品类解冻申请</Button>
-                        <Button onClick={() => message.info('批量提交审批')}>批量提交审批</Button>
-                        <Button onClick={() => message.info('导出')}>导出</Button>
                       </Space>
                     </Col>
                   </Row>
