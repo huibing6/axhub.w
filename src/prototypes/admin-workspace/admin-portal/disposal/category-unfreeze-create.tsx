@@ -11,19 +11,19 @@ const searchFields = [
   { key: 'spCode', label: '服务商编码', placeholder: '请输入' },
   { key: 'spName', label: '服务商名称', placeholder: '请输入' },
   { key: 'spType', label: '服务商类型', type: 'select' as const, options: ['请选择', '制造商', '贸易商', '代理商'] },
-  { key: 'categoryCode', label: '产品编码', placeholder: '请输入' },
-  { key: 'categoryName', label: '产品名称', placeholder: '请输入' },
-  { key: 'freezeType', label: '冻结类型', type: 'select' as const, options: ['请选择', '产品资质到期'] },
-  { key: 'catalogLevel', label: '物资级别', type: 'select' as const, options: ['请选择', '一级物资', '二级物资', '三级物资'] },
+  { key: 'categoryCode', label: '服务品类编码', placeholder: '请输入' },
+  { key: 'categoryName', label: '服务品类名称', placeholder: '请输入' },
+  { key: 'freezeType', label: '冻结类型', type: 'select' as const, options: ['请选择', '服务品类资质到期'] },
+  { key: 'catalogLevel', label: '目录级别', type: 'select' as const, options: ['请选择', '一级物资', '二级物资', '三级物资'] },
   { key: 'disposeRange', label: '处置范围', type: 'select' as const, options: ['请选择', '全集团', '本单位'] },
   { key: 'dataSource', label: '数据来源', type: 'select' as const, options: ['请选择', '准入管理'] },
   { key: 'adminUnit', label: '准入单位', placeholder: '请输入' },
-  { key: 'flowStatus', label: '服务商冻结类型', type: 'select' as const, options: ['请选择', '冻结', '产品资质到期'] },
+  { key: 'flowStatus', label: '服务商冻结类型', type: 'select' as const, options: ['请选择', '冻结', '服务品类资质到期'] },
 ];
 
 const columns = [
-  { key: 'categoryCode', title: '产品编码', width: 120, dataIndex: 'categoryCode', ellipsis: true },
-  { key: 'categoryName', title: '产品名称', width: 180, dataIndex: 'categoryName', ellipsis: true },
+  { key: 'categoryCode', title: '服务品类编码', width: 120, dataIndex: 'categoryCode', ellipsis: true },
+  { key: 'categoryName', title: '服务品类名称', width: 180, dataIndex: 'categoryName', ellipsis: true },
   { key: 'spCode', title: '服务商编码', width: 120, dataIndex: 'spCode', ellipsis: true },
   { key: 'spName', title: '服务商名称', width: 180, dataIndex: 'spName', ellipsis: true },
   { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
@@ -56,7 +56,7 @@ export default function CategoryUnfreezeCreate() {
   return (
     <PortalLayout groups={adminGroups} activePath="/admin/unfreeze-apply" portalType="admin">
       <Card style={{ minHeight: 'calc(100vh - 56px - 48px)' }}>
-        <Typography.Title level={4} style={{ marginBottom: 0 }}>准入产品解冻申请创建</Typography.Title>
+        <Typography.Title level={4} style={{ marginBottom: 0 }}>服务品类解冻申请创建</Typography.Title>
         <Divider style={{ margin: '16px 0 24px' }} />
 
         <Card size="small" variant="outlined" style={{ marginBottom: 16 }}>

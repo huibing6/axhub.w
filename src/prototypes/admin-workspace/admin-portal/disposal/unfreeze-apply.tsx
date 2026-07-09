@@ -154,11 +154,11 @@ export default function UnfreezeApply() {
           },
           {
             key: 'productUnfreeze',
-            label: '准入产品解冻',
+            label: '服务品类解冻',
             children: (
               <>
                 <Card size="small" variant="outlined" style={{ marginBottom: 16 }}
-                  title={<Typography.Title level={5} style={{ margin: 0 }}>准入产品解冻</Typography.Title>}
+                  title={<Typography.Title level={5} style={{ margin: 0 }}>服务品类解冻</Typography.Title>}
                   extra={<Button type="text" icon={<span style={{ fontSize: 18 }}>{searchCollapsed ? '▾' : '▴'}</span>} onClick={() => setSearchCollapsed(!searchCollapsed)} />}
                 >
                   {!searchCollapsed && (
@@ -192,7 +192,7 @@ export default function UnfreezeApply() {
                   <Row justify="space-between" align="middle">
                     <Col>
                       <Space>
-                        <Button type="primary" danger onClick={() => window.location.hash = '#/admin/category-unfreeze-create'}>新建准入产品解冻申请</Button>
+                        <Button type="primary" danger onClick={() => window.location.hash = '#/admin/category-unfreeze-create'}>新建服务品类解冻申请</Button>
                         <Button onClick={() => message.info('批量提交审批')}>批量提交审批</Button>
                         <Button onClick={() => message.info('导出')}>导出</Button>
                       </Space>

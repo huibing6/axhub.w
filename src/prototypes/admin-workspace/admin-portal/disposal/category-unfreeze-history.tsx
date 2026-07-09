@@ -17,7 +17,7 @@ const historyColumns = [
 ];
 
 const historyData = [
-  { index: 1, applyPerson: '系统自动', applyTime: '2022-12-29 11:04:31', applyUnit: '', applyType: '暂停准入产品交易权限', freezeReason: '资质到期', freezeDuration: '', effectTime: '2022-12-29 11:04:31', remark: '依据总部2022年12月29日邮件对2019-2021年三年无交易产品执行暂停产品交易权限处理' },
+  { index: 1, applyPerson: '系统自动', applyTime: '2022-12-29 11:04:31', applyUnit: '', applyType: '暂停服务品类交易权限', freezeReason: '资质到期', freezeDuration: '', effectTime: '2022-12-29 11:04:31', remark: '依据总部2022年12月29日邮件对2019-2021年三年无交易服务品类执行暂停服务品类交易权限处理' },
 ];
 
 export default function CategoryUnfreezeHistory() {
@@ -26,7 +26,7 @@ export default function CategoryUnfreezeHistory() {
   return (
     <PortalLayout groups={adminGroups} activePath="/admin/unfreeze-apply" portalType="admin">
       <Card style={{ minHeight: 'calc(100vh - 56px - 48px)' }}>
-        <Typography.Title level={4} style={{ marginBottom: 0 }}>准入产品冻结历史</Typography.Title>
+        <Typography.Title level={4} style={{ marginBottom: 0 }}>服务品类冻结历史</Typography.Title>
         <div style={{ borderBottom: `1px solid ${t.colorBorderSecondary}`, margin: '16px 0' }} />
 
         <div style={{ display: 'flex', gap: 32, marginBottom: 24 }}>
@@ -41,7 +41,7 @@ export default function CategoryUnfreezeHistory() {
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-          <Typography.Text strong>准入产品冻结历史详情列表</Typography.Text>
+          <Typography.Text strong>服务品类冻结历史详情列表</Typography.Text>
           <Button>表格定制</Button>
         </div>
 
