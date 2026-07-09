@@ -123,11 +123,11 @@ export default function FreezeQuery() {
         items={[
           {
             key: 'spFreeze',
-            label: <span style={{ color: activeTab === 'spFreeze' ? t.colorPrimary : undefined, fontWeight: activeTab === 'spFreeze' ? 600 : 400 }}>服务商冻结解冻</span>,
+            label: <span style={{ color: activeTab === 'spFreeze' ? t.colorPrimary : undefined, fontWeight: activeTab === 'spFreeze' ? 600 : 400 }}>服务商冻结解冻查询</span>,
             children: (
               <>
                 <Card size="small" variant="outlined" style={{ marginBottom: 16 }}
-                  title={<Typography.Title level={5} style={{ margin: 0 }}>服务商冻结解冻</Typography.Title>}
+                  title={<Typography.Title level={5} style={{ margin: 0 }}>服务商冻结解冻查询</Typography.Title>}
                   extra={<Button type="text" icon={<span style={{ fontSize: 18 }}>{searchCollapsed ? '▾' : '▴'}</span>} onClick={() => setSearchCollapsed(!searchCollapsed)} />}
                 >
                   {!searchCollapsed && (
@@ -183,11 +183,11 @@ export default function FreezeQuery() {
           },
           {
             key: 'categoryFreeze',
-            label: '服务品类冻结解冻',
+            label: '服务品类冻结解冻查询',
             children: (
               <>
                 <Card size="small" variant="outlined" style={{ marginBottom: 16 }}
-                  title={<Typography.Title level={5} style={{ margin: 0 }}>服务品类冻结解冻</Typography.Title>}
+                  title={<Typography.Title level={5} style={{ margin: 0 }}>服务品类冻结解冻查询</Typography.Title>}
                   extra={<Button type="text" icon={<span style={{ fontSize: 18 }}>{searchCollapsed ? '▾' : '▴'}</span>} onClick={() => setSearchCollapsed(!searchCollapsed)} />}
                 >
                   {!searchCollapsed && (
