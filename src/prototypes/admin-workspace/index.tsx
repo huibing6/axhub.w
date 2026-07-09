@@ -41,6 +41,10 @@ const AdminFreezeApplyCreate = lazy(() => import('./admin-portal/disposal/freeze
 const AdminCategoryFreezeCreate = lazy(() => import('./admin-portal/disposal/category-freeze-create'));
 const AdminCategoryFreezeEdit = lazy(() => import('./admin-portal/disposal/category-freeze-edit'));
 const AdminUnfreezeApply = lazy(() => import('./admin-portal/disposal/unfreeze-apply'));
+const AdminUnfreezeApplyCreate = lazy(() => import('./admin-portal/disposal/unfreeze-apply-create'));
+const AdminUnfreezeHistory = lazy(() => import('./admin-portal/disposal/unfreeze-history'));
+const AdminCategoryUnfreezeCreate = lazy(() => import('./admin-portal/disposal/category-unfreeze-create'));
+const AdminCategoryUnfreezeHistory = lazy(() => import('./admin-portal/disposal/category-unfreeze-history'));
 const AdminFreezeQuery = lazy(() => import('./admin-portal/disposal/freeze-query'));
 const AdminReview = lazy(() => import('./admin-portal/disposal/review'));
 const AdminMdgQuery = lazy(() => import('./admin-portal/query/mdg-query'));
@@ -93,6 +97,10 @@ const pageMap: Record<string, React.LazyExoticComponent<any>> = {
   '/admin/category-freeze-create': AdminCategoryFreezeCreate,
   '/admin/category-freeze-edit': AdminCategoryFreezeEdit,
   '/admin/unfreeze-apply': AdminUnfreezeApply,
+  '/admin/unfreeze-apply-create': AdminUnfreezeApplyCreate,
+  '/admin/unfreeze-history': AdminUnfreezeHistory,
+  '/admin/category-unfreeze-create': AdminCategoryUnfreezeCreate,
+  '/admin/category-unfreeze-history': AdminCategoryUnfreezeHistory,
   '/admin/freeze-query': AdminFreezeQuery,
   '/admin/review': AdminReview,
   '/admin/mdg-query': AdminMdgQuery,
