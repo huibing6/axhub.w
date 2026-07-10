@@ -14,6 +14,7 @@ const spSearchFields = [
   { key: 'spType', label: '服务商类型', type: 'select' as const, options: ['请选择', '制造商', '贸易商', '代理商'] },
   { key: 'mgmtType', label: '服务商管理类型', type: 'select' as const, options: ['请选择', '所属企业管理', '总部管理'] },
   { key: 'adminUnit', label: '管理单位', type: 'select' as const, options: ['请选择', '长庆油田分公司', '大庆油田分公司'] },
+  { key: 'applyUnit', label: '申请单位', placeholder: '请输入' },
   { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停交易权限', '恢复交易权限'] },
   { key: 'applyTime', label: '申请时间', type: 'range' as const },
 ];
@@ -45,6 +46,8 @@ const categorySearchFields = [
   { key: 'mgmtType', label: '服务商管理类型', type: 'select' as const, options: ['请选择', '所属企业管理', '总部管理'] },
   { key: 'adminUnit', label: '管理单位', type: 'select' as const, options: ['请选择', '长庆油田分公司', '大庆油田分公司'] },
   { key: 'categoryCode', label: '服务品类编码', placeholder: '请输入' },
+  { key: 'categoryName', label: '服务品类名称', placeholder: '请输入' },
+  { key: 'catalogLevel', label: '目录级别', type: 'select' as const, options: ['请选择', '一级', '二级', '三级'] },
   { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停准入服务品类交易权限', '恢复准入服务品类交易权限'] },
   { key: 'applyTime', label: '申请时间', type: 'range' as const },
 ];
@@ -55,7 +58,7 @@ const categoryColumns = [
   { key: 'spName', title: '服务商名称', width: 180, dataIndex: 'spName', ellipsis: true },
   { key: 'categoryCode', title: '服务品类编码', width: 120, dataIndex: 'categoryCode', ellipsis: true },
   { key: 'categoryName', title: '服务品类名称', width: 140, dataIndex: 'categoryName', ellipsis: true },
-  { key: 'catalogLevel', title: '目录级别', width: 100, dataIndex: 'catalogLevel', ellipsis: true },
+  { key: 'catalogLevel', title: '目录级别', width: 80, dataIndex: 'catalogLevel', ellipsis: true },
   { key: 'spType', title: '服务商类型', width: 100, dataIndex: 'spType', ellipsis: true },
   { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
   { key: 'action', title: '操作', width: 100, align: 'center' as const, fixed: 'right' as const },
@@ -79,12 +82,14 @@ export default function Review() {
 
   const spActionColumn = (_: any, record: any) => (
     <Space size={4}>
+      <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => message.info('查看服务商')}>查看服务商</Button>
       <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => window.location.hash = '#/admin/review-detail'}>复核</Button>
     </Space>
   );
 
   const categoryActionColumn = (_: any, record: any) => (
     <Space size={4}>
+      <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button>
       <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => window.location.hash = '#/admin/category-review-detail'}>复核</Button>
     </Space>
   );

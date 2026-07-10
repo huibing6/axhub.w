@@ -2,8 +2,7 @@
  * @name 服务品类复核详情
  */
 import { useState } from 'react';
-import { theme, Typography, Card, Divider, Space, Button, Table, Input, Radio, Timeline, Form, Upload, message } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { theme, Typography, Card, Divider, Space, Button, Table, Input, Radio, Timeline, Form, message } from 'antd';
 import PortalLayout from '../../common/portal-layout';
 import { adminGroups } from '../../common/menu-data';
 
@@ -21,7 +20,6 @@ const uploadDocColumns = [
   { key: 'docType', title: '文件类型', width: 150, dataIndex: 'docType', ellipsis: true },
   { key: 'upload', title: '文件上传', width: 200, dataIndex: 'upload', ellipsis: true },
   { key: 'remark', title: '备注', width: 200, dataIndex: 'remark', ellipsis: true },
-  { key: 'uploadTime', title: '上传时间', width: 150, dataIndex: 'uploadTime', ellipsis: true },
 ];
 
 const uploadDocData: any[] = [];
@@ -75,7 +73,7 @@ export default function CategoryReviewDetail() {
             <Typography.Text></Typography.Text>
           </div>
           <div>
-            <Typography.Text type="secondary">服务品类等级：</Typography.Text>
+            <Typography.Text type="secondary">目录级别：</Typography.Text>
             <Typography.Text>一级</Typography.Text>
           </div>
           <div>
@@ -107,7 +105,7 @@ export default function CategoryReviewDetail() {
           size="middle"
           pagination={false}
           bordered
-          style={{ marginBottom: 16 }}
+          style={{ marginBottom: 24 }}
         />
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <Button type="primary" danger onClick={() => message.info('添加附件')}>添加</Button>
@@ -144,7 +142,7 @@ export default function CategoryReviewDetail() {
         </Form>
 
         <Divider style={{ margin: '16px 0' }} />
-        <div style={{ display: 'flex', gap: 16 }}>
+        <div style={{ display: 'flex', gap: 16, justifyContent: 'flex-end' }}>
           <Button type="primary" danger onClick={() => message.success('审核完成')}>审核</Button>
           <Button onClick={() => window.history.back()}>返回</Button>
         </div>

@@ -2,8 +2,7 @@
  * @name 服务商复核详情
  */
 import { useState } from 'react';
-import { theme, Typography, Card, Divider, Space, Button, Table, Input, Radio, Timeline, Form, Upload, message } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { theme, Typography, Card, Divider, Space, Button, Table, Input, Radio, Timeline, Form, message } from 'antd';
 import PortalLayout from '../../common/portal-layout';
 import { adminGroups } from '../../common/menu-data';
 
@@ -105,6 +104,12 @@ export default function ReviewDetail() {
           bordered
           style={{ marginBottom: 16 }}
         />
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 24 }}>
+          <Space>
+            <Button type="primary" danger onClick={() => message.info('上传文件')}>上传文件</Button>
+            <Input placeholder="请输入" style={{ width: 200 }} />
+          </Space>
+        </div>
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <Button type="primary" danger onClick={() => message.info('添加附件')}>添加</Button>
         </div>
@@ -140,7 +145,7 @@ export default function ReviewDetail() {
         </Form>
 
         <Divider style={{ margin: '16px 0' }} />
-        <div style={{ display: 'flex', gap: 16 }}>
+        <div style={{ display: 'flex', gap: 16, justifyContent: 'flex-end' }}>
           <Button type="primary" danger onClick={() => message.success('审核完成')}>审核</Button>
           <Button onClick={() => window.history.back()}>返回</Button>
         </div>
