@@ -209,7 +209,7 @@ function HomePage() {
       }}>
         <div className="flex items-center gap-3" style={{ lineHeight: 'normal' }}>
           <img
-            src="/prototypes/assets/logo.jpg"
+            src="assets/logo.jpg"
             alt="云梦泽"
             style={{ height: 32, width: 'auto' }}
           />

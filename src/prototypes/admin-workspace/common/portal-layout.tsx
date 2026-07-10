@@ -71,7 +71,7 @@ export default function PortalLayout({
       }}>
         <Space size={12}>
           <img
-            src="/prototypes/assets/logo.jpg"
+            src="assets/logo.jpg"
             alt="云梦泽"
             style={{ height: 32, width: 'auto' }}
           />
