@@ -2,96 +2,224 @@
  * @name 复核
  */
 import { useState } from 'react';
-import { theme, Typography, Card, Space, Input, Select, Button, Table, Tag, message } from 'antd';
+import { theme, Typography, Card, Space, Input, Select, Button, Table, Tabs, Row, Col, DatePicker, message } from 'antd';
 import PortalLayout from '../../common/portal-layout';
 import { adminGroups } from '../../common/menu-data';
-import { useFilterData } from '../../common/hooks';
-import { ReviewModal } from '../../common/components';
 
-const filterFields = [
-  { key: 'name', label: '服务商名称', placeholder: '请输入服务商名称' },
-  { key: 'type', label: '业务类型', type: 'select' as const, options: ['全部', '准入申请', '信息变更', '资质变更', '冻结申请', '解冻申请'] },
-  { key: 'status', label: '状态', type: 'select' as const, options: ['全部', '待复核', '复核通过', '复核退回'] },
+const { RangePicker } = DatePicker;
+
+const spSearchFields = [
+  { key: 'spCode', label: '服务商编码', placeholder: '请输入' },
+  { key: 'spName', label: '服务商名称', placeholder: '请输入' },
+  { key: 'spType', label: '服务商类型', type: 'select' as const, options: ['请选择', '制造商', '贸易商', '代理商'] },
+  { key: 'mgmtType', label: '服务商管理类型', type: 'select' as const, options: ['请选择', '所属企业管理', '总部管理'] },
+  { key: 'adminUnit', label: '管理单位', type: 'select' as const, options: ['请选择', '长庆油田分公司', '大庆油田分公司'] },
+  { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停交易权限', '恢复交易权限'] },
+  { key: 'applyTime', label: '申请时间', type: 'range' as const },
 ];
 
-const columns = [
-  { key: 'seq', title: '序号', width: 60, align: 'center' as const, dataIndex: 'seq' },
-  { key: 'code', title: '服务商编码', width: 110, dataIndex: 'code', ellipsis: true },
-  { key: 'name', title: '服务商名称', dataIndex: 'name', ellipsis: true },
-  { key: 'type', title: '业务类型', width: 120, dataIndex: 'type', ellipsis: true },
-  { key: 'applicant', title: '申请人', width: 100, dataIndex: 'applicant', ellipsis: true },
-  { key: 'submitTime', title: '提交时间', width: 140, dataIndex: 'submitTime', ellipsis: true },
-  { key: 'status', title: '状态', width: 80, align: 'center' as const, dataIndex: 'status' },
-  { key: 'action', title: '操作', width: 100, align: 'center' as const, dataIndex: 'action' },
+const spColumns = [
+  { key: 'spName', title: '服务商名称', width: 180, dataIndex: 'spName', ellipsis: true },
+  { key: 'spCode', title: '服务商编码', width: 120, dataIndex: 'spCode', sorter: true, ellipsis: true },
+  { key: 'applyType', title: '申请类型', width: 140, dataIndex: 'applyType', ellipsis: true },
+  { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
+  { key: 'spType', title: '服务商类型', width: 100, dataIndex: 'spType', ellipsis: true },
+  { key: 'adminUnit', title: '管理单位', width: 180, dataIndex: 'adminUnit', ellipsis: true },
+  { key: 'flowStatus', title: '流程状态', width: 100, dataIndex: 'flowStatus', ellipsis: true },
+  { key: 'action', title: '操作', width: 140, align: 'center' as const, fixed: 'right' as const },
 ];
 
-const statusColors: Record<string, string> = {
-  '待复核': 'warning',
-  '复核通过': 'success',
-  '复核退回': 'error',
-};
+const spData = [
+  { index: 1, spName: '山东丽新石化股份有限公司', spCode: '1002020631', applyType: '暂停交易权限', mgmtType: '总部管理', spType: '制造商', adminUnit: '中国石油天然气集团有限公司', flowStatus: '待审核' },
+  { index: 2, spName: '中储（天津）物资有限公司', spCode: '1000018008', applyType: '暂停交易权限', mgmtType: '总部管理', spType: '贸易商', adminUnit: '中国石油天然气集团有限公司', flowStatus: '待审核' },
+  { index: 3, spName: '测试服务商20260509', spCode: '1002020681', applyType: '暂停交易权限', mgmtType: '所属企业管理', spType: '制造商', adminUnit: '长庆油田分公司', flowStatus: '待复核' },
+  { index: 4, spName: '王牌测试1114上线冻结', spCode: '47370456', applyType: '暂停交易权限', mgmtType: '所属企业管理', spType: '制造商', adminUnit: '长庆油田分公司', flowStatus: '待审核' },
+  { index: 5, spName: '上分测试门店负责人产品新增冻结…', spCode: '1001876004', applyType: '暂停交易权限', mgmtType: '所属企业管理', spType: '制造商', adminUnit: '大庆油田分公司', flowStatus: '待审核' },
+  { index: 6, spName: '江阴石化装备化工机械有限公司', spCode: '1000282613', applyType: '暂停交易权限', mgmtType: '所属企业管理', spType: '制造商', adminUnit: '中国石油天然气集团有限公司', flowStatus: '待复核' },
+];
 
-function StatusTag({ status }: { status: string }) {
-  return <Tag color={statusColors[status] || 'default'}>{status}</Tag>;
-}
+const categorySearchFields = [
+  { key: 'spCode', label: '服务商编码', placeholder: '请输入' },
+  { key: 'spName', label: '服务商名称', placeholder: '请输入' },
+  { key: 'spType', label: '服务商类型', type: 'select' as const, options: ['请选择', '制造商', '贸易商', '代理商'] },
+  { key: 'mgmtType', label: '服务商管理类型', type: 'select' as const, options: ['请选择', '所属企业管理', '总部管理'] },
+  { key: 'adminUnit', label: '管理单位', type: 'select' as const, options: ['请选择', '长庆油田分公司', '大庆油田分公司'] },
+  { key: 'categoryCode', label: '服务品类编码', placeholder: '请输入' },
+  { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停准入服务品类交易权限', '恢复准入服务品类交易权限'] },
+  { key: 'applyTime', label: '申请时间', type: 'range' as const },
+];
+
+const categoryColumns = [
+  { key: 'applyType', title: '申请类型', width: 160, dataIndex: 'applyType', ellipsis: true },
+  { key: 'spCode', title: '服务商编码', width: 120, dataIndex: 'spCode', sorter: true, ellipsis: true },
+  { key: 'spName', title: '服务商名称', width: 180, dataIndex: 'spName', ellipsis: true },
+  { key: 'categoryCode', title: '服务品类编码', width: 120, dataIndex: 'categoryCode', ellipsis: true },
+  { key: 'categoryName', title: '服务品类名称', width: 140, dataIndex: 'categoryName', ellipsis: true },
+  { key: 'catalogLevel', title: '目录级别', width: 100, dataIndex: 'catalogLevel', ellipsis: true },
+  { key: 'spType', title: '服务商类型', width: 100, dataIndex: 'spType', ellipsis: true },
+  { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
+  { key: 'action', title: '操作', width: 100, align: 'center' as const, fixed: 'right' as const },
+];
+
+const categoryData = [
+  { index: 1, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'A09020201', categoryName: '耐火土', catalogLevel: '一级', spType: '制造商', mgmtType: '总部管理' },
+  { index: 2, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'A09020105', categoryName: '其它耐火制品', catalogLevel: '一级', spType: '制造商', mgmtType: '总部管理' },
+  { index: 3, applyType: '暂停准入服务品类交易权限', spCode: '1000200490', spName: '北方大气公司', categoryCode: 'A01010102', categoryName: '人造金刚石', catalogLevel: '二级', spType: '制造商', mgmtType: '所属企业管理' },
+  { index: 4, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'A09020102', categoryName: '其它耐火制品', catalogLevel: '一级', spType: '制造商', mgmtType: '所属企业管理' },
+  { index: 5, applyType: '暂停准入服务品类交易权限', spCode: '1000684812', spName: '瑞泰士股份有限公司', categoryCode: 'A01002005', categoryName: '瓷件', catalogLevel: '二级', spType: '制造商', mgmtType: '所属企业管理' },
+  { index: 6, applyType: '暂停准入服务品类交易权限', spCode: '1000681181', spName: '实友化工（扬州）有限公司', categoryCode: 'A01002005', categoryName: '瓷件', catalogLevel: '二级', spType: '制造商', mgmtType: '所属企业管理' },
+  { index: 7, applyType: '暂停准入服务品类交易权限', spCode: '1000984527', spName: '北京普瑞博美科贸有限公司', categoryCode: 'A40040608', categoryName: '阻燃灭火剂', catalogLevel: '二级', spType: '代理商', mgmtType: '总部管理' },
+];
 
 export default function Review() {
   const { token: t } = theme.useToken();
-  const [searchValues, setSearchValues] = useState<Record<string, string>>({});
+  const [activeTab, setActiveTab] = useState('spReview');
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-  const [reviewOpen, setReviewOpen] = useState(false);
+  const [searchCollapsed, setSearchCollapsed] = useState(false);
 
-  const data = [
-    { seq: 1, code: '1000020022', name: '中海油能源发展股份有限公司', type: '准入申请', applicant: '张三', submitTime: '2025-06-18 14:30', status: '待复核', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>复核</Button> },
-    { seq: 2, code: '1000020022', name: '杰瑞石油装备技术有限公司', type: '信息变更', applicant: '李四', submitTime: '2025-06-17 10:15', status: '待复核', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>复核</Button> },
-    { seq: 3, code: '1000020022', name: '中海油能源发展股份有限公司', type: '资质变更', applicant: '王五', submitTime: '2025-06-16 09:00', status: '复核通过', action: <Typography.Link style={{ color: '#1677ff' }}>查看</Typography.Link> },
-    { seq: 4, code: '1000020022', name: '杰瑞石油装备技术有限公司', type: '冻结申请', applicant: '赵六', submitTime: '2025-06-15 16:45', status: '复核退回', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>复核</Button> },
-    { seq: 5, code: '1000020022', name: '中海油能源发展股份有限公司', type: '解冻申请', applicant: '钱七', submitTime: '2025-06-14 11:20', status: '复核通过', action: <Typography.Link style={{ color: '#1677ff' }}>查看</Typography.Link> },
-    { seq: 6, code: '1000020022', name: '杰瑞石油装备技术有限公司', type: '准入申请', applicant: '孙八', submitTime: '2025-06-13 08:30', status: '待复核', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>复核</Button> },
-  ];
+  const spActionColumn = (_: any, record: any) => (
+    <Space size={4}>
+      <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => window.location.hash = '#/admin/review-detail'}>复核</Button>
+    </Space>
+  );
 
-  const { setFilter, filteredData } = useFilterData(data, filterFields);
-
-  const formattedData = filteredData.map(d => ({
-    ...d,
-    status: <StatusTag status={d.status as string} />,
-  }));
+  const categoryActionColumn = (_: any, record: any) => (
+    <Space size={4}>
+      <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => window.location.hash = '#/admin/category-review-detail'}>复核</Button>
+    </Space>
+  );
 
   return (
     <PortalLayout groups={adminGroups} activePath="/admin/review" portalType="admin">
-      <Typography.Title level={4}>复核</Typography.Title>
-      <Card size="small" variant="outlined" style={{ marginBottom: 16 }}>
-        <Space direction="vertical" style={{ width: '100%' }} size={12}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 12 }}>
-            {filterFields.map((f, i) => (
-              <Space key={i} size={8}>
-                <Typography.Text style={{ whiteSpace: 'nowrap' }}>{f.label}</Typography.Text>
-                {f.type === 'select' ? (
-                  <Select value={searchValues[f.key] || '全部'} onChange={v => setSearchValues(prev => ({ ...prev, [f.key]: v }))} style={{ width: 200 }}>
-                    {f.options.map(o => <Select.Option key={o} value={o}>{o}</Select.Option>)}
-                  </Select>
-                ) : (
-                  <Input placeholder={f.placeholder} style={{ width: 200 }} value={searchValues[f.key] || ''} onChange={e => setSearchValues(prev => ({ ...prev, [f.key]: e.target.value }))} />
-                )}
-              </Space>
-            ))}
-          </div>
-          <Button type="primary" onClick={() => { Object.entries(searchValues).forEach(([k, v]) => setFilter(k, v)); }}>查询</Button>
-        </Space>
-      </Card>
-      <div style={{ marginBottom: 16 }}>
-        <Button type="primary" disabled={selectedRowKeys.length === 0} onClick={() => setReviewOpen(true)}>复核</Button>
-      </div>
-      <Table
-        columns={columns}
-        dataSource={formattedData.map((d, i) => ({ ...d, _key: i }))}
-        rowKey="_key"
-        pagination={{ pageSize: 10, showSizeChanger: true, showTotal: (t) => `共 ${t} 条` }}
-        bordered
-        size="middle"
-        rowSelection={{ selectedRowKeys, onChange: setSelectedRowKeys }}
+      <Tabs
+        activeKey={activeTab}
+        onChange={setActiveTab}
+        items={[
+          {
+            key: 'spReview',
+            label: <span style={{ color: activeTab === 'spReview' ? t.colorPrimary : undefined, fontWeight: activeTab === 'spReview' ? 600 : 400 }}>服务商复核</span>,
+            children: (
+              <>
+                <Card size="small" variant="outlined" style={{ marginBottom: 16 }}
+                  title={<Typography.Title level={5} style={{ margin: 0 }}>服务商复核</Typography.Title>}
+                  extra={<Button type="text" icon={<span style={{ fontSize: 18 }}>{searchCollapsed ? '▾' : '▴'}</span>} onClick={() => setSearchCollapsed(!searchCollapsed)} />}
+                >
+                  {!searchCollapsed && (
+                    <>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px 24px', marginBottom: 16 }}>
+                        {spSearchFields.map(f => (
+                          <div key={f.key} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <Typography.Text style={{ whiteSpace: 'nowrap', minWidth: 100, textAlign: 'right' }}>{f.label}：</Typography.Text>
+                            {f.type === 'select' ? (
+                              <Select defaultValue={f.options?.[0]} style={{ flex: 1 }}>
+                                {f.options?.map(o => <Select.Option key={o} value={o}>{o}</Select.Option>)}
+                              </Select>
+                            ) : f.type === 'range' ? (
+                              <RangePicker style={{ flex: 1 }} />
+                            ) : (
+                              <Input placeholder={f.placeholder} style={{ flex: 1 }} />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                      <Row justify="end">
+                        <Space>
+                          <Button type="primary">查询</Button>
+                          <Button>重置</Button>
+                        </Space>
+                      </Row>
+                    </>
+                  )}
+                </Card>
+                <Card size="small" variant="outlined" style={{ marginBottom: 16 }}>
+                  <Row justify="space-between" align="middle">
+                    <Col>
+                      <Space>
+                        <Button type="primary" danger onClick={() => message.info('批量复核')}>批量复核</Button>
+                        <Button onClick={() => message.info('导出')}>导出</Button>
+                        <Button onClick={() => message.info('批量添加到关注列表')}>批量添加到关注列表</Button>
+                      </Space>
+                    </Col>
+                    <Col>
+                      <Button>表格定制</Button>
+                    </Col>
+                  </Row>
+                </Card>
+                <Table
+                  rowSelection={{ selectedRowKeys, onChange: setSelectedRowKeys }}
+                  columns={spColumns.map(c => c.key === 'action' ? { ...c, render: spActionColumn } : c)}
+                  dataSource={spData}
+                  rowKey="index"
+                  size="middle"
+                  scroll={{ x: 1200 }}
+                  pagination={{ pageSize: 10, showSizeChanger: true, showTotal: total => `共 ${total} 条` }}
+                />
+              </>
+            ),
+          },
+          {
+            key: 'categoryReview',
+            label: '服务品类复核',
+            children: (
+              <>
+                <Card size="small" variant="outlined" style={{ marginBottom: 16 }}
+                  title={<Typography.Title level={5} style={{ margin: 0 }}>服务品类复核</Typography.Title>}
+                  extra={<Button type="text" icon={<span style={{ fontSize: 18 }}>{searchCollapsed ? '▾' : '▴'}</span>} onClick={() => setSearchCollapsed(!searchCollapsed)} />}
+                >
+                  {!searchCollapsed && (
+                    <>
+                      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px 24px', marginBottom: 16 }}>
+                        {categorySearchFields.map(f => (
+                          <div key={f.key} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                            <Typography.Text style={{ whiteSpace: 'nowrap', minWidth: 100, textAlign: 'right' }}>{f.label}：</Typography.Text>
+                            {f.type === 'select' ? (
+                              <Select defaultValue={f.options?.[0]} style={{ flex: 1 }}>
+                                {f.options?.map(o => <Select.Option key={o} value={o}>{o}</Select.Option>)}
+                              </Select>
+                            ) : f.type === 'range' ? (
+                              <RangePicker style={{ flex: 1 }} />
+                            ) : (
+                              <Input placeholder={f.placeholder} style={{ flex: 1 }} />
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                      <Row justify="end">
+                        <Space>
+                          <Button type="primary">查询</Button>
+                          <Button>重置</Button>
+                        </Space>
+                      </Row>
+                    </>
+                  )}
+                </Card>
+                <Card size="small" variant="outlined" style={{ marginBottom: 16 }}>
+                  <Row justify="space-between" align="middle">
+                    <Col>
+                      <Space>
+                        <Button type="primary" danger onClick={() => message.info('批量复核')}>批量复核</Button>
+                        <Button onClick={() => message.info('导出')}>导出</Button>
+                      </Space>
+                    </Col>
+                    <Col>
+                      <Button>表格定制</Button>
+                    </Col>
+                  </Row>
+                </Card>
+                <Table
+                  rowSelection={{ selectedRowKeys, onChange: setSelectedRowKeys }}
+                  columns={categoryColumns.map(c => c.key === 'action' ? { ...c, render: categoryActionColumn } : c)}
+                  dataSource={categoryData}
+                  rowKey="index"
+                  size="middle"
+                  scroll={{ x: 1400 }}
+                  pagination={{ pageSize: 10, showSizeChanger: true, showTotal: total => `共 ${total} 条` }}
+                />
+              </>
+            ),
+          },
+        ]}
       />
-      <ReviewModal open={reviewOpen} title="复核" onOk={(opinion, approved) => { message.success('复核完成'); setReviewOpen(false); }} onCancel={() => setReviewOpen(false)} />
     </PortalLayout>
   );
 }
