@@ -47,7 +47,6 @@ export const adminGroups: MenuGroup[] = [
       { label: '解冻申请', path: '/admin/unfreeze-apply' },
       { label: '冻结解冻查询', path: '/admin/freeze-query' },
       { label: '复核', path: '/admin/review' },
-      { label: '处置详情', path: '/admin/disposal-detail' },
     ],
   },
   {
