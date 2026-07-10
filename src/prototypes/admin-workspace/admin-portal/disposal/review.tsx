@@ -83,7 +83,7 @@ export default function Review() {
   const spActionColumn = (_: any, record: any) => (
     <Space size={4}>
       <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => message.info('查看服务商')}>查看服务商</Button>
-      <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => window.location.hash = '#/admin/review-detail'}>复核</Button>
+      <Button type="link" size="small" style={{ color: '#1677ff' }} onClick={() => window.location.hash = '#/admin/sp-review-detail'}>复核</Button>
     </Space>
   );
 

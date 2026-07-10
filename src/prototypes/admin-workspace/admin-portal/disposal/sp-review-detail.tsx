@@ -1,5 +1,5 @@
 /**
- * @name 服务品类复核详情
+ * @name 服务商复核详情
  */
 import { useState } from 'react';
 import { theme, Typography, Card, Divider, Button, Table, Input, Radio, Timeline, Form, message } from 'antd';
@@ -20,11 +20,12 @@ const uploadDocColumns = [
   { key: 'docType', title: '文件类型', width: 150, dataIndex: 'docType', ellipsis: true },
   { key: 'upload', title: '文件上传', width: 200, dataIndex: 'upload', ellipsis: true },
   { key: 'remark', title: '备注', width: 200, dataIndex: 'remark', ellipsis: true },
+  { key: 'uploadTime', title: '上传时间', width: 150, dataIndex: 'uploadTime', ellipsis: true },
 ];
 
 const uploadDocData: any[] = [];
 
-export default function CategoryReviewDetail() {
+export default function SpReviewDetail() {
   const { token: t } = theme.useToken();
   const [form] = Form.useForm();
   const [auditResult, setAuditResult] = useState('通过');
@@ -38,27 +39,27 @@ export default function CategoryReviewDetail() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px 24px', marginBottom: 24 }}>
           <div>
             <Typography.Text type="secondary">服务商编码：</Typography.Text>
-            <Typography.Text>1000802855</Typography.Text>
+            <Typography.Text>1002020631</Typography.Text>
           </div>
           <div>
             <Typography.Text type="secondary">服务商名称：</Typography.Text>
-            <Typography.Text>渤海石油装备（天津）中成机械制造有限公司</Typography.Text>
+            <Typography.Text>山东丽新石化股份有限公司</Typography.Text>
           </div>
           <div>
-            <Typography.Text type="secondary">服务品类编码：</Typography.Text>
-            <Typography.Text>A09020201</Typography.Text>
+            <Typography.Text type="secondary">服务商类型：</Typography.Text>
+            <Typography.Text>制造商</Typography.Text>
           </div>
           <div>
-            <Typography.Text type="secondary">服务品类名称：</Typography.Text>
-            <Typography.Text>耐火土</Typography.Text>
+            <Typography.Text type="secondary">服务商管理类型：</Typography.Text>
+            <Typography.Text>总部管理</Typography.Text>
           </div>
           <div>
             <Typography.Text type="secondary">申请类型：</Typography.Text>
-            <Typography.Text>暂停准入服务品类交易权限</Typography.Text>
+            <Typography.Text>暂停交易权限</Typography.Text>
           </div>
           <div>
             <Typography.Text type="secondary">处置范围：</Typography.Text>
-            <Typography.Text>全集团</Typography.Text>
+            <Typography.Text>本单位</Typography.Text>
           </div>
           <div>
             <Typography.Text type="secondary">申请时间：</Typography.Text>
@@ -66,19 +67,15 @@ export default function CategoryReviewDetail() {
           </div>
           <div>
             <Typography.Text type="secondary">冻结原因：</Typography.Text>
-            <Typography.Text>其它</Typography.Text>
+            <Typography.Text>未年审</Typography.Text>
           </div>
           <div>
             <Typography.Text type="secondary">冻结时效：</Typography.Text>
-            <Typography.Text></Typography.Text>
-          </div>
-          <div>
-            <Typography.Text type="secondary">目录级别：</Typography.Text>
-            <Typography.Text>一级</Typography.Text>
+            <Typography.Text>11</Typography.Text>
           </div>
           <div>
             <Typography.Text type="secondary">备注意见：</Typography.Text>
-            <Typography.Text>888</Typography.Text>
+            <Typography.Text>11111</Typography.Text>
           </div>
           <div>
             <Typography.Text type="secondary">附件：</Typography.Text>
@@ -105,8 +102,12 @@ export default function CategoryReviewDetail() {
           size="middle"
           pagination={false}
           bordered
-          style={{ marginBottom: 24 }}
+          style={{ marginBottom: 16 }}
         />
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginBottom: 24 }}>
+          <Button type="primary" danger onClick={() => message.info('上传文件')}>上传文件</Button>
+          <Input placeholder="请输入" style={{ width: 200 }} />
+        </div>
         <div style={{ textAlign: 'center', marginBottom: 24 }}>
           <Button onClick={() => message.info('添加附件')}>添加</Button>
         </div>
@@ -119,12 +120,12 @@ export default function CategoryReviewDetail() {
 
         <Timeline style={{ marginBottom: 24 }}>
           <Timeline.Item color="blue">
-            <Typography.Text>2026-06-17 15:04:13</Typography.Text>
-            <Typography.Text style={{ marginLeft: 8 }}>zba1</Typography.Text>
+            <Typography.Text>2026-06-17 14:03:02</Typography.Text>
+            <Typography.Text style={{ marginLeft: 8 }}>nyyh1</Typography.Text>
             <Typography.Text type="success" style={{ marginLeft: 8 }}>提交</Typography.Text>
           </Timeline.Item>
           <Timeline.Item color="gray">
-            <Typography.Text type="secondary">【bux-001】新增尚待属于测试审批nyyh1/赵楠/高英龙/丁裕欣】</Typography.Text>
+            <Typography.Text type="secondary">【nyyh1】</Typography.Text>
             <Typography.Text type="danger" style={{ marginLeft: 8 }}>待审批</Typography.Text>
           </Timeline.Item>
         </Timeline>
