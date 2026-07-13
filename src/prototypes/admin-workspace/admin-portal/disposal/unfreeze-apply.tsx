@@ -53,12 +53,12 @@ const productColumns = [
 ];
 
 const productData = [
-  { index: 1, applyType: '恢复准入服务品类交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'A46892001', categoryName: '低压成套开关设备', catalogLevel: '一级', source: '其它' },
-  { index: 2, applyType: '恢复准入服务品类交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'A46892002', categoryName: '低压成套开关设备', catalogLevel: '一级', source: '其它' },
-  { index: 3, applyType: '恢复准入服务品类交易权限', spCode: '1000816195', spName: '成都新宝科技有限公司', spType: '制造商', categoryCode: 'A14016309', categoryName: '粘土及用粘土配制料', catalogLevel: '一级', source: '服务品类资质到期' },
-  { index: 4, applyType: '恢复准入服务品类交易权限', spCode: '1000594108', spName: '安徽江淮汽车集团锻…', spType: '制造商', categoryCode: 'A40815601', categoryName: '皮卡', catalogLevel: '一级', source: '服务品类资质到期' },
-  { index: 5, applyType: '恢复准入服务品类交易权限', spCode: '1000434112', spName: '上海美科阀门科技有…', spType: '制造商', categoryCode: 'A52920302', categoryName: '中压球阀及闸阀', catalogLevel: '一级', source: '服务品类资质' },
-  { index: 6, applyType: '恢复准入服务品类交易权限', spCode: '1000434112', spName: '上海美科阀门科技有…', spType: '制造商', categoryCode: 'A52920302', categoryName: '中压球阀及闸阀', catalogLevel: '一级', source: '服务品类资质' },
+  { index: 1, applyType: '恢复准入服务品类交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'S1001001', categoryName: '油气水井设施租赁服务', catalogLevel: '一级', source: '其它' },
+  { index: 2, applyType: '恢复准入服务品类交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'S1001002', categoryName: '油气水集输处理设施租赁服务', catalogLevel: '一级', source: '其它' },
+  { index: 3, applyType: '恢复准入服务品类交易权限', spCode: '1000816195', spName: '成都新宝科技有限公司', spType: '制造商', categoryCode: 'S0102001', categoryName: '劳务勘查', catalogLevel: '一级', source: '资质到期' },
+  { index: 4, applyType: '恢复准入服务品类交易权限', spCode: '1000594108', spName: '安徽江淮汽车集团锻…', spType: '制造商', categoryCode: 'S0201001', categoryName: '测量服务(上游）', catalogLevel: '一级', source: '资质到期' },
+  { index: 5, applyType: '恢复准入服务品类交易权限', spCode: '1000434112', spName: '上海美科阀门科技有…', spType: '制造商', categoryCode: 'S0301001', categoryName: '装配服务', catalogLevel: '二级', source: '资质到期' },
+  { index: 6, applyType: '恢复准入服务品类交易权限', spCode: '1000434112', spName: '上海美科阀门科技有…', spType: '制造商', categoryCode: 'S0401001', categoryName: '仓储包装服务', catalogLevel: '一级', source: '其它' },
 ];
 
 export default function UnfreezeApply() {

@@ -27,12 +27,12 @@ const columns = [
 ];
 
 const rawData = [
-  { seq: 1, code: 'GC', name: '工程技术服务', parent: '-', level: '1级', type: '通用', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
-  { seq: 2, code: 'GC-ZJ', name: '钻井工程', parent: '工程技术服务', level: '2级', type: '专业', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
-  { seq: 3, code: 'GC-CY', name: '采油工程', parent: '工程技术服务', level: '2级', type: '专业', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
-  { seq: 4, code: 'GC-SY', name: '试油技术服务', parent: '工程技术服务', level: '2级', type: '通用', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
-  { seq: 5, code: 'DM', name: '地面建设服务', parent: '-', level: '1级', type: '通用', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
-  { seq: 6, code: 'DM-GD', name: '管道工程', parent: '地面建设服务', level: '2级', type: '专业', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
+  { seq: 1, code: 'S01', name: '咨询服务', parent: '-', level: '1级', type: '专业', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
+  { seq: 2, code: 'S0101000', name: '咨询', parent: '咨询服务', level: '2级', type: '专业', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
+  { seq: 3, code: 'S02', name: '物化探服务', parent: '-', level: '1级', type: '专业', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
+  { seq: 4, code: 'S0201001', name: '二维地震采集服务', parent: '物化探服务', level: '2级', type: '专业', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
+  { seq: 5, code: 'S03', name: '工序外协加工服务', parent: '-', level: '1级', type: '通用', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
+  { seq: 6, code: 'S0301001', name: '装配服务', parent: '工序外协加工服务', level: '2级', type: '专业', status: '启用', action: <Button type="link" size="small" style={{ color: '#1677ff' }}>查看</Button> },
 ];
 
 export default function ServiceDir() {

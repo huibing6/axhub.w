@@ -28,9 +28,9 @@ export interface RequiredDocItem {
 }
 
 export const SERVICE_TABLE_DATA: ServiceTableItem[] = [
-  { key: '1', code: '502010', name: '工程技术服务／生产及维修服务', type: '专业', typeColor: 'blue', level: '一级', action: '展开' },
-  { key: '2', code: '502030', name: '工程技术服务／设备维保服务', type: '专业', typeColor: 'blue', level: '一级', action: '合并' },
-  { key: '3', code: '601010', name: '办公服务／物业管理', type: '通用', typeColor: 'green', level: '二级', action: '—' },
+  { key: '1', code: 'S0101000', name: '咨询服务', type: '专业', typeColor: 'blue', level: '一级', action: '展开' },
+  { key: '2', code: 'S0201001', name: '二维地震采集服务', type: '专业', typeColor: 'blue', level: '一级', action: '合并' },
+  { key: '3', code: 'S0301001', name: '装配服务', type: '通用', typeColor: 'green', level: '二级', action: '—' },
 ];
 
 export const QUALIFICATION_DOCS: QualDocItem[] = [

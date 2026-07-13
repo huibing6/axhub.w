@@ -65,13 +65,13 @@ const categoryColumns = [
 ];
 
 const categoryData = [
-  { index: 1, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'A09020201', categoryName: '耐火土', catalogLevel: '一级', spType: '制造商', mgmtType: '总部管理' },
-  { index: 2, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'A09020105', categoryName: '其它耐火制品', catalogLevel: '一级', spType: '制造商', mgmtType: '总部管理' },
-  { index: 3, applyType: '暂停准入服务品类交易权限', spCode: '1000200490', spName: '北方大气公司', categoryCode: 'A01010102', categoryName: '人造金刚石', catalogLevel: '二级', spType: '制造商', mgmtType: '所属企业管理' },
-  { index: 4, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'A09020102', categoryName: '其它耐火制品', catalogLevel: '一级', spType: '制造商', mgmtType: '所属企业管理' },
-  { index: 5, applyType: '暂停准入服务品类交易权限', spCode: '1000684812', spName: '瑞泰士股份有限公司', categoryCode: 'A01002005', categoryName: '瓷件', catalogLevel: '二级', spType: '制造商', mgmtType: '所属企业管理' },
-  { index: 6, applyType: '暂停准入服务品类交易权限', spCode: '1000681181', spName: '实友化工（扬州）有限公司', categoryCode: 'A01002005', categoryName: '瓷件', catalogLevel: '二级', spType: '制造商', mgmtType: '所属企业管理' },
-  { index: 7, applyType: '暂停准入服务品类交易权限', spCode: '1000984527', spName: '北京普瑞博美科贸有限公司', categoryCode: 'A40040608', categoryName: '阻燃灭火剂', catalogLevel: '二级', spType: '代理商', mgmtType: '总部管理' },
+  { index: 1, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0301000', categoryName: '工序外协加工服务', catalogLevel: '一级', spType: '制造商', mgmtType: '总部管理' },
+  { index: 2, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0401001', categoryName: '仓储包装服务', catalogLevel: '一级', spType: '制造商', mgmtType: '总部管理' },
+  { index: 3, applyType: '暂停准入服务品类交易权限', spCode: '1000200490', spName: '北方大气公司', categoryCode: 'S0501000', categoryName: '科技项目服务', catalogLevel: '二级', spType: '制造商', mgmtType: '所属企业管理' },
+  { index: 4, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0601001', categoryName: '基础软件开发服务', catalogLevel: '一级', spType: '制造商', mgmtType: '所属企业管理' },
+  { index: 5, applyType: '暂停准入服务品类交易权限', spCode: '1000684812', spName: '瑞泰士股份有限公司', categoryCode: 'S0701002', categoryName: '银行结算服务', catalogLevel: '二级', spType: '制造商', mgmtType: '所属企业管理' },
+  { index: 6, applyType: '暂停准入服务品类交易权限', spCode: '1000681181', spName: '实友化工（扬州）有限公司', categoryCode: 'S0801000', categoryName: '质量服务', catalogLevel: '二级', spType: '制造商', mgmtType: '所属企业管理' },
+  { index: 7, applyType: '暂停准入服务品类交易权限', spCode: '1000984527', spName: '北京普瑞博美科贸有限公司', categoryCode: 'S0901000', categoryName: '清洁能源服务', catalogLevel: '一级', spType: '代理商', mgmtType: '总部管理' },
 ];
 
 export default function Review() {

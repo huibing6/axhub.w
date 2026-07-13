@@ -34,10 +34,10 @@ const columns = [
 ];
 
 const tableData = [
-  { index: 1, categoryCode: 'A14073402', categoryName: '尼龙1/6', spCode: '1001581294', spName: '山东万达特种电缆有限公司', mgmtType: '总部管理', workType: '', adminUnit: '中国石油天然气集团有限公司', applyUnit: '中国石油天然气集团有限公司' },
-  { index: 2, categoryCode: 'A14073401', categoryName: '尼龙6', spCode: '1001581294', spName: '山东万达特种电缆有限公司', mgmtType: '总部管理', workType: '', adminUnit: '中国石油天然气集团有限公司', applyUnit: '中国石油天然气集团有限公司' },
-  { index: 3, categoryCode: 'A02042021', categoryName: '影印石英表', spCode: '1000934581', spName: '瓦卢瑞克（中国）有限公…', mgmtType: '总部管理', workType: '', adminUnit: '中国石油天然气集团有限公司', applyUnit: '中国石油天然气集团有限公司' },
-  { index: 4, categoryCode: 'A02042015', categoryName: '特有无缝油管', spCode: '1000934581', spName: '瓦卢瑞克（中国）有限公…', mgmtType: '总部管理', workType: '', adminUnit: '中国石油天然气集团有限公司', applyUnit: '中国石油天然气集团有限公司' },
+  { index: 1, categoryCode: 'S0701000', categoryName: '银行服务', spCode: '1001581294', spName: '山东万达特种电缆有限公司', mgmtType: '总部管理', workType: '', adminUnit: '中国石油天然气集团有限公司', applyUnit: '中国石油天然气集团有限公司' },
+  { index: 2, categoryCode: 'S0801001', categoryName: '资质认证服务', spCode: '1001581294', spName: '山东万达特种电缆有限公司', mgmtType: '总部管理', workType: '', adminUnit: '中国石油天然气集团有限公司', applyUnit: '中国石油天然气集团有限公司' },
+  { index: 3, categoryCode: 'S0901001', categoryName: '太阳能服务', spCode: '1000934581', spName: '瓦卢瑞克（中国）有限公…', mgmtType: '总部管理', workType: '', adminUnit: '中国石油天然气集团有限公司', applyUnit: '中国石油天然气集团有限公司' },
+  { index: 4, categoryCode: 'S1001001', categoryName: '油气水井设施租赁服务', spCode: '1000934581', spName: '瓦卢瑞克（中国）有限公…', mgmtType: '总部管理', workType: '', adminUnit: '中国石油天然气集团有限公司', applyUnit: '中国石油天然气集团有限公司' },
 ];
 
 export default function CategoryUnfreezeCreate() {

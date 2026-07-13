@@ -410,24 +410,42 @@ interface TreeNode {
 }
 
 const professionalTree: TreeNode[] = [
-  { key: '502', title: '工程技术服务', code: '502', level: '一级', children: [
-    { key: '503', title: '生产及维修服务', code: '503', level: '二级' },
-    { key: '504', title: '软件服务', code: '504', level: '二级' },
-    { key: '505', title: '科研服务', code: '505', level: '二级' },
-    { key: '506', title: '信息技术服务', code: '506', level: '二级' },
+  { key: 'S01', title: '咨询服务', code: 'S01', level: '一级', children: [
+    { key: 'S0101000', title: '咨询', code: 'S0101000', level: '二级' },
+    { key: 'S0102001', title: '劳务勘查', code: 'S0102001', level: '二级' },
+    { key: 'S0102002', title: '专业勘查', code: 'S0102002', level: '二级' },
   ]},
-  { key: '510', title: '其他服务', code: '510', level: '一级', children: [
-    { key: '511', title: '其他专业服务', code: '511', level: '二级' },
+  { key: 'S02', title: '物化探服务', code: 'S02', level: '一级', children: [
+    { key: 'S0201000', title: '物化探服务', code: 'S0201000', level: '二级' },
+    { key: 'S0201001', title: '二维地震采集服务', code: 'S0201001', level: '二级' },
+  ]},
+  { key: 'S03', title: '工序外协加工服务', code: 'S03', level: '一级', children: [
+    { key: 'S0301000', title: '工序外协加工服务', code: 'S0301000', level: '二级' },
+    { key: 'S0301001', title: '装配服务', code: 'S0301001', level: '二级' },
+  ]},
+  { key: 'S05', title: '科技项目服务', code: 'S05', level: '一级', children: [
+    { key: 'S0501000', title: '科技项目服务', code: 'S0501000', level: '二级' },
+    { key: 'S0501001', title: '委托技术开发服务', code: 'S0501001', level: '二级' },
   ]},
 ];
 
 const generalTree: TreeNode[] = [
-  { key: '601', title: '办公服务', code: '601', level: '一级', children: [
-    { key: '602', title: '物业管理', code: '602', level: '二级' },
-    { key: '603', title: '保洁服务', code: '603', level: '二级' },
+  { key: 'S04', title: '仓储服务', code: 'S04', level: '一级', children: [
+    { key: 'S0401000', title: '仓储服务', code: 'S0401000', level: '二级' },
+    { key: 'S0401001', title: '仓储包装服务', code: 'S0401001', level: '二级' },
   ]},
-  { key: '605', title: '物流服务', code: '605', level: '一级', children: [
-    { key: '606', title: '普通货运', code: '606', level: '二级' },
+  { key: 'S06', title: '软件开发服务', code: 'S06', level: '一级', children: [
+    { key: 'S0601000', title: '软件开发服务', code: 'S0601000', level: '二级' },
+    { key: 'S0601001', title: '基础软件开发服务', code: 'S0601001', level: '二级' },
+  ]},
+  { key: 'S07', title: '银行服务', code: 'S07', level: '一级', children: [
+    { key: 'S0701000', title: '银行服务', code: 'S0701000', level: '二级' },
+    { key: 'S0701001', title: '银行托管服务', code: 'S0701001', level: '二级' },
+    { key: 'S0701002', title: '银行结算服务', code: 'S0701002', level: '二级' },
+  ]},
+  { key: 'S10', title: '租赁服务', code: 'S10', level: '一级', children: [
+    { key: 'S1001000', title: '租赁服务', code: 'S1001000', level: '二级' },
+    { key: 'S1001001', title: '油气水井设施租赁服务', code: 'S1001001', level: '二级' },
   ]},
 ];
 
@@ -462,7 +480,7 @@ function ServiceCatalogModal({ open, onClose, onConfirm }: {
 }) {
   const [activeTab, setActiveTab] = useState<'professional' | 'general'>('professional');
   const [checkedKeys, setCheckedKeys] = useState<Set<string>>(new Set());
-  const [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set(['502']));
+  const [expandedKeys, setExpandedKeys] = useState<Set<string>>(new Set(['S01']));
   const tree = activeTab === 'professional' ? professionalTree : generalTree;
 
   const handleCheck = (key: string) => {
@@ -512,8 +530,8 @@ function ServiceCatalogModal({ open, onClose, onConfirm }: {
 
 function ServiceCatalogTab() {
   const [services, setServices] = useState<ServiceItem[]>([
-    { id: 1, code: '502010', name: '工程技术服务 / 生产及维修服务', type: '专业', level: '一级', expanded: false },
-    { id: 2, code: '601010', name: '办公服务 / 物业管理', type: '通用', level: '二级', expanded: false },
+    { id: 1, code: 'S0101000', name: '咨询服务', type: '专业', level: '一级', expanded: false },
+    { id: 2, code: 'S0401000', name: '仓储服务', type: '通用', level: '二级', expanded: false },
   ]);
   const [modalOpen, setModalOpen] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);

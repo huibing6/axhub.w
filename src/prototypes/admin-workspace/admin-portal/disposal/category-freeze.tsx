@@ -39,12 +39,12 @@ const columns = [
 ];
 
 const tableData = [
-  { index: 1, applyType: '暂停准入服务品类交易权限', spCode: '1001605660', spName: '宏鑫致远（北京）科技有…', categoryCode: 'A51120104', categoryName: '信创服务器', catalogLevel: '一级物资', mgmtType: '总部管理', workType: '冻结申请', adminUnit: '中国石油天然气集团有限公司', applyTime: '2025-12-19 09:15', freezeReason: '其它', flowStatus: '待提交' },
-  { index: 2, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020303', categoryName: '聚乙烯绝缘仪表电缆', catalogLevel: '一级物资', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '产品资质到期', flowStatus: '待提交' },
-  { index: 3, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020302', categoryName: '交联聚乙烯绝缘仪表电缆', catalogLevel: '一级物资', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '产品资质到期', flowStatus: '待提交' },
-  { index: 4, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020301', categoryName: '聚氯乙烯绝缘仪表电缆', catalogLevel: '一级物资', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '产品资质到期', flowStatus: '待提交' },
-  { index: 5, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'A47020304', categoryName: '氟塑料绝缘仪表电缆', catalogLevel: '一级物资', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '产品资质到期', flowStatus: '待提交' },
-  { index: 6, applyType: '暂停准入服务品类交易权限', spCode: '1000154310', spName: '安徽怡和电缆有限公司', categoryCode: 'A47020304', categoryName: '氟塑料绝缘仪表电缆', catalogLevel: '二级物资', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '大庆油田分公司', applyTime: '2025-12-17 10:20', freezeReason: '产品资质到期', flowStatus: '待提交' },
+  { index: 1, applyType: '暂停准入服务品类交易权限', spCode: '1001605660', spName: '宏鑫致远（北京）科技有…', categoryCode: 'S0101000', categoryName: '咨询', catalogLevel: '一级', mgmtType: '总部管理', workType: '冻结申请', adminUnit: '中国石油天然气集团有限公司', applyTime: '2025-12-19 09:15', freezeReason: '资质到期', flowStatus: '待提交' },
+  { index: 2, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'S0201001', categoryName: '二维地震采集服务', catalogLevel: '一级', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '资质到期', flowStatus: '待提交' },
+  { index: 3, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'S0301001', categoryName: '装配服务', catalogLevel: '一级', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '资质到期', flowStatus: '待提交' },
+  { index: 4, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'S0401000', categoryName: '仓储服务', catalogLevel: '二级', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '其它', flowStatus: '待提交' },
+  { index: 5, applyType: '暂停准入服务品类交易权限', spCode: '1000212710', spName: '江苏上上电缆集团有限公司', categoryCode: 'S0501001', categoryName: '委托技术开发服务', catalogLevel: '一级', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '长庆油田分公司', applyTime: '2025-12-18 14:30', freezeReason: '资质到期', flowStatus: '待提交' },
+  { index: 6, applyType: '暂停准入服务品类交易权限', spCode: '1000154310', spName: '安徽怡和电缆有限公司', categoryCode: 'S0601000', categoryName: '软件开发服务', catalogLevel: '二级', mgmtType: '所属企业管理', workType: '冻结申请', adminUnit: '大庆油田分公司', applyTime: '2025-12-17 10:20', freezeReason: '其它', flowStatus: '待提交' },
 ];
 
 export default function CategoryFreeze() {

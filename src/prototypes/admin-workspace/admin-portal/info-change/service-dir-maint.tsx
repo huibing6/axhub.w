@@ -41,21 +41,21 @@ const pendingColumns = [
 ];
 
 const admittedData = [
-  { index: 1, categoryCode: 'S1001000', categoryName: '租赁服务', level: '一级', dirType: '专业', adminUnit: '长庆油田', source: '公开招标采购中标', bidNotice: '中标通知文件.pdf' },
-  { index: 2, categoryCode: 'S1001000', categoryName: '租赁服务', level: '二级', dirType: '通用', adminUnit: '长庆油田', source: '其他公开方式', bidNotice: '' },
-  { index: 3, categoryCode: 'S1001000', categoryName: '租赁服务', level: '二级', dirType: '专业', adminUnit: '', source: '公开招标采购中标', bidNotice: '中标通知文件.pdf' },
-  { index: 4, categoryCode: 'S1001000', categoryName: '租赁服务', level: '二级', dirType: '通用', adminUnit: '', source: '其他公开方式', bidNotice: '' },
-  { index: 5, categoryCode: 'S1001000', categoryName: '租赁服务', level: '', dirType: '', adminUnit: '', source: '', bidNotice: '' },
-  { index: 6, categoryCode: 'S1001000', categoryName: '租赁服务', level: '', dirType: '', adminUnit: '', source: '', bidNotice: '' },
+  { index: 1, categoryCode: 'S0101000', categoryName: '咨询', level: '一级', dirType: '专业', adminUnit: '长庆油田', source: '公开招标采购中标', bidNotice: '中标通知文件.pdf' },
+  { index: 2, categoryCode: 'S0201000', categoryName: '物化探服务', level: '二级', dirType: '通用', adminUnit: '长庆油田', source: '其他公开方式', bidNotice: '' },
+  { index: 3, categoryCode: 'S0301000', categoryName: '工序外协加工服务', level: '二级', dirType: '专业', adminUnit: '', source: '公开招标采购中标', bidNotice: '中标通知文件.pdf' },
+  { index: 4, categoryCode: 'S0401000', categoryName: '仓储服务', level: '二级', dirType: '通用', adminUnit: '', source: '其他公开方式', bidNotice: '' },
+  { index: 5, categoryCode: 'S0501000', categoryName: '科技项目服务', level: '', dirType: '', adminUnit: '', source: '', bidNotice: '' },
+  { index: 6, categoryCode: 'S0601000', categoryName: '软件开发服务', level: '', dirType: '', adminUnit: '', source: '', bidNotice: '' },
 ];
 
 const pendingData = [
-  { index: 1, categoryCode: 'S1001000', categoryName: '租赁服务', level: '一级', dirType: '专业', adminUnit: '长庆油田', source: '公开招标采购中标', bidCode: 'ZB12345', bidName: '炼油化工分公司设备检修服务采购', bidTime: '2026-06-01', bidNotice: '中标通知文件.pdf' },
-  { index: 2, categoryCode: 'S1001000', categoryName: '租赁服务', level: '二级', dirType: '通用', adminUnit: '长庆油田', source: '其他公开方式', bidCode: 'ZB12345', bidName: '炼油化工分公司设备检修服务采购', bidTime: '2026-06-01', bidNotice: '' },
-  { index: 3, categoryCode: 'S1001000', categoryName: '租赁服务', level: '二级', dirType: '专业', adminUnit: '', source: '公开招标采购中标', bidCode: 'ZB12345', bidName: '炼油化工分公司设备检修服务采购', bidTime: '2026-06-01', bidNotice: '中标通知文件.pdf' },
+  { index: 1, categoryCode: 'S0701000', categoryName: '银行服务', level: '一级', dirType: '专业', adminUnit: '长庆油田', source: '公开招标采购中标', bidCode: 'ZB12345', bidName: '炼油化工分公司设备检修服务采购', bidTime: '2026-06-01', bidNotice: '中标通知文件.pdf' },
+  { index: 2, categoryCode: 'S0801000', categoryName: '质量服务', level: '二级', dirType: '通用', adminUnit: '长庆油田', source: '其他公开方式', bidCode: 'ZB12345', bidName: '炼油化工分公司设备检修服务采购', bidTime: '2026-06-01', bidNotice: '' },
+  { index: 3, categoryCode: 'S0901000', categoryName: '清洁能源服务', level: '二级', dirType: '专业', adminUnit: '', source: '公开招标采购中标', bidCode: 'ZB12345', bidName: '炼油化工分公司设备检修服务采购', bidTime: '2026-06-01', bidNotice: '中标通知文件.pdf' },
   { index: 4, categoryCode: 'S1001000', categoryName: '租赁服务', level: '二级', dirType: '通用', adminUnit: '', source: '其他公开方式', bidCode: '', bidName: '', bidTime: '', bidNotice: '' },
-  { index: 5, categoryCode: 'S1001000', categoryName: '租赁服务', level: '', dirType: '', adminUnit: '', source: '', bidCode: '', bidName: '', bidTime: '', bidNotice: '' },
-  { index: 6, categoryCode: 'S1001000', categoryName: '租赁服务', level: '', dirType: '', adminUnit: '', source: '', bidCode: '', bidName: '', bidTime: '', bidNotice: '' },
+  { index: 5, categoryCode: 'S0102001', categoryName: '劳务勘查', level: '', dirType: '', adminUnit: '', source: '', bidCode: '', bidName: '', bidTime: '', bidNotice: '' },
+  { index: 6, categoryCode: 'S0201001', categoryName: '测量服务(上游）', level: '', dirType: '', adminUnit: '', source: '', bidCode: '', bidName: '', bidTime: '', bidNotice: '' },
 ];
 
 export default function ServiceDirMaintPage() {
