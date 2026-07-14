@@ -170,7 +170,7 @@ export default defineConfig(async ({ command }) => {
     ].filter(Boolean) as Plugin[],
 
     root: 'src',
-    base: '/axhub.w/',
+    base: isServe ? '/' : '/axhub.w/',
 
     optimizeDeps: {
       // React Fast Refresh 在开发态会接管 react/react-dom 的依赖预处理。
