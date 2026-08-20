@@ -1,0 +1,163 @@
+/**
+ * 专业部门审核共享数据
+ * 服务商提交的注册信息若包含专业品类，各品类并行流转至对应专业部门审核。
+ * 列表页(dept-review)与详情页(dept-detail)共用本数据。
+ */
+import { getQualAttachList } from './qualification-config';
+
+export type DeptStatus = '待审核' | '已通过' | '已驳回';
+
+export interface AttachView {
+  name: string;
+  required: boolean;
+  desc?: string;
+  fileName?: string;
+}
+
+export interface DeptTask {
+  idx: number;
+  no: string;
+  name: string;
+  creditCode: string;
+  mgmtType: string;
+  contact: string;
+  phone: string;
+  category: string;
+  categoryCode: string;
+  deptName: string;
+  time: string;
+  submitter: string;
+  status: DeptStatus;
+  detail: {
+    dirName: string;
+    dirLevel: string;
+    qualLevel: string;
+    certNo: string;
+    creditRating: string;
+    validTime: string;
+    scope: string;
+    equipment: string;
+    techAdvantage: string;
+    attachments: AttachView[];
+  };
+  steps: { step: string; unit: string; status: string; handler: string; submitTime: string; finishTime: string; approved: string; opinion: string }[];
+}
+
+export const deptOptions = ['咨询资质审核部', '勘查资质审核部', '物化探技术审核部', '装备制造审核部', '科技服务审核部'];
+export const statusOptions: DeptStatus[] = ['待审核', '已通过', '已驳回'];
+
+export const statusColor: Record<string, string> = {
+  '待审核': 'processing',
+  '已通过': 'success',
+  '已驳回': 'error',
+};
+
+const makeSteps = (record: { no: string; name: string; deptName: string; time: string; submitter: string }, status: DeptStatus) => [
+  { step: '第1步', unit: '服务商', status: '已提交', handler: record.submitter, submitTime: record.time, finishTime: record.time, approved: '—', opinion: '—' },
+  { step: '第2步', unit: '中油物采', status: '已通过', handler: '王芳', submitTime: record.time, finishTime: record.time, approved: '通过', opinion: '基础信息符合要求，转专业部门审核' },
+  { step: '第3步', unit: record.deptName, status, handler: '—', submitTime: '—', finishTime: '—', approved: '—', opinion: '—' },
+];
+
+const sampleFiles = ['资质证书扫描件.pdf', '安全生产许可证.pdf', '体系认证证书.pdf'];
+
+export const deptTaskData: DeptTask[] = [
+  {
+    idx: 1, no: 'ZB-2026-001', name: '中海油能源发展股份有限公司', creditCode: '91440300MA5F1234AB', mgmtType: '所属企业管理',
+    contact: '张明远', phone: '138****5678', category: '咨询服务', categoryCode: 'S0101000', deptName: '咨询资质审核部',
+    time: '2026-06-10 14:30', submitter: '张明远', status: '待审核',
+    detail: {
+      dirName: '工程技术服务 / 咨询服务', dirLevel: '一级',
+      qualLevel: '一级', certNo: 'D113045678', creditRating: 'AAA', validTime: '2023-06-01 至 2028-05-31',
+      scope: '石油天然气勘探开发工程技术咨询、企业管理咨询、油田化学技术服务',
+      equipment: '配备专业咨询团队及行业数据库系统，具备多项目并行咨询服务能力',
+      techAdvantage: '拥有注册咨询工程师 26 人，长期服务于油气行业投资决策与技术评估',
+      attachments: [],
+    },
+    steps: [],
+  },
+  {
+    idx: 2, no: 'ZB-2026-002', name: '杰瑞石油装备技术有限公司', creditCode: '913706005971234523', mgmtType: '总部管理',
+    contact: '李四', phone: '139****4321', category: '工序外协加工服务', categoryCode: 'S0301000', deptName: '装备制造审核部',
+    time: '2026-06-12 10:15', submitter: '李四', status: '待审核',
+    detail: {
+      dirName: '地面建设服务 / 管道工程 / 管道安装', dirLevel: '一级',
+      qualLevel: '一级', certNo: 'S303012345', creditRating: 'AA', validTime: '2024-01-01 至 2029-12-31',
+      scope: '石油装备制造、压力管道元件制造、机械加工与表面处理',
+      equipment: '拥有数控加工中心 32 台、大型焊接设备 18 台，具备年加工 8000 件套能力',
+      techAdvantage: '持有特种设备制造许可，建立了完整的焊接工艺评定与质量追溯体系',
+      attachments: [],
+    },
+    steps: [],
+  },
+  {
+    idx: 3, no: 'ZB-2026-003', name: '安东油田服务集团', creditCode: '911100007561234567', mgmtType: '所属企业管理',
+    contact: '王磊', phone: '137****9012', category: '物化探服务', categoryCode: 'S0201000', deptName: '物化探技术审核部',
+    time: '2026-06-08 09:30', submitter: '王磊', status: '已通过',
+    detail: {
+      dirName: '工程技术服务 / 油田技术服务', dirLevel: '一级',
+      qualLevel: '一级', certNo: 'W202000321', creditRating: 'AAA', validTime: '2022-06-01 至 2027-05-31',
+      scope: '地震数据采集、处理与解释，综合物化探技术服务',
+      equipment: '地震采集系统 12 套、可控震源车 48 台、高性能计算集群',
+      techAdvantage: '自主研发 GeoEast 处理解释平台，拥有 12 项核心专利技术',
+      attachments: [],
+    },
+    steps: [],
+  },
+  {
+    idx: 4, no: 'ZB-2026-004', name: '海默科技（集团）股份有限公司', creditCode: '916200007123456789', mgmtType: '总部管理',
+    contact: '赵晓峰', phone: '136****7788', category: '勘查服务', categoryCode: 'S0102000', deptName: '勘查资质审核部',
+    time: '2026-06-05 11:08', submitter: '赵晓峰', status: '已驳回',
+    detail: {
+      dirName: '工程技术服务 / 采油工程', dirLevel: '一级',
+      qualLevel: '二级', certNo: 'K201900876', creditRating: 'AA', validTime: '2021-05-01 至 2026-04-30',
+      scope: '地质勘查、钻井技术服务、油井测试',
+      equipment: '钻探设备 6 台套、测试仪器 23 台',
+      techAdvantage: '具备深层钻井勘查技术能力，拥有专利 5 项',
+      attachments: [],
+    },
+    steps: [],
+  },
+  {
+    idx: 5, no: 'ZB-2026-005', name: '新疆贝肯能源工程股份有限公司', creditCode: '916500005671234589', mgmtType: '所属企业管理',
+    contact: '陈文华', phone: '135****3344', category: '科技项目服务', categoryCode: 'S0501000', deptName: '科技服务审核部',
+    time: '2026-06-13 16:55', submitter: '陈文华', status: '待审核',
+    detail: {
+      dirName: '工程技术服务 / 油田技术服务', dirLevel: '一级',
+      qualLevel: '一级', certNo: 'KJ202400567', creditRating: 'AAA', validTime: '2024-03-01 至 2029-02-28',
+      scope: '油气田科技项目研发、成果转化与技术推广服务',
+      equipment: '研发实验室 3 个，科研仪器设备原值 4800 万元',
+      techAdvantage: '国家级高新技术企业，研发人员 120 人，近年承担省部级课题 8 项',
+      attachments: [],
+    },
+    steps: [],
+  },
+  {
+    idx: 6, no: 'ZB-2026-006', name: '通源石油技术服务股份有限公司', creditCode: '916100007891234523', mgmtType: '所属企业管理',
+    contact: '刘洋', phone: '133****5566', category: '咨询服务', categoryCode: 'S0101000', deptName: '咨询资质审核部',
+    time: '2026-06-14 08:40', submitter: '刘洋', status: '待审核',
+    detail: {
+      dirName: '工程技术服务 / 咨询服务', dirLevel: '一级',
+      qualLevel: '一级', certNo: 'D113045899', creditRating: 'AA', validTime: '2023-09-01 至 2028-08-31',
+      scope: '油气田开发技术咨询、HSE 管理咨询、项目管理咨询',
+      equipment: '咨询项目管理系统与行业案例库，咨询人员 38 人',
+      techAdvantage: '通过 ISO 9001 认证，近三年完成油气行业咨询项目 60 余项',
+      attachments: [],
+    },
+    steps: [],
+  },
+];
+
+/* 生成资质附件回显（按专业目录配置）与审批步骤 */
+deptTaskData.forEach(r => {
+  const list = getQualAttachList(r.categoryCode);
+  r.detail.attachments = list.map((item, i) => {
+    const showFile = r.status !== '已驳回' ? i < 2 : i % 2 === 0;
+    return {
+      name: item.name,
+      required: item.required,
+      desc: item.desc,
+      fileName: showFile ? sampleFiles[i] : undefined,
+    };
+  });
+  r.steps = makeSteps(r, r.status);
+});

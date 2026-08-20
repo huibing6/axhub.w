@@ -1,0 +1,12 @@
+{
+  "pages": [
+    { "name": "服务商工作台", "path": "sp" },
+    { "name": "注册管理", "path": "sp/register" },
+    { "name": "准入管理", "path": "sp/admission-progress" },
+    { "name": "信息查询", "path": "sp/progress-query" },
+    { "name": "管理工作台", "path": "admin" },
+    { "name": "注册审核", "path": "admin/reg-review" },
+    { "name": "准入管理", "path": "admin/pending-list" },
+    { "name": "参数配置", "path": "admin/config" }
+  ]
+}
