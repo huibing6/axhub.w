@@ -100,6 +100,11 @@ jobs:
                   <h3>应用首页</h3>
                   <p>应用首页参考设计，展示系统整体布局</p>
                 </a>
+                <a href="prototypes/sp2-workspace/index.html" class="card">
+                  <span class="badge badge-sp">服务商端 V2.0</span>
+                  <h3>服务商工作台2.0</h3>
+                  <p>服务商自助服务与管理模块2.0，包含注册、准入、信息变更等全流程</p>
+                </a>
               </div>
             </div>
           </body>
