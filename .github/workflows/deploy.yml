@@ -36,28 +36,75 @@ jobs:
       - name: Build sp2-workspace
         run: pnpm exec vite build --config vite.config.sp2.ts
 
-      - name: Create index.html
+      - name: Copy sp2 build to dist
         run: |
-          cat > dist-sp2/index.html << 'HTMLEOF'
+          mkdir -p dist/sp2-workspace
+          cp -r dist-sp2/sp2-workspace/* dist/sp2-workspace/
+          cp -r dist-sp2/assets dist/ 2>/dev/null || true
+
+      - name: Create sp2-workspace index.html
+        run: |
+          cat > dist/sp2-workspace/index.html << 'HTMLEOF'
           <!DOCTYPE html>
           <html lang="zh-CN">
           <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>云梦泽服务商工作台2.0</title>
+            <title>服务商工作台 2.0</title>
           </head>
           <body>
             <div id="root"></div>
-            <script type="module" src="./sp2-workspace/index.js"></script>
+            <script type="module" src="./index.js"></script>
           </body>
           </html>
           HTMLEOF
-          touch dist-sp2/.nojekyll
+
+      - name: Create root index.html
+        run: |
+          cat > dist/index.html << 'HTMLEOF'
+          <!DOCTYPE html>
+          <html lang="zh-CN">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>服务商管理系统 - 原型演示</title>
+            <style>
+              * { margin: 0; padding: 0; box-sizing: border-box; }
+              body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+              .container { max-width: 800px; width: 100%; padding: 40px 20px; }
+              h1 { text-align: center; color: #1a1a1a; margin-bottom: 8px; font-size: 28px; }
+              .subtitle { text-align: center; color: #666; margin-bottom: 40px; font-size: 14px; }
+              .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+              .card { background: #fff; border-radius: 12px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.2s; border: 1px solid #e8e8e8; }
+              .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: #ff4d4f; }
+              .card h3 { font-size: 16px; margin-bottom: 8px; color: #1a1a1a; }
+              .card p { font-size: 13px; color: #888; line-height: 1.5; }
+              .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; margin-bottom: 12px; }
+              .badge-admin { background: #e6f4ff; color: #1677ff; }
+              .badge-sp { background: #fff1f0; color: #ff4d4f; }
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h1>服务商管理系统</h1>
+              <p class="subtitle">中国石油天然气集团有限公司服务采购管理办法（试行）原型演示</p>
+              <div class="grid">
+                <a href="sp2-workspace/" class="card">
+                  <span class="badge badge-sp">服务商端</span>
+                  <h3>服务商工作台 2.0</h3>
+                  <p>服务商端主工作台，包含注册、准入、品类变更、冻结解冻、服务管理等全流程功能</p>
+                </a>
+              </div>
+            </div>
+          </body>
+          </html>
+          HTMLEOF
+          touch dist/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist-sp2
+          path: ./dist
 
   deploy:
     environment:
