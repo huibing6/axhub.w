@@ -8,10 +8,7 @@ const projectRoot = process.cwd();
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    react({
-      jsxRuntime: 'classic',
-      babel: { configFile: false, babelrc: false }
-    }),
+    react(),
   ],
   root: 'src',
   base: './',
@@ -36,10 +33,5 @@ export default defineConfig({
     alias: [
       { find: '@', replacement: path.resolve(projectRoot, 'src') },
     ],
-  },
-  esbuild: {
-    jsx: 'transform',
-    jsxFactory: 'React.createElement',
-    jsxFragment: 'React.Fragment'
   },
 });
