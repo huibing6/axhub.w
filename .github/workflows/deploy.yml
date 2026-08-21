@@ -17,7 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,6 +33,37 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Vendor sync & scan entries
+        run: pnpm vendor:sync && node scripts/scan-entries.js
+
+      - name: Build prototypes (admin-workspace)
+        run: npx vite build
+        env:
+          ENTRY_KEY: prototypes/admin-workspace
+
+      - name: Build prototypes (sp-workspace)
+        run: npx vite build
+        env:
+          ENTRY_KEY: prototypes/sp-workspace
+
+      - name: Build prototypes (petroleum-portal)
+        run: npx vite build
+        env:
+          ENTRY_KEY: prototypes/petroleum-portal
+
+      - name: Build prototypes (site-inspection)
+        run: npx vite build
+        env:
+          ENTRY_KEY: prototypes/site-inspection
+
+      - name: Build prototypes (ref-app-home)
+        run: npx vite build
+        env:
+          ENTRY_KEY: prototypes/ref-app-home
+
+      - name: Generate static HTML for prototypes
+        run: node scripts/generate-dist-html.js
+
       - name: Build sp2-workspace
         run: pnpm exec vite build --config vite.config.sp2.ts
 
@@ -40,7 +71,6 @@ jobs:
         run: |
           mkdir -p dist/sp2-workspace
           cp -r dist-sp2/sp2-workspace/* dist/sp2-workspace/
-          cp -r dist-sp2/assets dist/ 2>/dev/null || true
 
       - name: Create sp2-workspace index.html
         run: |
@@ -82,6 +112,7 @@ jobs:
               .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500; margin-bottom: 12px; }
               .badge-admin { background: #e6f4ff; color: #1677ff; }
               .badge-sp { background: #fff1f0; color: #ff4d4f; }
+              .badge-portal { background: #fff7e6; color: #fa8c16; }
             </style>
           </head>
           <body>
@@ -89,10 +120,35 @@ jobs:
               <h1>服务商管理系统</h1>
               <p class="subtitle">中国石油天然气集团有限公司服务采购管理办法（试行）原型演示</p>
               <div class="grid">
+                <a href="prototypes/admin-workspace.html" class="card">
+                  <span class="badge badge-admin">管理端</span>
+                  <h3>管理工作台</h3>
+                  <p>管理端主工作台，包含采购管理、合同管理、服务商管理等功能入口</p>
+                </a>
                 <a href="sp2-workspace/" class="card">
                   <span class="badge badge-sp">服务商端</span>
                   <h3>服务商工作台 2.0</h3>
                   <p>服务商端主工作台，包含注册、准入、品类变更、冻结解冻、服务管理等全流程功能</p>
+                </a>
+                <a href="prototypes/sp-workspace.html" class="card">
+                  <span class="badge badge-sp">服务商端</span>
+                  <h3>服务商工作台</h3>
+                  <p>服务商端主工作台，包含项目申报、合同管理、履约管理等功能</p>
+                </a>
+                <a href="prototypes/petroleum-portal.html" class="card">
+                  <span class="badge badge-portal">门户</span>
+                  <h3>石油门户</h3>
+                  <p>统一门户入口，集成公告、通知、快捷入口等</p>
+                </a>
+                <a href="prototypes/site-inspection.html" class="card">
+                  <span class="badge badge-admin">管理端</span>
+                  <h3>现场检查</h3>
+                  <p>QHSE现场检查管理，检查计划、执行、整改全流程</p>
+                </a>
+                <a href="prototypes/ref-app-home.html" class="card">
+                  <span class="badge badge-portal">参考</span>
+                  <h3>应用首页</h3>
+                  <p>应用首页参考设计，展示系统整体布局</p>
                 </a>
               </div>
             </div>
