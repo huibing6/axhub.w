@@ -6,6 +6,7 @@
  * 管理端：工作台 + 注册审核 + 准入管理 + 信息变更 + 处置管理 + MDG + 查询 + 配置
  * 使用 YMZEC 主题系统 (colorPrimary: #ff4d4f)
  */
+import './style.css';
 import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { ConfigProvider, Layout, theme, Typography, Segmented } from 'antd';
 import PortalLayout from './common/portal-layout';
@@ -255,3 +256,10 @@ function App() {
 }
 
 export default App;
+
+if (typeof window !== 'undefined') {
+  import('react-dom/client').then(({ createRoot }) => {
+    const root = createRoot(document.getElementById('root')!);
+    root.render(<App />);
+  });
+}
