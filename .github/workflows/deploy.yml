@@ -70,7 +70,9 @@ jobs:
       - name: Copy sp2 build to dist
         run: |
           mkdir -p dist/sp2-workspace
-          cp -r dist-sp2/sp2-workspace/* dist/sp2-workspace/
+          cp dist-sp2/sp2-workspace/index.js dist/sp2-workspace/index.js
+          mkdir -p dist/assets
+          cp dist-sp2/assets/* dist/assets/
 
       - name: Create sp2-workspace index.html
         run: |
