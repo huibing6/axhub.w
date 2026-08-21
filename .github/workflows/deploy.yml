@@ -34,7 +34,7 @@ jobs:
         run: pnpm install
 
       - name: Build sp2-workspace
-        run: npx vite build --config vite.config.sp2.ts
+        run: pnpm exec vite build --config vite.config.sp2.ts
 
       - name: Create index.html
         run: |
