@@ -17,7 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,35 +34,25 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Sync vendor packages
-        run: pnpm vendor:sync
-
-      - name: Scan entries
-        run: node scripts/scan-entries.js
-
       - name: Build sp2-workspace
         run: pnpm exec vite build --config vite.config.sp2.ts
 
-      - name: Prepare dist-sp2
+      - name: Create index.html
         run: |
-          mkdir -p dist-sp2/sp2-workspace
-          cp dist/prototypes/sp2-workspace/index.js dist-sp2/sp2-workspace/index.js
-          cp -r dist/assets dist-sp2/assets
-          cat > dist-sp2/index.html << 'EOF'
+          cat > dist-sp2/index.html << 'HTMLEOF'
           <!DOCTYPE html>
           <html lang="zh-CN">
           <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <title>云梦泽服务商工作台2.0</title>
-            <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛽</text></svg>" />
           </head>
           <body>
             <div id="root"></div>
             <script type="module" src="./sp2-workspace/index.js"></script>
           </body>
           </html>
-          EOF
+          HTMLEOF
           touch dist-sp2/.nojekyll
 
       - name: Upload artifact
