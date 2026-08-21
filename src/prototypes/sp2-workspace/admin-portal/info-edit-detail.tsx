@@ -4,6 +4,7 @@
  * 复用信息录入共享组件，确保内容一致
  * 默认定位到 MDG信息 Tab
  */
+import React from 'react';
 import { useState } from 'react';
 import { Typography, Card, Space, Button, Form, Row, message, Tag } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, SaveOutlined } from '@ant-design/icons';

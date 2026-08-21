@@ -2,6 +2,7 @@
  * @name 系统通知编辑
  * 新增/编辑页面（独立子页面）
  */
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { theme, Typography, Form, Input, Select, Button, Card, Divider, Space, Upload, message } from 'antd';
 import { UploadOutlined, PlusOutlined, DeleteOutlined } from '@ant-design/icons';

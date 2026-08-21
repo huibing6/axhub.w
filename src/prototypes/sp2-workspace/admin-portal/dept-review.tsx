@@ -4,6 +4,7 @@
  * 业务场景：服务商提交的注册信息若包含专业品类，则各专业品类并行分流至对应专业部门审核；
  * 各品类独立审核、互不排斥。点击查看/审核进入审核详情页面（admin/dept-detail）。
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Input, Button, Table, Tag, Select } from 'antd';
 import ProgressQueryModal from '@/components/progress-query-modal';

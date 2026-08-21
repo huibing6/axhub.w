@@ -2,6 +2,7 @@
  * @name 准入通知模板维护（新建/编辑）
  * 区块：基本信息 / 分组表单配置 / 文件描述 / 资质附件
  */
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Typography, Input, Button, Table, Card, Space, Row, Col, Select, Tag, message, Divider } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';

@@ -3,6 +3,7 @@
  * 服务商管理工作台2.0 - 专业部门审核详情
  * 回显服务商提交的注册信息，审核侧重服务品类（品类资质信用/服务能力/按目录配置的资质附件）。
  */
+import React from 'react';
 import { useMemo, useState } from 'react';
 import { theme, Typography, Card, Space, Button, Table, Tabs, Tag, Form, Input, Radio, Descriptions, message } from 'antd';
 import { deptTaskData, statusColor, type DeptTask } from '../common/dept-data';

@@ -1,6 +1,7 @@
 /**
  * @name 准入通知配置（列表页）
  */
+import React from 'react';
 import { useState } from 'react';
 import { Typography, Button, Table, Card, Row, Col, Space, Select, Modal, message } from 'antd';
 

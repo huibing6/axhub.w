@@ -1,6 +1,7 @@
 /**
  * @name 注册服务商信息维护
  */
+import React from 'react';
 import { useState } from 'react';
 import { ConfirmDialog } from '../common/components';
 import {

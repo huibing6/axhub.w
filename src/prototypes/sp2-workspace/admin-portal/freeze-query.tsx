@@ -2,6 +2,7 @@
  * @name 冻结解冻查询
  * 对齐原版：双Tab（服务商冻结解冻查询/服务品类冻结解冻查询）+ 搜索折叠 + 更多操作
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Input, Select, Button, Table, Tabs, Row, Col, DatePicker, message } from 'antd';
 

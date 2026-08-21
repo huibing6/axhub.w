@@ -1,6 +1,7 @@
 /**
  * @name 服务品类解冻申请创建
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Form, Input, Select, Button, Card, Divider, Space, Upload, Table, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';

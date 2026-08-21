@@ -2,6 +2,7 @@
  * @name 冻结申请
  * 对齐原版：双Tab（服务商冻结/服务品类冻结）+ 搜索折叠 + 更多操作
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Input, Select, Button, Table, Row, Col, DatePicker, Tabs, message } from 'antd';
 

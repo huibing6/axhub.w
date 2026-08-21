@@ -1,6 +1,7 @@
 /**
  * @name 冻结解冻查询
  */
+import React from 'react';
 import { useState } from 'react';
 import { Tabs, Table, Typography } from 'antd';
 

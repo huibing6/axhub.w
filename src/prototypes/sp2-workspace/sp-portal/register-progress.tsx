@@ -4,6 +4,7 @@
  * 多专业品类并行审核、互不排斥：任一品类通过即服务商注册成功，
  * 其余品类继续各自审批，通过后补充纳入；注册成功后进入 MDG 配码环节。
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Card, Typography, Space, Select, Row, Col, Tag, Button, message } from 'antd';
 import {

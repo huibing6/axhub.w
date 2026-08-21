@@ -2,6 +2,7 @@
  * @name 变更详情
  * 对齐原版：变更信息 + 变更前后对比 + 审批状态时间线 + 审批记录
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Button, Table, Descriptions, Modal, message } from 'antd';
 

@@ -6,6 +6,7 @@
  * 2) 已注册服务品类：可剔除（即时生效，需填写剔除原因并记录）；
  * 3) 未注册品类新增入口：维护服务品类 → 从完整服务目录（专业+通用）自由选择新增。
  */
+import React from 'react';
 import { useState } from 'react';
 import { useFilterData } from '../common/hooks';
 import { Table, Input, Button, Card, Row, Col, Typography, Space, message, Modal, Form, Tabs, Tag } from 'antd';

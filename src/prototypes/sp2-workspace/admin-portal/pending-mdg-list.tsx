@@ -2,6 +2,7 @@
  * @name 待更新MDG
  * 信息变更 → 待更新MDG，列表+查看跳转详情
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Input, Select, Button, Table, Tag, message } from 'antd';
 import { useFilterData } from '../common/hooks';

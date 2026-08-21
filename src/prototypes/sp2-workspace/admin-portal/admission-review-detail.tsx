@@ -2,6 +2,7 @@
  * @name 信息复核详情
  * 对齐原版：6个Tab（基本信息/服务品类/资质信息/要件信息/MDG信息/审批意见），默认定位审批意见
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Button, Tabs, Tag, Timeline, Input, Radio, Table, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';

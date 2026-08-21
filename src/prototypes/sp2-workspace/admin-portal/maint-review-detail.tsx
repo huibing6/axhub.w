@@ -2,6 +2,7 @@
  * @name 维护复核详情
  * 对齐原版：5Tab（基本信息/资质信息/要件信息/MDG信息/审批意见），默认审批意见
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Button, Tabs, Table, Timeline, Input, Radio, Upload, Form, message } from 'antd';
 import { ArrowLeftOutlined, UploadOutlined } from '@ant-design/icons';

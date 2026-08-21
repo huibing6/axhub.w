@@ -1,6 +1,7 @@
 /**
  * @name 专业类型管理（列表页）
  */
+import React from 'react';
 import { useState } from 'react';
 import { Typography, Button, Table, Tag, Card, Row, Col, Space, Select, Input, Modal, Checkbox, message } from 'antd';
 

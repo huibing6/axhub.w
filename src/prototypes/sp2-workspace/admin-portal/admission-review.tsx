@@ -2,6 +2,7 @@
  * @name 信息复核
  * 对齐原版列表：更多列 + 查看/复核跳转详情
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Input, Button, Table, Tag } from 'antd';
 

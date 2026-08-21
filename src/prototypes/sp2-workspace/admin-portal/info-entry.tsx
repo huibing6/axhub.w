@@ -1,6 +1,7 @@
 /**
  * @name 信息录入
  */
+import React from 'react';
 import { useState, useCallback, useEffect } from 'react';
 import { Typography, Card, Space, Button, Steps, Form, Row, message, Modal, Descriptions, Tag } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, SaveOutlined, EyeOutlined } from '@ant-design/icons';

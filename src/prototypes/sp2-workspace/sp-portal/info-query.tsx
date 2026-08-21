@@ -2,6 +2,7 @@
  * @name 信息查询
  * Read-only view of admission information
  */
+import React from 'react';
 import { Card, Form, Input, Row, Col, Typography, Button, Radio } from 'antd';
 
 function ReadonlyField({ label, value, required }: { label: string; value: string; required?: boolean }) {

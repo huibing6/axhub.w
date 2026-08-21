@@ -2,6 +2,7 @@
  * @name 维护编辑
  * 对齐原版：双Tab（基本信息维护/服务品类维护）+ 独立列配置
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Input, Button, Table, Tabs, Tag } from 'antd';
 import { useFilterData } from '../common/hooks';

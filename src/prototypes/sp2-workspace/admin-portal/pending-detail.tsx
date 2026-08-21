@@ -3,6 +3,7 @@
  * 服务商管理工作台2.0 - 待配码库单据详情
  * 只读查看：基本信息 / 服务品类 / 资质信息
  */
+import React from 'react';
 import { useState, useMemo } from 'react';
 import { theme, Typography, Card, Space, Table, Tabs, Tag } from 'antd';
 

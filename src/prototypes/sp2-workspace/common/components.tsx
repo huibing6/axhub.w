@@ -2,6 +2,7 @@
  * @name CommonComponents
  * 服务商2.0 - 公共组件
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Card, Typography, Tag, Space, Button, Modal, message, Upload, Input } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';

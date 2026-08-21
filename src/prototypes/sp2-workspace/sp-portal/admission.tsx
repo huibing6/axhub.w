@@ -2,6 +2,7 @@
  * @name 服务商准入资料
  * 两级结构：补充资料通知列表（各使用单位发送）→ 详情4Tab（回显注册资料+按该使用单位模板补充）。
  */
+import React from 'react';
 import { useState } from 'react';
 import {
   theme, Tabs, Card, Form, Input, Select, Radio, Row, Col, Typography,

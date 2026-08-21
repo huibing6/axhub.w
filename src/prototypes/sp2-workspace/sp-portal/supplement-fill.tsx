@@ -2,6 +2,7 @@
  * @name 服务商补充资料填写
  * 按模板配置渲染分组表单：人员情况 / 经营情况 / 服务业绩 等
  */
+import React from 'react';
 import { useState } from 'react';
 import { Typography, Input, Button, Card, Row, Col, Upload, Tag, message, Divider } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';

@@ -1,6 +1,7 @@
 /**
  * @name 参数配置
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Input, Button, Table, Tabs, Card, Space, Row, Col, Tag, Switch, Select, Modal, Checkbox, message, Form } from 'antd';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';

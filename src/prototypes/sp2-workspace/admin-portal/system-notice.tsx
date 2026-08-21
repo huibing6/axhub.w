@@ -2,6 +2,7 @@
  * @name 系统通知配置
  * 列表页面，点击新增/编辑跳转到子页面
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Input, Select, Button, Table, Card, Row, Col, Tag, Space, Modal, message } from 'antd';
 import { systemNoticeData, type SystemNotice } from '../common/qualification-config';

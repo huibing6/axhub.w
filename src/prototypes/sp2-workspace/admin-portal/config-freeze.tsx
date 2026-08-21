@@ -1,4 +1,5 @@
 /** @name 冻结资质文件设定 */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Button, Card, Space, Checkbox, Modal, message } from 'antd';
 

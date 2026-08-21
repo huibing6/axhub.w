@@ -2,6 +2,7 @@
  * @name 补充MDG信息
  * 待配码库 → 补充MDG，复用MDGCards共享组件
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Button, Form, message } from 'antd';
 import { ArrowLeftOutlined } from '@ant-design/icons';

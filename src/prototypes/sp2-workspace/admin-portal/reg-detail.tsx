@@ -2,6 +2,7 @@
  * @name 注册审核详情
  * 服务商管理工作台2.0 - 注册审核详情
  */
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { theme, Typography, Card, Space, Button, Descriptions, Table, Tabs, Tag, Form, Input, Radio, Select, DatePicker, Checkbox, message } from 'antd';
 import { ReviewModal } from '../common/components';

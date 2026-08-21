@@ -1,6 +1,7 @@
 /**
  * @name 进度查询
  */
+import React from 'react';
 import { useState } from 'react';
 import { Tabs, Table, Typography, Space } from 'antd';
 

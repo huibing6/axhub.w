@@ -2,6 +2,7 @@
  * @name 专业类型维护（新建/编辑）
  * 区块：基本信息 / 注册字段配置 / 资质附件配置 / 审核成员 / 关联服务品类
  */
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { Typography, Input, Button, Table, Card, Space, Row, Col, Tag, Checkbox, Select, message, Divider } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';

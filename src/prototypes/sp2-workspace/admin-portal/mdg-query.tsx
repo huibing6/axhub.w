@@ -1,6 +1,7 @@
 /**
  * @name MDG信息查询
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Input, Select, Button, Table, Tag, Modal, Descriptions, message } from 'antd';
 import { useFilterData } from '../common/hooks';

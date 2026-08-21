@@ -1,6 +1,7 @@
 /**
  * @name 合格服务商查询
  */
+import React from 'react';
 import { useState } from 'react';
 import { Typography, Input, Select, Button, Table, Card, Row, Col, Tabs, Form, Space } from 'antd';
 

@@ -4,6 +4,7 @@
  * 独立编辑页：从列表 "编辑" 进入（?code= 回显对应品类），可继续添加品类，
  * 按品类类型填写不同资质（专业：资质信用+按目录配置的资质附件+服务能力；通用：无需附件）。
  */
+import React from 'react';
 import { useState } from 'react';
 import {
   Card, Form, Table, Typography, Space, Input, Select, Row, Col, Upload, Button, message,

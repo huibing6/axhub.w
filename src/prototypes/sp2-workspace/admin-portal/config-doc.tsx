@@ -1,4 +1,5 @@
 /** @name 要件配置 */
+import React from 'react';
 import { useState } from 'react';
 import { Typography, Input, Select, Button, Table, Card, Row, Col, Checkbox, Space } from 'antd';
 

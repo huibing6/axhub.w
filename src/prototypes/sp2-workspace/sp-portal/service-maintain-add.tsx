@@ -4,6 +4,7 @@
  * 服务商可自由从专业/通用目录（无范围限制）选择任意品类，按品类类型填写不同资质：
  * 专业品类需资质信用+资质附件（按专业目录配置）+服务能力；通用品类无需资质附件。
  */
+import React from 'react';
 import { useState } from 'react';
 import {
   Card, Form, Table, Typography, Space, Input, Select, Row, Col, Upload, Button, message,

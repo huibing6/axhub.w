@@ -1,6 +1,7 @@
 /**
  * @name 注册服务商
  */
+import React from 'react';
 import { useState, useCallback } from 'react';
 import {
   theme, Steps, Card, Form, Input, Select, Radio, Row, Col, Typography,

@@ -4,6 +4,7 @@
  * 服务商可自由选择专业目录与通用目录下的任意品类（无范围限制），
  * 与注册服务商/信息维护/准入资料中的"选择服务目录"交互一致。
  */
+import React from 'react';
 import { useState } from 'react';
 import { Modal, Input, Space, Typography, Button as AntButton } from 'antd';
 

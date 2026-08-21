@@ -2,6 +2,7 @@
  * @name PortalLayout
  * 服务商2.0 - 统一门户布局（顶栏+侧边菜单+内容区）
  */
+import React from 'react';
 import { useState, useEffect, useMemo } from 'react';
 import { ConfigProvider, Layout, theme, Typography } from 'antd';
 import SideMenu from '../../../components/side-menu';

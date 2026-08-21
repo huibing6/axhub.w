@@ -3,6 +3,7 @@
  * 服务商管理工作台2.0 - 注册信息查询（历史单据）
  * 以申请单维度查看所有提交记录与审批记录（服务商提交→中油物采→各专业部门并行审核）。
  */
+import React from 'react';
 import { useState } from 'react';
 import { Typography, Card, Space, Input, Button, Table, Tag, Select } from 'antd';
 import ProgressQueryModal from '@/components/progress-query-modal';

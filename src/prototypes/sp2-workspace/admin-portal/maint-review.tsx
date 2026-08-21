@@ -2,6 +2,7 @@
  * @name 维护复核
  * 对齐原版：双Tab（服务商信息复核/服务目录复核）+ 独立列配置
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Typography, Card, Space, Input, Button, Table, Tabs } from 'antd';
 import { useFilterData } from '../common/hooks';

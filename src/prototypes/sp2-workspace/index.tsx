@@ -7,6 +7,7 @@
  * 使用 YMZEC 主题系统 (colorPrimary: #ff4d4f)
  */
 import './style.css';
+import React from 'react';
 import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ConfigProvider, Layout, theme, Typography, Segmented } from 'antd';

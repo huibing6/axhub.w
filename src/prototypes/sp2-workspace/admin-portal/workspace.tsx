@@ -2,6 +2,7 @@
  * @name 管理工作台
  * 服务商管理工作台2.0 - 首页仪表盘
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Card, Table, Tag, Typography, Row, Col, Statistic, Space, Button, List, Badge } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined, MinusOutlined, RightOutlined } from '@ant-design/icons';

@@ -1,6 +1,7 @@
 /**
  * @name 服务商工作台
  */
+import React from 'react';
 import { useState } from 'react';
 import { theme, Card, Button, Typography, Space, Row, Col, Modal, message } from 'antd';
 import { getPublishedNotifications, getPublishedManuals } from '../common/qualification-config';
