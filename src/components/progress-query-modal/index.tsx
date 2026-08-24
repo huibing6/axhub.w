@@ -1,4 +1,4 @@
-import { Modal, Timeline, Tag, Typography, Space } from 'antd';
+import { Modal, Table, Typography, Button } from 'antd';
 
 interface StepItem {
   step: string;
@@ -18,13 +18,19 @@ interface Props {
   onClose: () => void;
 }
 
-const statusColor: Record<string, string> = {
-  '已通过': 'success',
-  '已驳回': 'error',
-  '已提交': 'processing',
-  '已配码': 'success',
-  '审核中': 'processing',
-};
+const columns = [
+  { key: 'step', title: '步骤', dataIndex: 'step', width: 80 },
+  {
+    key: 'unit', title: '受理单位', dataIndex: 'unit', width: 120,
+    render: (v: string) => <Typography.Text style={{ color: '#ff4d4f' }}>{v}</Typography.Text>,
+  },
+  { key: 'status', title: '状态', dataIndex: 'status', width: 90 },
+  { key: 'handler', title: '受理人', dataIndex: 'handler', width: 100 },
+  { key: 'submitTime', title: '受理时间', dataIndex: 'submitTime', width: 170 },
+  { key: 'finishTime', title: '完成时间', dataIndex: 'finishTime', width: 170 },
+  { key: 'approved', title: '审批是否通过', dataIndex: 'approved', width: 120 },
+  { key: 'opinion', title: '处理意见', dataIndex: 'opinion', ellipsis: true },
+];
 
 export default function ProgressQueryModal({ open, title = '进度流程查询', data, onClose }: Props) {
   return (
@@ -32,30 +38,20 @@ export default function ProgressQueryModal({ open, title = '进度流程查询',
       open={open}
       title={title}
       onCancel={onClose}
-      footer={null}
-      width={680}
+      width={960}
+      footer={
+        <Button type="primary" danger onClick={onClose}>关闭</Button>
+      }
       destroyOnClose
     >
-      <Timeline
-        style={{ marginTop: 24 }}
-        items={data.map((item) => ({
-          color: item.approved === '驳回' ? 'red' : item.approved === '通过' ? 'green' : 'blue',
-          children: (
-            <div key={item.step + item.unit}>
-              <Space style={{ marginBottom: 4 }}>
-                <Typography.Text strong>{item.step} - {item.unit}</Typography.Text>
-                <Tag color={statusColor[item.status] || 'default'}>{item.status}</Tag>
-              </Space>
-              <div style={{ fontSize: 13, color: '#666', lineHeight: 2 }}>
-                <div>审核人：{item.handler}</div>
-                <div>提交时间：{item.submitTime}</div>
-                <div>完成时间：{item.finishTime}</div>
-                {item.approved !== '—' && <div>审核结论：<Tag color={item.approved === '通过' ? 'green' : 'red'}>{item.approved}</Tag></div>}
-                {item.opinion !== '—' && <div>审核意见：{item.opinion}</div>}
-              </div>
-            </div>
-          ),
-        }))}
+      <Table
+        columns={columns}
+        dataSource={data.map((item, i) => ({ ...item, _key: i }))}
+        rowKey="_key"
+        pagination={false}
+        bordered
+        size="middle"
+        style={{ marginTop: 16 }}
       />
     </Modal>
   );
