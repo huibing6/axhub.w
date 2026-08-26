@@ -45,6 +45,7 @@ const AdmissionReviewDetail = lazy(() => import('./admin-portal/admission-review
 const AdmissionQuery = lazy(() => import('./admin-portal/admission-query'));
 const MaintEdit = lazy(() => import('./admin-portal/maint-edit'));
 const MaintReview = lazy(() => import('./admin-portal/maint-review'));
+const MaintEditCreate = lazy(() => import('./admin-portal/maint-edit-create'));
 const MaintReviewDetail = lazy(() => import('./admin-portal/maint-review-detail'));
 const MaintQuery = lazy(() => import('./admin-portal/maint-query'));
 const ChangeDetail = lazy(() => import('./admin-portal/change-detail'));
@@ -59,8 +60,11 @@ const FreezeQueryAdmin = lazy(() => import('./admin-portal/freeze-query'));
 const ReviewAdmin = lazy(() => import('./admin-portal/review'));
 const MdgQuery = lazy(() => import('./admin-portal/mdg-query'));
 const SpQueryQualified = lazy(() => import('./admin-portal/sp-query-qualified'));
+const SpQueryQualifiedDetail = lazy(() => import('./admin-portal/sp-query-qualified-detail'));
 const SpQueryFormal = lazy(() => import('./admin-portal/sp-query-formal'));
+const SpQueryFormalDetail = lazy(() => import('./admin-portal/sp-query-formal-detail'));
 const SpQueryProcess = lazy(() => import('./admin-portal/sp-query-process'));
+const SpQueryProcessDetail = lazy(() => import('./admin-portal/sp-query-process-detail'));
 const ConfigDir = lazy(() => import('./admin-portal/config-dir'));
 const ConfigDirEdit = lazy(() => import('./admin-portal/config-dir-edit'));
 const ConfigDoc = lazy(() => import('./admin-portal/config-doc'));
@@ -70,6 +74,10 @@ const ConfigNoticeEdit = lazy(() => import('./admin-portal/config-notice-edit'))
 const SupplementFill = lazy(() => import('./sp-portal/supplement-fill'));
 const SystemNotice = lazy(() => import('./admin-portal/system-notice'));
 const SystemNoticeEdit = lazy(() => import('./admin-portal/system-notice-edit'));
+const ConfigThirdparty = lazy(() => import('./admin-portal/config-thirdparty'));
+const ConfigThirdpartyEdit = lazy(() => import('./admin-portal/config-thirdparty-edit'));
+const ConfigTag = lazy(() => import('./admin-portal/config-tag'));
+const ConfigTagEdit = lazy(() => import('./admin-portal/config-tag-edit'));
 
 /* ─── 路由映射 ─── */
 const spPageMap: Record<string, React.LazyExoticComponent<any>> = {
@@ -104,7 +112,7 @@ const adminPageMap: Record<string, React.LazyExoticComponent<any>> = {
   '/admin/admission-review-detail': AdmissionReviewDetail,
   '/admin/admission-query': AdmissionQuery,
   '/admin/maint-edit': MaintEdit,
-  '/admin/maint-edit-detail': MaintEdit,
+  '/admin/maint-edit-create': MaintEditCreate,
   '/admin/maint-review': MaintReview,
   '/admin/maint-review-detail': MaintReviewDetail,
   '/admin/maint-query': MaintQuery,
@@ -120,8 +128,11 @@ const adminPageMap: Record<string, React.LazyExoticComponent<any>> = {
   '/admin/review': ReviewAdmin,
   '/admin/mdg-query': MdgQuery,
   '/admin/sp-query-qualified': SpQueryQualified,
+  '/admin/sp-query-qualified-detail': SpQueryQualifiedDetail,
   '/admin/sp-query-formal': SpQueryFormal,
+  '/admin/sp-query-formal-detail': SpQueryFormalDetail,
   '/admin/sp-query-process': SpQueryProcess,
+  '/admin/sp-query-process-detail': SpQueryProcessDetail,
   '/admin/config-dir': ConfigDir,
   '/admin/config-dir-edit': ConfigDirEdit,
   '/admin/config-doc': ConfigDoc,
@@ -130,6 +141,10 @@ const adminPageMap: Record<string, React.LazyExoticComponent<any>> = {
   '/admin/config-notice-edit': ConfigNoticeEdit,
   '/admin/system-notice': SystemNotice,
   '/admin/system-notice-edit': SystemNoticeEdit,
+  '/admin/config-thirdparty': ConfigThirdparty,
+  '/admin/config-thirdparty-edit': ConfigThirdpartyEdit,
+  '/admin/config-tag': ConfigTag,
+  '/admin/config-tag-edit': ConfigTagEdit,
 };
 
 const { Text } = Typography;

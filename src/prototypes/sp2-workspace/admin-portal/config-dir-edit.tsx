@@ -7,6 +7,18 @@ import { useState, useEffect } from 'react';
 import { Typography, Input, Button, Table, Card, Space, Row, Col, Tag, Checkbox, Select, message, Divider } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
+/* ─── 集成系统模拟数据（从集成系统配置页面获取） ─── */
+const integrationSystems = [
+  { id: '1', name: '钻井工程资质管理系统', code: 'ZJGC' },
+  { id: '2', name: '物化探服务管理系统', code: 'WHT-FW' },
+  { id: '3', name: '管道工程安全监管平台', code: 'GD-GC' },
+];
+
+const integrationOptions = integrationSystems.map(s => ({
+  label: `${s.name}（${s.code}）`,
+  value: s.id,
+}));
+
 /* ─── 树形数据 ─── */
 interface TreeNode {
   label: string;
@@ -42,7 +54,7 @@ const treeData: TreeNode[] = [
 ];
 
 /* ─── 预填数据（模拟从列表进入编辑） ─── */
-const mockData: Record<number, { name: string; description: string; instructions: string; fields: FieldItem[]; quals: QualItem[]; members: MemberItem[]; catKeys: string[] }> = {
+const mockData: Record<number, { name: string; description: string; instructions: string; fields: FieldItem[]; quals: QualItem[]; members: MemberItem[]; catKeys: string[]; integrationSystemIds: string[] }> = {
   1: {
     name: '法律专业',
     description: '涵盖企业法律顾问、合同审查、知识产权、劳动法务等法律相关服务领域。',
@@ -63,6 +75,7 @@ const mockData: Record<number, { name: string; description: string; instructions
       { id: 2, name: '李明', empNo: 'T0345124', dept: '专业管理部' },
     ],
     catKeys: ['gc-zj'],
+    integrationSystemIds: [],
   },
   2: {
     name: '钻井工程专业',
@@ -91,6 +104,7 @@ const mockData: Record<number, { name: string; description: string; instructions
       { id: 5, name: '周涛', empNo: 'T0345129', dept: '质量管理部' },
     ],
     catKeys: ['gc-zj', 'gc-cy', 'gc-yc'],
+    integrationSystemIds: ['1', '2'],
   },
 };
 
@@ -155,6 +169,7 @@ export default function ConfigDirEdit() {
   const [quals, setQuals] = useState<QualItem[]>([]);
   const [members, setMembers] = useState<MemberItem[]>([]);
   const [catKeys, setCatKeys] = useState<string[]>([]);
+  const [integrationSystemIds, setIntegrationSystemIds] = useState<string[]>([]);
 
   const [newFieldName, setNewFieldName] = useState('');
   const [newFieldType, setNewFieldType] = useState('文本');
@@ -178,6 +193,7 @@ export default function ConfigDirEdit() {
       setQuals(d.quals);
       setMembers(d.members);
       setCatKeys(d.catKeys);
+      setIntegrationSystemIds(d.integrationSystemIds);
     }
   }, [editSeq, isEdit]);
 
@@ -349,6 +365,31 @@ export default function ConfigDirEdit() {
             <TreeNodeView key={i} node={node} defaultExpanded selectedKeys={catKeys} onToggle={handleToggleCat} />
           ))}
         </div>
+      </Card>
+
+      {/* 区块6: 集成系统配置 */}
+      <Card size="small" variant="outlined" style={{ marginBottom: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <div style={{ width: 4, height: 16, borderRadius: 4, background: '#ff4d4f' }} />
+            <Typography.Text strong style={{ fontSize: 14 }}>集成系统配置</Typography.Text>
+            <Typography.Text type="secondary" style={{ fontSize: 12 }}>该专业类型关联的集成系统，服务商注册审核通过后将自动推送数据至对应系统</Typography.Text>
+          </div>
+        </div>
+        <Select
+          mode="multiple"
+          value={integrationSystemIds}
+          onChange={setIntegrationSystemIds}
+          options={integrationOptions}
+          placeholder="请选择关联的集成系统（可多选）"
+          style={{ width: '100%' }}
+          maxTagCount="responsive"
+        />
+        {integrationSystemIds.length > 0 && (
+          <div style={{ marginTop: 8, fontSize: 12, color: '#666' }}>
+            已选择 {integrationSystemIds.length} 个集成系统
+          </div>
+        )}
       </Card>
 
       <Divider />

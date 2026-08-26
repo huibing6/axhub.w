@@ -100,7 +100,7 @@ export default function MaintEdit() {
           <Space size={2} wrap>
             <Typography.Link style={{ fontSize: 13, color: '#ff4d4f' }} onClick={() => window.location.hash = '#/admin/info-edit-detail'}>查看</Typography.Link>
             <Typography.Text type="secondary">、</Typography.Text>
-            <Typography.Link style={{ fontSize: 13, color: '#ff4d4f' }} onClick={() => window.location.hash = '#/admin/maint-edit-detail'}>编辑</Typography.Link>
+            <Typography.Link style={{ fontSize: 13, color: '#ff4d4f' }} onClick={() => window.location.hash = '#/admin/info-edit-detail'}>编辑</Typography.Link>
             {isReject ? (
               <><Typography.Text type="secondary">、</Typography.Text><Typography.Link style={{ fontSize: 13, color: '#ff4d4f' }}>退回</Typography.Link></>
             ) : (
@@ -137,7 +137,7 @@ export default function MaintEdit() {
           <Space size={2} wrap>
             <Typography.Link style={{ fontSize: 13, color: '#ff4d4f' }} onClick={() => window.location.hash = '#/admin/info-edit-detail'}>查看</Typography.Link>
             <Typography.Text type="secondary">、</Typography.Text>
-            <Typography.Link style={{ fontSize: 13, color: '#ff4d4f' }} onClick={() => window.location.hash = '#/admin/maint-edit-detail'}>编辑</Typography.Link>
+            <Typography.Link style={{ fontSize: 13, color: '#ff4d4f' }} onClick={() => window.location.hash = '#/admin/info-edit-detail'}>编辑</Typography.Link>
             {isReject ? (
               <>
                 <Typography.Text type="secondary">、</Typography.Text>
@@ -192,9 +192,9 @@ export default function MaintEdit() {
       </Card>
       <div style={{ marginBottom: 16 }}>
         {activeTab === 'basic' ? (
-          <Button type="primary" danger onClick={() => window.location.hash = '#/admin/select-sp'}>创建基本信息维护</Button>
+          <Button type="primary" danger onClick={() => window.location.hash = '#/admin/maint-edit-create'}>创建基本信息维护</Button>
         ) : (
-          <Button type="primary" danger onClick={() => window.location.hash = '#/admin/select-sp?from=category'}>创建服务品类维护</Button>
+          <Button type="primary" danger onClick={() => window.location.hash = '#/admin/maint-edit-create?from=category'}>创建服务品类维护</Button>
         )}
       </div>
       <Table

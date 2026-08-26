@@ -12,6 +12,15 @@ import type { UploadFile } from 'antd';
 import { QualAttachCard } from '../common/components';
 import { getCategoryInstructions } from '../common/qualification-config';
 
+/* ─── 集成系统配置映射（品类编码→集成系统名称列表） ─── */
+const categoryIntegrationMap: Record<string, string[]> = {
+  'S0101000': ['钻井工程资质管理系统'],
+  'S0102000': ['钻井工程资质管理系统'],
+  'S0201000': ['物化探服务管理系统'],
+  'S0301000': ['管道工程安全监管平台'],
+  'S0501000': ['管道工程安全监管平台'],
+};
+
 /* ─── 子组件：卡片分区标题 ─── */
 function SectionTitle({ icon, title, tag }: { icon: string; title: string; tag?: string }) {
   return (
@@ -745,6 +754,25 @@ function StepServiceCatalog() {
               ),
             },
             { title: '品类等级', dataIndex: 'level', key: 'level', width: 90, align: 'center' },
+            {
+              title: '对接系统', key: 'integration', width: 180, align: 'center',
+              render: (_: unknown, record: ServiceItem) => {
+                const systems = categoryIntegrationMap[record.code] || [];
+                if (systems.length === 0) return <Typography.Text type="secondary">无</Typography.Text>;
+                return (
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4, justifyContent: 'center' }}>
+                    {systems.map(sys => (
+                      <span key={sys} style={{
+                        display: 'inline-block', padding: '0 6px', borderRadius: 3, fontSize: 11,
+                        background: '#f6ffed', color: '#52c41a', border: '1px solid #b7eb8f',
+                      }}>
+                        {sys}
+                      </span>
+                    ))}
+                  </div>
+                );
+              },
+            },
             {
               title: '操作', key: 'action', width: 130, align: 'center',
               render: (_: unknown, record: ServiceItem) => (

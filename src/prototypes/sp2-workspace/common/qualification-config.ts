@@ -162,3 +162,53 @@ export function getPublishedNotifications(): SystemNotice[] {
 export function getPublishedManuals(): SystemNotice[] {
   return systemNoticeData.filter(n => n.type === '操作手册' && n.status === '已发布');
 }
+
+/* ─────────────────────────────────────────────
+   服务品类树形数据（集成系统配置、专业类型维护等页面共用）
+   ───────────────────────────────────────────── */
+
+export interface CategoryTreeNode {
+  label: string;
+  key: string;
+  code?: string;
+  children?: CategoryTreeNode[];
+}
+
+export const categoryTreeData: CategoryTreeNode[] = [
+  {
+    label: '工程技术服务', key: 'gc',
+    children: [
+      { label: '钻井工程', key: 'gc-zj', code: 'S0101000' },
+      { label: '采油工程', key: 'gc-cy', code: 'S0102000' },
+      { label: '油田技术服务', key: 'gc-yc', code: 'S0201000' },
+    ],
+  },
+  {
+    label: '地面建设服务', key: 'dm',
+    children: [
+      { label: '交通工程', key: 'dm-jt', code: 'S0401000' },
+      {
+        label: '管道工程', key: 'dm-gd',
+        children: [
+          { label: '管道安装', key: 'dm-gd-az', code: 'S0301000' },
+          { label: '管道防腐', key: 'dm-gd-ff', code: 'S0501000' },
+        ],
+      },
+      { label: '电力工程', key: 'dm-dl', code: 'S0301000' },
+    ],
+  },
+  { label: '物业安保服务', key: 'wy', code: 'S0401000' },
+];
+
+/** 品类编码→名称映射 */
+export const categoryCodeLabelMap: Record<string, string> = (() => {
+  const map: Record<string, string> = {};
+  const walk = (nodes: CategoryTreeNode[]) => {
+    for (const n of nodes) {
+      if (n.code) map[n.code] = n.label;
+      if (n.children) walk(n.children);
+    }
+  };
+  walk(categoryTreeData);
+  return map;
+})();

@@ -53,10 +53,36 @@ export default function RegReview() {
     setReviewModalOpen(true);
   };
 
-  const handleReviewOk = (_opinion: string, _approved: boolean) => {
+  const handleReviewOk = (_opinion: string, approved: boolean) => {
     message.success('审核完成');
     setReviewModalOpen(false);
     setSelectedRowKeys([]);
+
+    // 审核通过后，模拟推送数据至集成系统
+    if (approved) {
+      // 模拟推送逻辑：检查服务商所选品类是否有集成系统配置
+      const mockCategoryIntegrationMap: Record<string, string[]> = {
+        'S0101000': ['钻井工程资质管理系统'],
+        'S0102000': ['钻井工程资质管理系统'],
+        'S0201000': ['物化探服务管理系统'],
+        'S0301000': ['管道工程安全监管平台'],
+        'S0501000': ['管道工程安全监管平台'],
+      };
+
+      // 模拟服务商选择的品类（实际应从服务商数据中获取）
+      const selectedCategories = ['S0101000', 'S0201000'];
+      const pushedSystems = new Set<string>();
+
+      selectedCategories.forEach(catCode => {
+        const systems = mockCategoryIntegrationMap[catCode] || [];
+        systems.forEach(sys => pushedSystems.add(sys));
+      });
+
+      if (pushedSystems.size > 0) {
+        const systemNames = Array.from(pushedSystems).join('、');
+        message.success(`审核通过，已推送至集成系统：${systemNames}`);
+      }
+    }
   };
 
   const handleRowReview = (record: any) => {

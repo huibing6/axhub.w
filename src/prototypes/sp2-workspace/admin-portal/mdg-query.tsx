@@ -59,7 +59,7 @@ export default function MdgQuery() {
     { key: 'spCode', title: '服务商编码', width: 110, dataIndex: 'spCode', ellipsis: true },
     { key: 'spName', title: '服务商名称', width: 170, dataIndex: 'spName', ellipsis: true },
     { key: 'mgType', title: '服务商管理类型', width: 110, dataIndex: 'mgType', ellipsis: true },
-    { key: 'admin', title: '使用单位', width: 100, dataIndex: 'admin', ellipsis: true },
+    { key: 'admin', title: '推送单位', width: 100, dataIndex: 'admin', ellipsis: true },
     { key: 'pushType', title: '推送类型', width: 80, align: 'center' as const, dataIndex: 'pushType', render: (v: string) => v || '—' },
     {
       key: 'flowStatus', title: '状态', width: 100, align: 'center' as const, dataIndex: 'flowStatus',

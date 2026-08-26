@@ -94,6 +94,8 @@ export const adminGroups: MenuGroup[] = [
       { label: '冻结资质文件设定', path: '/admin/config-freeze' },
       { label: '准入通知配置', path: '/admin/config-notice' },
       { label: '系统通知配置', path: '/admin/system-notice' },
+      { label: '集成系统配置', path: '/admin/config-thirdparty' },
+      { label: '服务商标签配置', path: '/admin/config-tag' },
     ],
   },
 ];

@@ -118,7 +118,7 @@ export default function MaintReview() {
         <Space size={2}>
           <Typography.Link style={{ fontSize: 13, color: '#ff4d4f' }} onClick={() => window.location.hash = '#/admin/info-edit-detail'}>查看</Typography.Link>
           <Typography.Text type="secondary">、</Typography.Text>
-          <Typography.Link style={{ fontSize: 13, color: '#ff4d4f' }} onClick={() => window.location.hash = '#/admin/maint-catalog-review-detail'}>复核</Typography.Link>
+          <Typography.Link style={{ fontSize: 13, color: '#ff4d4f' }} onClick={() => window.location.hash = '#/admin/maint-review-detail'}>复核</Typography.Link>
         </Space>
       ),
     },
