@@ -1,7 +1,7 @@
 /**
- * @name 信息编辑详情
- * 服务商管理工作台2.0 - 信息编辑详情页
- * 复用信息录入共享组件，确保内容一致
+ * @name 配码编辑详情
+ * 服务商管理工作台2.0 - 配码编辑详情页
+ * 复用注册备案共享组件，确保内容一致
  * 默认定位到 MDG信息 Tab
  */
 import React from 'react';
@@ -95,7 +95,7 @@ export default function InfoEditDetail() {
             <Space size={16} align="center">
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>注册服务商审核</Typography.Text>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>&gt;</Typography.Text>
-              <Typography.Text type="secondary" style={{ fontSize: 12 }}>信息编辑</Typography.Text>
+              <Typography.Text type="secondary" style={{ fontSize: 12 }}>配码编辑</Typography.Text>
             </Space>
             <Typography.Title level={4} style={{ margin: '4px 0 0 0' }}>湖北江汉石油机械制造有限公司</Typography.Title>
             <Space size={16} style={{ marginTop: 4 }}>

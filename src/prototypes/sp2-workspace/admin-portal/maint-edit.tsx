@@ -84,7 +84,6 @@ export default function MaintEdit() {
     { key: 'idx', title: '序号', width: 50, align: 'center' as const, dataIndex: 'idx' },
     { key: 'code', title: '服务商编码', width: 100, dataIndex: 'code', ellipsis: true },
     { key: 'name', title: '服务商名称', width: 180, dataIndex: 'name', ellipsis: true },
-    { key: 'mgmtType', title: '服务商管理类型', width: 110, dataIndex: 'mgmtType', ellipsis: true },
     {
       key: 'flowStatus', title: '流程状态', width: 80, align: 'center' as const, dataIndex: 'flowStatus',
       render: (val: string) => val ? <Tag color={statusColors[val] || 'default'}>{val}</Tag> : '—',
@@ -117,7 +116,6 @@ export default function MaintEdit() {
     { key: 'catCode', title: '服务品类编码', width: 110, dataIndex: 'catCode', ellipsis: true },
     { key: 'catName', title: '服务品类名称', width: 120, dataIndex: 'catName', ellipsis: true },
     { key: 'dirType', title: '目录类型', width: 80, dataIndex: 'dirType', ellipsis: true },
-    { key: 'dirLevel', title: '目录等级', width: 80, dataIndex: 'dirLevel', ellipsis: true },
     {
       key: 'flowStatus', title: '流程状态', width: 80, align: 'center' as const, dataIndex: 'flowStatus',
       render: (val: string) => val ? <Tag color={statusColors[val] || 'default'}>{val}</Tag> : '—',

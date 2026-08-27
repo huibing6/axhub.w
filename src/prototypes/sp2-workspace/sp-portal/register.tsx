@@ -753,7 +753,6 @@ function StepServiceCatalog() {
                 </span>
               ),
             },
-            { title: '品类等级', dataIndex: 'level', key: 'level', width: 90, align: 'center' },
             {
               title: '对接系统', key: 'integration', width: 180, align: 'center',
               render: (_: unknown, record: ServiceItem) => {

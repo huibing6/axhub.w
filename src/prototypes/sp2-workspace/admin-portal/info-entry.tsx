@@ -1,5 +1,5 @@
 /**
- * @name 信息录入
+ * @name 注册备案
  */
 import React from 'react';
 import { useState, useCallback, useEffect } from 'react';

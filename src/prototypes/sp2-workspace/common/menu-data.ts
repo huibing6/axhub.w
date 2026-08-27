@@ -14,13 +14,12 @@ export const spGroups: MenuGroup[] = [
       { label: '服务商工作台', path: '/sp/workspace' },
       { label: '注册服务商', path: '/sp/register' },
       { label: '注册服务商信息维护', path: '/sp/register-change' },
-      { label: '注册进度看板', path: '/sp/register-progress' },
     ],
   },
   {
     title: '服务商管理自助服务',
     items: [
-      { label: '服务商准入资料', path: '/sp/admission' },
+      { label: '服务商补充资料', path: '/sp/admission' },
       { label: '服务品类维护', path: '/sp/service-maintain' },
     ],
   },
@@ -45,13 +44,13 @@ export const adminGroups: MenuGroup[] = [
     ],
   },
   {
-    title: '准入管理',
+    title: '配码管理',
     items: [
       { label: '待配码库', path: '/admin/pending-list' },
-      { label: '信息录入', path: '/admin/info-entry' },
-      { label: '信息编辑', path: '/admin/info-edit' },
-      { label: '信息复核', path: '/admin/admission-review' },
-      { label: '信息查询', path: '/admin/admission-query' },
+      { label: '注册备案', path: '/admin/info-entry' },
+      { label: '配码编辑', path: '/admin/info-edit' },
+      { label: '配码复核', path: '/admin/admission-review' },
+      { label: '配码查询', path: '/admin/admission-query' },
     ],
   },
   {
@@ -90,7 +89,6 @@ export const adminGroups: MenuGroup[] = [
     title: '参数配置',
     items: [
       { label: '专业服务目录配置', path: '/admin/config-dir' },
-      { label: '要件配置', path: '/admin/config-doc' },
       { label: '冻结资质文件设定', path: '/admin/config-freeze' },
       { label: '准入通知配置', path: '/admin/config-notice' },
       { label: '系统通知配置', path: '/admin/system-notice' },

@@ -1,5 +1,5 @@
 /**
- * @name 服务商准入资料
+ * @name 服务商补充资料
  * 两级结构：补充资料通知列表（各使用单位发送）→ 详情4Tab（回显注册资料+按该使用单位模板补充）。
  */
 import React from 'react';
@@ -719,7 +719,6 @@ function ServiceCatalogTab({ readonly = false }: { readonly?: boolean }) {
             { title: '服务品类名称', dataIndex: 'name', key: 'name' },
             { title: '品类类型', dataIndex: 'type', key: 'type', width: 100, align: 'center',
               render: (text: string) => <span style={{ display: 'inline-block', padding: '0 8px', borderRadius: 4, fontSize: 12, background: text === '专业' ? '#fff1f0' : '#e6f7ff', color: text === '专业' ? '#ff4d4f' : '#ff4d4f', border: `1px solid ${text === '专业' ? '#ffa39e' : '#91d5ff'}` }}>{text}</span> },
-            { title: '品类等级', dataIndex: 'level', key: 'level', width: 90, align: 'center' },
             { title: '操作', key: 'action', width: 130, align: 'center',
               render: (_: unknown, record: ServiceItem) => (
                 <Space size={8}>
@@ -1043,15 +1042,8 @@ const STATUS_TAG: Record<string, { color: string; label: string }> = {
   confirmed: { color: 'success', label: '已确认' },
 };
 
-const MDG_TAG: Record<string, { color: string; label: string }> = {
-  none: { color: 'default', label: '未推送' },
-  inprogress: { color: 'processing', label: 'MDG推送中' },
-  coded: { color: 'success', label: '已配码' },
-};
-
 function NoticeList({ onEnter }: { onEnter: (notice: AdmissionNotice) => void }) {
   const { token: t } = theme.useToken();
-  const inProgressCount = noticeList.filter(n => n.mdgStatus === 'inprogress').length;
 
   return (
     <>
@@ -1069,14 +1061,6 @@ function NoticeList({ onEnter }: { onEnter: (notice: AdmissionNotice) => void })
           <div>
             <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block' }}>准入状态</Typography.Text>
             <Tag color="processing" style={{ marginTop: 2 }}>注册成功，待配码</Tag>
-          </div>
-          <div>
-            <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block' }}>配码状态</Typography.Text>
-            {inProgressCount > 0 ? (
-              <Tag color="processing" style={{ marginTop: 2 }}>MDG推送中（{inProgressCount} 家在途）</Tag>
-            ) : (
-              <Tag color="warning" style={{ marginTop: 2 }}>未配码，暂不可交易</Tag>
-            )}
           </div>
         </div>
         <div style={{ marginTop: 12, padding: '8px 12px', borderRadius: 4, background: '#fffbe6', border: '1px solid #ffe58f', fontSize: 13, color: '#ad6800' }}>
@@ -1097,14 +1081,6 @@ function NoticeList({ onEnter }: { onEnter: (notice: AdmissionNotice) => void })
             {
               title: '补充状态', dataIndex: 'status', key: 'status', width: 90, align: 'center',
               render: (v: string) => <Tag color={STATUS_TAG[v].color}>{STATUS_TAG[v].label}</Tag>,
-            },
-            {
-              title: 'MDG状态', dataIndex: 'mdgStatus', key: 'mdgStatus', width: 110, align: 'center',
-              render: (v: string, record: AdmissionNotice) => (
-                <Tag color={MDG_TAG[v].color}>
-                  {MDG_TAG[v].label}{v === 'coded' && record.mdgCode ? `（${record.mdgCode}）` : ''}
-                </Tag>
-              ),
             },
             {
               title: '操作', key: 'action', width: 120, align: 'center',
@@ -1160,7 +1136,7 @@ export default function Admission() {
         <Typography.Link onClick={handleBack} style={{ color: '#ff4d4f', fontSize: 13, display: 'block', marginBottom: 8 }}>
           ← 返回通知列表
         </Typography.Link>
-        <Typography.Title level={4} style={{ marginTop: 0, marginBottom: 4 }}>服务商准入资料</Typography.Title>
+        <Typography.Title level={4} style={{ marginTop: 0, marginBottom: 4 }}>服务商补充资料</Typography.Title>
         <Typography.Text type="secondary" style={{ display: 'block', marginBottom: 16 }}>
           来自 {currentNotice.unitName} 的补充资料通知：{currentNotice.templateName}（通知时间 {currentNotice.noticeTime}，截止 {currentNotice.deadline}）
         </Typography.Text>
@@ -1213,7 +1189,7 @@ export default function Admission() {
   /* ─── 列表视图 ─── */
   return (
     <div>
-      <Typography.Title level={4} style={{ marginTop: 0, marginBottom: 4 }}>服务商准入资料</Typography.Title>
+      <Typography.Title level={4} style={{ marginTop: 0, marginBottom: 4 }}>服务商补充资料</Typography.Title>
       <Typography.Text type="secondary" style={{ display: 'block', marginBottom: 20 }}>
         查看各使用单位发送的补充资料通知，点击"补充"进入填写；各使用单位要求可能不同，请分别按通知要求完成。
       </Typography.Text>

@@ -70,10 +70,6 @@ export default function PendingDetail() {
                 <div style={{ marginTop: 2 }}>{record.code}</div>
               </div>
               <div>
-                <Typography.Text type="secondary" style={{ fontSize: 12 }}>服务商管理类型</Typography.Text>
-                <div style={{ marginTop: 2 }}><Tag color={record.manageType === '总部管理' ? 'blue' : 'default'}>{record.manageType}</Tag></div>
-              </div>
-              <div>
                 <Typography.Text type="secondary" style={{ fontSize: 12 }}>注册日期</Typography.Text>
                 <div style={{ marginTop: 2 }}>{record.regDate}</div>
               </div>
@@ -177,7 +173,6 @@ export default function PendingDetail() {
                 { key: 'code', title: '服务类目编码', width: 130, dataIndex: 'code' },
                 { key: 'name', title: '服务类目名称', dataIndex: 'name' },
                 { key: 'type', title: '目录类型', width: 100, align: 'center' as const, dataIndex: 'type', render: (v: string) => <Tag color={v === '专业' ? 'blue' : 'default'}>{v}</Tag> },
-                { key: 'level', title: '目录等级', width: 90, align: 'center' as const, dataIndex: 'level' },
               ]}
               dataSource={serviceDirData}
               rowKey="code"
@@ -271,7 +266,7 @@ export default function PendingDetail() {
           <Space direction="vertical" size={4}>
             <Typography.Link onClick={() => window.history.back()} style={{ color: '#ff4d4f', fontSize: 13, display: 'block', marginBottom: 4 }}>← 返回列表</Typography.Link>
             <Space size={16} align="center">
-              <Typography.Text type="secondary" style={{ fontSize: 12 }}>准入管理</Typography.Text>
+              <Typography.Text type="secondary" style={{ fontSize: 12 }}>配码管理</Typography.Text>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>&gt;</Typography.Text>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>待配码详情</Typography.Text>
             </Space>
@@ -279,7 +274,6 @@ export default function PendingDetail() {
             <Space size={16} style={{ marginTop: 4 }}>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>统一社会信用代码 {record.code}</Typography.Text>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>注册日期: {record.regDate}</Typography.Text>
-              <Typography.Text type="secondary" style={{ fontSize: 12 }}>管理类型: {record.manageType}</Typography.Text>
             </Space>
           </Space>
           <Tag color={record.enabled ? 'success' : 'default'} style={{ fontSize: 13, padding: '4px 12px' }}>{record.status}</Tag>

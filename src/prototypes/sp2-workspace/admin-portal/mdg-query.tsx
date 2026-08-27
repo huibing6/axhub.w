@@ -58,7 +58,6 @@ export default function MdgQuery() {
     { key: 'index', title: '序号', width: 50, align: 'center' as const, dataIndex: 'index' },
     { key: 'spCode', title: '服务商编码', width: 110, dataIndex: 'spCode', ellipsis: true },
     { key: 'spName', title: '服务商名称', width: 170, dataIndex: 'spName', ellipsis: true },
-    { key: 'mgType', title: '服务商管理类型', width: 110, dataIndex: 'mgType', ellipsis: true },
     { key: 'admin', title: '推送单位', width: 100, dataIndex: 'admin', ellipsis: true },
     { key: 'pushType', title: '推送类型', width: 80, align: 'center' as const, dataIndex: 'pushType', render: (v: string) => v || '—' },
     {
@@ -164,7 +163,6 @@ export default function MdgQuery() {
             <Descriptions column={1} bordered size="small">
               <Descriptions.Item label="服务商编码">{detailRecord.spCode}</Descriptions.Item>
               <Descriptions.Item label="服务商名称">{detailRecord.spName}</Descriptions.Item>
-              <Descriptions.Item label="服务商管理类型">{detailRecord.mgType || '—'}</Descriptions.Item>
               <Descriptions.Item label="推送类型">{detailRecord.pushType || '—'}</Descriptions.Item>
               <Descriptions.Item label="状态">
                 {detailRecord.flowStatus ? <Tag color={statusColors[detailRecord.flowStatus] || 'default'}>{detailRecord.flowStatus}</Tag> : '—'}

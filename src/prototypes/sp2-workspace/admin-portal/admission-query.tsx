@@ -1,5 +1,5 @@
 /**
- * @name 信息查询
+ * @name 配码查询
  */
 import React from 'react';
 import { useState } from 'react';
@@ -73,7 +73,6 @@ export default function AdmissionQuery() {
     { key: 'idx', title: '序号', width: 50, align: 'center' as const, dataIndex: 'idx' },
     { key: 'name', title: '服务商名称', width: 160, dataIndex: 'name', ellipsis: true },
     { key: 'code', title: '统一社会信用代码', width: 170, dataIndex: 'code', ellipsis: true },
-    { key: 'type', title: '服务商管理类型', width: 110, dataIndex: 'type', ellipsis: true },
     {
       key: 'status', title: '流程状态', width: 80, align: 'center' as const, dataIndex: 'status',
       render: (val: string) => val ? <Tag color={statusColors[val] || 'default'}>{val}</Tag> : '—',
@@ -103,7 +102,7 @@ export default function AdmissionQuery() {
     <div>
       <Card size="small" variant="outlined" style={{ marginBottom: 16 }}>
         <Space direction="vertical" style={{ width: '100%' }} size={8}>
-          <Typography.Title level={4} style={{ margin: 0 }}>信息查询</Typography.Title>
+          <Typography.Title level={4} style={{ margin: 0 }}>配码查询</Typography.Title>
           <Card size="small" variant="outlined" style={{ marginBottom: 0 }}>
             <Space direction="vertical" style={{ width: '100%' }} size={12}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr) auto', gap: 12, alignItems: 'end' }}>

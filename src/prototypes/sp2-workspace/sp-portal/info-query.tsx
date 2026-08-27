@@ -85,9 +85,6 @@ export default function InfoQuery() {
             <Col span={12}>
               <ReadonlyField label="内部组织" value="" />
             </Col>
-            <Col span={12}>
-              <ReadonlyField label="管理单位" value="中国石油天然气集团有限公司" />
-            </Col>
           </Row>
           <Form.Item label="权属关系证明">
             <Button disabled style={{ background: '#fafafa' }}>上传文件</Button>

@@ -18,7 +18,6 @@ import { spGroups, adminGroups } from './common/menu-data';
 const SpWorkspace = lazy(() => import('./sp-portal/workspace'));
 const SpRegister = lazy(() => import('./sp-portal/register'));
 const SpRegisterChange = lazy(() => import('./sp-portal/register-change'));
-const RegisterProgress = lazy(() => import('./sp-portal/register-progress'));
 const Admission = lazy(() => import('./sp-portal/admission'));
 const ProgressQuery = lazy(() => import('./sp-portal/progress-query'));
 const FreezeQuery = lazy(() => import('./sp-portal/freeze-query'));
@@ -36,7 +35,9 @@ const DeptDetail = lazy(() => import('./admin-portal/dept-detail'));
 const RegQuery = lazy(() => import('./admin-portal/reg-query'));
 const PendingList = lazy(() => import('./admin-portal/pending-list'));
 const PendingDetail = lazy(() => import('./admin-portal/pending-detail'));
+const PendingNotify = lazy(() => import('./admin-portal/pending-notify'));
 const PendingMdg = lazy(() => import('./admin-portal/pending-mdg'));
+const PendingMdgNotify = lazy(() => import('./admin-portal/pending-mdg-notify'));
 const InfoEntry = lazy(() => import('./admin-portal/info-entry'));
 const InfoEdit = lazy(() => import('./admin-portal/info-edit'));
 const InfoEditDetail = lazy(() => import('./admin-portal/info-edit-detail'));
@@ -67,7 +68,6 @@ const SpQueryProcess = lazy(() => import('./admin-portal/sp-query-process'));
 const SpQueryProcessDetail = lazy(() => import('./admin-portal/sp-query-process-detail'));
 const ConfigDir = lazy(() => import('./admin-portal/config-dir'));
 const ConfigDirEdit = lazy(() => import('./admin-portal/config-dir-edit'));
-const ConfigDoc = lazy(() => import('./admin-portal/config-doc'));
 const ConfigFreeze = lazy(() => import('./admin-portal/config-freeze'));
 const ConfigNotice = lazy(() => import('./admin-portal/config-notice'));
 const ConfigNoticeEdit = lazy(() => import('./admin-portal/config-notice-edit'));
@@ -84,7 +84,6 @@ const spPageMap: Record<string, React.LazyExoticComponent<any>> = {
   '/sp/workspace': SpWorkspace,
   '/sp/register': SpRegister,
   '/sp/register-change': SpRegisterChange,
-  '/sp/register-progress': RegisterProgress,
   '/sp/admission': Admission,
   '/sp/progress-query': ProgressQuery,
   '/sp/freeze-query': FreezeQuery,
@@ -104,7 +103,9 @@ const adminPageMap: Record<string, React.LazyExoticComponent<any>> = {
   '/admin/reg-query': RegQuery,
   '/admin/pending-list': PendingList,
   '/admin/pending-detail': PendingDetail,
+  '/admin/pending-notify': PendingNotify,
   '/admin/pending-mdg': PendingMdg,
+  '/admin/pending-mdg-notify': PendingMdgNotify,
   '/admin/info-entry': InfoEntry,
   '/admin/info-edit': InfoEdit,
   '/admin/info-edit-detail': InfoEditDetail,
@@ -135,7 +136,6 @@ const adminPageMap: Record<string, React.LazyExoticComponent<any>> = {
   '/admin/sp-query-process-detail': SpQueryProcessDetail,
   '/admin/config-dir': ConfigDir,
   '/admin/config-dir-edit': ConfigDirEdit,
-  '/admin/config-doc': ConfigDoc,
   '/admin/config-freeze': ConfigFreeze,
   '/admin/config-notice': ConfigNotice,
   '/admin/config-notice-edit': ConfigNoticeEdit,

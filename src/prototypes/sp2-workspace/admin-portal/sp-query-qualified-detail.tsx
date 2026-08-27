@@ -11,7 +11,6 @@ const serviceDirColumns = [
   { key: 'code', title: '服务类目编码', width: 130, dataIndex: 'code' },
   { key: 'name', title: '服务类目名称', dataIndex: 'name' },
   { key: 'type', title: '目录类型', width: 100, align: 'center' as const, dataIndex: 'type', render: (v: string) => <Tag color={v === '专业' ? 'blue' : 'default'}>{v}</Tag> },
-  { key: 'level', title: '目录等级', width: 90, align: 'center' as const, dataIndex: 'level' },
 ];
 
 const serviceDirData = [

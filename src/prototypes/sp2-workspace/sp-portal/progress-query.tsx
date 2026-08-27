@@ -11,7 +11,6 @@ export default function ProgressQuery() {
   const spColumns = [
     { key: 'index', title: '序号', width: 60, align: 'center' as const, dataIndex: 'index' },
     { key: 'name', title: '服务商名称', dataIndex: 'name' },
-    { key: 'unit', title: '管理单位', dataIndex: 'unit' },
     { key: 'applyDept', title: '申请时间', dataIndex: 'applyDept' },
     { key: 'applyType', title: '申请类别', dataIndex: 'applyType' },
     { key: 'handler', title: '当前处理人', dataIndex: 'handler' },
@@ -51,12 +50,12 @@ export default function ProgressQuery() {
   ];
 
   const spData = [
-    { key: 1, index: 1, name: '中海油能源发展股份有限公司', unit: '长庆油田', applyDept: '所属企业管理', applyType: '新增准入', handler: '服务商', status: '待提交' },
-    { key: 2, index: 2, name: '杰瑞石油装备技术有限公司', unit: '中国石油天然气集团有限公司', applyDept: '总部管理', applyType: '变更申请', handler: '管理单位处理中', status: '待审核' },
-    { key: 3, index: 3, name: '中海油能源发展股份有限公司', unit: '长庆油田', applyDept: '', applyType: '资质维护申请', handler: '', status: '已退回' },
-    { key: 4, index: 4, name: '杰瑞石油装备技术有限公司', unit: '中国石油天然气集团有限公司', applyDept: '', applyType: '', handler: '', status: '已终止' },
-    { key: 5, index: 5, name: '中海油能源发展股份有限公司', unit: '长庆油田', applyDept: '', applyType: '', handler: '', status: '' },
-    { key: 6, index: 6, name: '杰瑞石油装备技术有限公司', unit: '中国石油天然气集团有限公司', applyDept: '', applyType: '', handler: '', status: '' },
+    { key: 1, index: 1, name: '中海油能源发展股份有限公司', applyDept: '所属企业管理', applyType: '新增准入', handler: '服务商', status: '待提交' },
+    { key: 2, index: 2, name: '杰瑞石油装备技术有限公司', applyDept: '总部管理', applyType: '变更申请', handler: '管理单位处理中', status: '待审核' },
+    { key: 3, index: 3, name: '中海油能源发展股份有限公司', applyDept: '', applyType: '资质维护申请', handler: '', status: '已退回' },
+    { key: 4, index: 4, name: '杰瑞石油装备技术有限公司', applyDept: '', applyType: '', handler: '', status: '已终止' },
+    { key: 5, index: 5, name: '中海油能源发展股份有限公司', applyDept: '', applyType: '', handler: '', status: '' },
+    { key: 6, index: 6, name: '杰瑞石油装备技术有限公司', applyDept: '', applyType: '', handler: '', status: '' },
   ];
 
   const svcColumns = [
@@ -65,7 +64,6 @@ export default function ProgressQuery() {
     { key: 'svcName', title: '名称服务', dataIndex: 'svcName' },
     { key: 'level', title: '级别', dataIndex: 'level' },
     { key: 'type', title: '目录类型', dataIndex: 'type' },
-    { key: 'unit', title: '管理单位', dataIndex: 'unit' },
     { key: 'changeType', title: '产品变更类型', dataIndex: 'changeType' },
     { key: 'handler', title: '当前处理人', dataIndex: 'handler' },
     { key: 'status', title: '状态', dataIndex: 'status' },
@@ -102,12 +100,12 @@ export default function ProgressQuery() {
   ];
 
   const svcData = [
-    { key: 1, index: 1, svcCode: 'S1001000', svcName: '租赁服务', level: '一级', type: '专业', unit: '中国石油集团', changeType: '新增', handler: '服务商', status: '待提交' },
-    { key: 2, index: 2, svcCode: 'S1001000', svcName: '租赁服务', level: '二级', type: '通用', unit: '长庆油田', changeType: '变更', handler: '管理单位处理中', status: '待审核' },
-    { key: 3, index: 3, svcCode: 'S1001000', svcName: '租赁服务', level: '二级', type: '专业', unit: '', changeType: '删除', handler: '', status: '已退回' },
-    { key: 4, index: 4, svcCode: 'S1001000', svcName: '租赁服务', level: '', type: '', unit: '', changeType: '', handler: '', status: '已终止' },
-    { key: 5, index: 5, svcCode: 'S1001000', svcName: '租赁服务', level: '', type: '', unit: '', changeType: '', handler: '', status: '' },
-    { key: 6, index: 6, svcCode: 'S1001000', svcName: '租赁服务', level: '', type: '', unit: '', changeType: '', handler: '', status: '' },
+    { key: 1, index: 1, svcCode: 'S1001000', svcName: '租赁服务', level: '一级', type: '专业', changeType: '新增', handler: '服务商', status: '待提交' },
+    { key: 2, index: 2, svcCode: 'S1001000', svcName: '租赁服务', level: '二级', type: '通用', changeType: '变更', handler: '管理单位处理中', status: '待审核' },
+    { key: 3, index: 3, svcCode: 'S1001000', svcName: '租赁服务', level: '二级', type: '专业', changeType: '删除', handler: '', status: '已退回' },
+    { key: 4, index: 4, svcCode: 'S1001000', svcName: '租赁服务', level: '', type: '', changeType: '', handler: '', status: '已终止' },
+    { key: 5, index: 5, svcCode: 'S1001000', svcName: '租赁服务', level: '', type: '', changeType: '', handler: '', status: '' },
+    { key: 6, index: 6, svcCode: 'S1001000', svcName: '租赁服务', level: '', type: '', changeType: '', handler: '', status: '' },
   ];
 
   return (

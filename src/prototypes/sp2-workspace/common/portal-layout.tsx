@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import { useState, useEffect, useMemo } from 'react';
-import { ConfigProvider, Layout, theme, Typography } from 'antd';
+import { Layout, theme } from 'antd';
 import SideMenu from '../../../components/side-menu';
 import type { MenuGroup } from './menu-data';
 
@@ -81,7 +81,6 @@ export default function PortalLayout({ title, groups, logo = '/prototypes/assets
           collapsible={false}
           items={menuItems}
           defaultSelectedKey=""
-          selectedKeys={selectedKey ? [selectedKey] : []}
           onMenuSelect={(key: string) => {
             setInternalKey(key);
             onMenuSelect?.(key);

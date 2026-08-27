@@ -12,7 +12,6 @@ const spSearchFields = [
   { key: 'spCode', label: '服务商编码', placeholder: '请输入' },
   { key: 'spName', label: '服务商名称', placeholder: '请输入' },
   { key: 'spType', label: '服务商类型', type: 'select' as const, options: ['请选择', '制造商', '贸易商', '代理商'] },
-  { key: 'mgmtType', label: '服务商管理类型', type: 'select' as const, options: ['请选择', '所属企业管理', '总部管理'] },
   { key: 'applyUnit', label: '申请单位', placeholder: '请输入' },
   { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停交易权限', '恢复交易权限'] },
   { key: 'applyTime', label: '申请时间', type: 'range' as const },
@@ -22,26 +21,24 @@ const spColumns = [
   { key: 'spName', title: '服务商名称', width: 180, dataIndex: 'spName', ellipsis: true },
   { key: 'spCode', title: '服务商编码', width: 120, dataIndex: 'spCode', sorter: true, ellipsis: true },
   { key: 'applyType', title: '申请类型', width: 140, dataIndex: 'applyType', ellipsis: true },
-  { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
   { key: 'spType', title: '服务商类型', width: 100, dataIndex: 'spType', ellipsis: true },
   { key: 'flowStatus', title: '流程状态', width: 100, dataIndex: 'flowStatus', ellipsis: true },
   { key: 'action', title: '操作', width: 140, align: 'center' as const, fixed: 'right' as const },
 ];
 
 const spData = [
-  { index: 1, spName: '山东丽新石化股份有限公司', spCode: '1002020631', applyType: '暂停交易权限', mgmtType: '总部管理', spType: '制造商', flowStatus: '待审核' },
-  { index: 2, spName: '中储（天津）物资有限公司', spCode: '1000018008', applyType: '暂停交易权限', mgmtType: '总部管理', spType: '贸易商', flowStatus: '待审核' },
-  { index: 3, spName: '测试服务商20260509', spCode: '1002020681', applyType: '暂停交易权限', mgmtType: '所属企业管理', spType: '制造商', flowStatus: '待复核' },
-  { index: 4, spName: '王牌测试1114上线冻结', spCode: '47370456', applyType: '暂停交易权限', mgmtType: '所属企业管理', spType: '制造商', flowStatus: '待审核' },
-  { index: 5, spName: '上分测试门店负责人产品新增冻结…', spCode: '1001876004', applyType: '暂停交易权限', mgmtType: '所属企业管理', spType: '制造商', flowStatus: '待审核' },
-  { index: 6, spName: '江阴石化装备化工机械有限公司', spCode: '1000282613', applyType: '暂停交易权限', mgmtType: '所属企业管理', spType: '制造商', flowStatus: '待复核' },
+  { index: 1, spName: '山东丽新石化股份有限公司', spCode: '1002020631', applyType: '暂停交易权限', spType: '制造商', flowStatus: '待审核' },
+  { index: 2, spName: '中储（天津）物资有限公司', spCode: '1000018008', applyType: '暂停交易权限', spType: '贸易商', flowStatus: '待审核' },
+  { index: 3, spName: '测试服务商20260509', spCode: '1002020681', applyType: '暂停交易权限', spType: '制造商', flowStatus: '待复核' },
+  { index: 4, spName: '王牌测试1114上线冻结', spCode: '47370456', applyType: '暂停交易权限', spType: '制造商', flowStatus: '待审核' },
+  { index: 5, spName: '上分测试门店负责人产品新增冻结…', spCode: '1001876004', applyType: '暂停交易权限', spType: '制造商', flowStatus: '待审核' },
+  { index: 6, spName: '江阴石化装备化工机械有限公司', spCode: '1000282613', applyType: '暂停交易权限', spType: '制造商', flowStatus: '待复核' },
 ];
 
 const categorySearchFields = [
   { key: 'spCode', label: '服务商编码', placeholder: '请输入' },
   { key: 'spName', label: '服务商名称', placeholder: '请输入' },
   { key: 'spType', label: '服务商类型', type: 'select' as const, options: ['请选择', '制造商', '贸易商', '代理商'] },
-  { key: 'mgmtType', label: '服务商管理类型', type: 'select' as const, options: ['请选择', '所属企业管理', '总部管理'] },
   { key: 'categoryCode', label: '服务品类编码', placeholder: '请输入' },
   { key: 'categoryName', label: '服务品类名称', placeholder: '请输入' },
   { key: 'catalogLevel', label: '目录级别', type: 'select' as const, options: ['请选择', '一级', '二级', '三级'] },
@@ -57,15 +54,14 @@ const categoryColumns = [
   { key: 'categoryName', title: '服务品类名称', width: 140, dataIndex: 'categoryName', ellipsis: true },
   { key: 'catalogLevel', title: '目录级别', width: 80, dataIndex: 'catalogLevel', ellipsis: true },
   { key: 'spType', title: '服务商类型', width: 100, dataIndex: 'spType', ellipsis: true },
-  { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
   { key: 'action', title: '操作', width: 100, align: 'center' as const, fixed: 'right' as const },
 ];
 
 const categoryData = [
-  { index: 1, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0301000', categoryName: '工序外协加工服务', catalogLevel: '一级', spType: '制造商', mgmtType: '总部管理' },
-  { index: 2, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0401001', categoryName: '仓储包装服务', catalogLevel: '一级', spType: '制造商', mgmtType: '总部管理' },
-  { index: 3, applyType: '暂停准入服务品类交易权限', spCode: '1000200490', spName: '北方大气公司', categoryCode: 'S0501000', categoryName: '科技项目服务', catalogLevel: '二级', spType: '制造商', mgmtType: '所属企业管理' },
-  { index: 4, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0601001', categoryName: '基础软件开发服务', catalogLevel: '一级', spType: '制造商', mgmtType: '所属企业管理' },
+  { index: 1, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0301000', categoryName: '工序外协加工服务', catalogLevel: '一级', spType: '制造商' },
+  { index: 2, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0401001', categoryName: '仓储包装服务', catalogLevel: '一级', spType: '制造商' },
+  { index: 3, applyType: '暂停准入服务品类交易权限', spCode: '1000200490', spName: '北方大气公司', categoryCode: 'S0501000', categoryName: '科技项目服务', catalogLevel: '二级', spType: '制造商' },
+  { index: 4, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0601001', categoryName: '基础软件开发服务', catalogLevel: '一级', spType: '制造商' },
 ];
 
 export default function Review() {

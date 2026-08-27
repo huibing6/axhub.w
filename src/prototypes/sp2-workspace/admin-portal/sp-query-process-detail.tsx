@@ -60,7 +60,6 @@ export default function SpQueryProcessDetail() {
               <FormField label="服务商编码"><ReadonlyInput value={flowDetail.spCode} /></FormField>
               <FormField label="服务商名称"><ReadonlyInput value={flowDetail.spName} /></FormField>
               <FormField label="统一社会信用代码"><ReadonlyInput value={flowDetail.creditCode} /></FormField>
-              <FormField label="服务商管理类型"><ReadonlyInput value={flowDetail.mgmtType} /></FormField>
               <FormField label="使用单位"><ReadonlyInput value={flowDetail.unit} /></FormField>
               <FormField label="服务商状态"><ReadonlyInput value={flowDetail.spStatus} /></FormField>
             </div>

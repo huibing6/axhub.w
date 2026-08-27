@@ -15,7 +15,7 @@ const searchFields = [
   { key: 'freezeType', label: '冻结类型', type: 'select' as const, options: ['请选择', '服务品类资质到期'] },
   { key: 'catalogLevel', label: '目录级别', type: 'select' as const, options: ['请选择', '一级物资', '二级物资', '三级物资'] },
   { key: 'disposeRange', label: '处置范围', type: 'select' as const, options: ['请选择', '全集团', '本单位'] },
-  { key: 'dataSource', label: '数据来源', type: 'select' as const, options: ['请选择', '准入管理'] },
+  { key: 'dataSource', label: '数据来源', type: 'select' as const, options: ['请选择', '配码管理'] },
   { key: 'adminUnit', label: '准入单位', placeholder: '请输入' },
   { key: 'flowStatus', label: '服务商冻结类型', type: 'select' as const, options: ['请选择', '冻结', '服务品类资质到期'] },
 ];
@@ -25,7 +25,6 @@ const columns = [
   { key: 'categoryName', title: '服务品类名称', width: 180, dataIndex: 'categoryName', ellipsis: true },
   { key: 'spCode', title: '服务商编码', width: 120, dataIndex: 'spCode', ellipsis: true },
   { key: 'spName', title: '服务商名称', width: 180, dataIndex: 'spName', ellipsis: true },
-  { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
   { key: 'workType', title: '工作单类型', width: 100, dataIndex: 'workType', ellipsis: true },
   { key: 'adminUnit', title: '准入单位', width: 140, dataIndex: 'adminUnit', ellipsis: true },
   { key: 'applyUnit', title: '申请单位', width: 180, dataIndex: 'applyUnit', ellipsis: true },

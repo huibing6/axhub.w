@@ -26,7 +26,7 @@ export default function PendingMdg() {
       <Space style={{ marginBottom: 16 }}>
         <Button type="link" icon={<ArrowLeftOutlined />} onClick={handleBack} style={{ paddingLeft: 0 }}>返回列表</Button>
         <Typography.Text type="secondary">{'>'}</Typography.Text>
-        <Typography.Text>准入管理</Typography.Text>
+        <Typography.Text>配码管理</Typography.Text>
         <Typography.Text type="secondary">{'>'}</Typography.Text>
         <Typography.Text>补充MDG信息</Typography.Text>
       </Space>

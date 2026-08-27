@@ -99,7 +99,6 @@ export default function SpServiceMaintainAdd() {
       key: 'type', title: '品类类型', width: 100, align: 'center' as const, dataIndex: 'type',
       render: (v: string) => <TypeTag type={v} />,
     },
-    { key: 'level', title: '品类等级', width: 90, align: 'center' as const, dataIndex: 'level' },
     {
       key: 'action', title: '操作', width: 130, align: 'center' as const,
       render: (_: unknown, record: ServiceItem) => (

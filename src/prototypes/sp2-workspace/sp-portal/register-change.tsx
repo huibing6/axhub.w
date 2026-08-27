@@ -597,7 +597,6 @@ function ServiceCatalogTab() {
             { title: '服务品类名称', dataIndex: 'name', key: 'name' },
             { title: '品类类型', dataIndex: 'type', key: 'type', width: 100, align: 'center',
               render: (text: string) => <span style={{ display: 'inline-block', padding: '0 8px', borderRadius: 4, fontSize: 12, background: text === '专业' ? '#fff1f0' : '#e6f7ff', color: text === '专业' ? '#ff4d4f' : '#ff4d4f', border: `1px solid ${text === '专业' ? '#ffa39e' : '#91d5ff'}` }}>{text}</span> },
-            { title: '品类等级', dataIndex: 'level', key: 'level', width: 90, align: 'center' },
             { title: '操作', key: 'action', width: 130, align: 'center',
               render: (_: unknown, record: ServiceItem) => (
                 <Space size={8}>

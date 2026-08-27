@@ -89,7 +89,7 @@ export default function DeptDetail() {
               <FieldView label="品类名称"><Typography.Text style={{ fontSize: 14 }}>{record.category}</Typography.Text></FieldView>
               <FieldView label="品类编码"><Typography.Text style={{ fontSize: 14 }}>{record.categoryCode}</Typography.Text></FieldView>
               <FieldView label="所属专业目录"><Typography.Text style={{ fontSize: 14 }}>{record.detail.dirName}</Typography.Text></FieldView>
-              <FieldView label="目录等级"><Typography.Text style={{ fontSize: 14 }}>{record.detail.dirLevel}</Typography.Text></FieldView>
+
             </div>
             <div style={{ marginTop: 12 }}>
               <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block' }}>审核部门</Typography.Text>
@@ -161,7 +161,6 @@ export default function DeptDetail() {
           <Descriptions column={3} size="small" bordered>
             <Descriptions.Item label="服务商名称">{record.name}</Descriptions.Item>
             <Descriptions.Item label="统一社会信用代码">{record.creditCode}</Descriptions.Item>
-            <Descriptions.Item label="服务商管理类型">{record.mgmtType}</Descriptions.Item>
             <Descriptions.Item label="联系人">{record.contact}</Descriptions.Item>
             <Descriptions.Item label="联系电话">{record.phone}</Descriptions.Item>
             <Descriptions.Item label="提交时间">{record.time}</Descriptions.Item>

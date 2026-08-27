@@ -36,20 +36,17 @@ export default function MaintQuery() {
   const [progressOpen, setProgressOpen] = useState(false);
 
   const [infoNameFilter, setInfoNameFilter] = useState('');
-  const [infoMgmtTypeFilter, setInfoMgmtTypeFilter] = useState('');
   const [infoStatusFilter, setInfoStatusFilter] = useState('');
   const [infoSubmitterFilter, setInfoSubmitterFilter] = useState('');
 
   const { setFilter: setInfoFilter, filteredData: infoFilteredData, clearFilters: clearInfoFilters } = useFilterData(infoRawData, [
     { key: 'name', label: '服务商名称' },
-    { key: 'mgmtType', label: '服务商管理类型' },
     { key: 'flowStatus', label: '流程状态' },
     { key: 'submitter', label: '提交人' },
   ]);
 
   const { setFilter: setCatalogFilter, filteredData: catalogFilteredData, clearFilters: clearCatalogFilters } = useFilterData(catalogRawData, [
     { key: 'spName', label: '服务商名称' },
-    { key: 'spMgmtType', label: '服务商管理类型' },
     { key: 'flowStatus', label: '流程状态' },
     { key: 'submitter', label: '提交人' },
   ]);
@@ -57,12 +54,10 @@ export default function MaintQuery() {
   const handleSearch = () => {
     if (activeTab === 'info') {
       setInfoFilter('name', infoNameFilter);
-      setInfoFilter('mgmtType', infoMgmtTypeFilter);
       setInfoFilter('flowStatus', infoStatusFilter);
       setInfoFilter('submitter', infoSubmitterFilter);
     } else {
       setCatalogFilter('spName', infoNameFilter);
-      setCatalogFilter('spMgmtType', infoMgmtTypeFilter);
       setCatalogFilter('flowStatus', infoStatusFilter);
       setCatalogFilter('submitter', infoSubmitterFilter);
     }
@@ -70,7 +65,6 @@ export default function MaintQuery() {
 
   const handleReset = () => {
     setInfoNameFilter('');
-    setInfoMgmtTypeFilter('');
     setInfoStatusFilter('');
     setInfoSubmitterFilter('');
     if (activeTab === 'info') {
@@ -84,7 +78,6 @@ export default function MaintQuery() {
     { key: 'idx', title: '序号', width: 50, align: 'center' as const, dataIndex: 'idx' },
     { key: 'code', title: '服务商编码', width: 120, dataIndex: 'code', ellipsis: true },
     { key: 'name', title: '服务商名称', width: 200, dataIndex: 'name', ellipsis: true },
-    { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
     { key: 'flowStatus', title: '流程状态', width: 80, dataIndex: 'flowStatus', ellipsis: true },
     { key: 'changeType', title: '变更类型', width: 140, dataIndex: 'changeType', ellipsis: true },
     { key: 'submitter', title: '提交人', width: 70, dataIndex: 'submitter', ellipsis: true },
@@ -108,7 +101,6 @@ export default function MaintQuery() {
     { key: 'catCode', title: '服务分类编码', width: 110, dataIndex: 'catCode', ellipsis: true },
     { key: 'catName', title: '服务分类名称', width: 110, dataIndex: 'catName', ellipsis: true },
     { key: 'dirType', title: '目录类型', width: 80, dataIndex: 'dirType', ellipsis: true },
-    { key: 'dirLevel', title: '目录等级', width: 80, dataIndex: 'dirLevel', ellipsis: true },
     { key: 'flowStatus', title: '流程状态', width: 80, dataIndex: 'flowStatus', ellipsis: true },
     { key: 'changeType', title: '变更类型', width: 80, dataIndex: 'changeType', ellipsis: true },
     { key: 'spCode', title: '服务商编码', width: 110, dataIndex: 'spCode', ellipsis: true },
@@ -156,10 +148,6 @@ export default function MaintQuery() {
             <div>
               <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>服务商名称</Typography.Text>
               <Input placeholder="请输入服务商名称" value={infoNameFilter} onChange={e => setInfoNameFilter(e.target.value)} />
-            </div>
-            <div>
-              <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>服务商管理类型</Typography.Text>
-              <Input placeholder="请输入服务商管理类型" value={infoMgmtTypeFilter} onChange={e => setInfoMgmtTypeFilter(e.target.value)} />
             </div>
             <div>
               <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>流程状态</Typography.Text>

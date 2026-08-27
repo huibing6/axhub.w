@@ -11,7 +11,6 @@ const { RangePicker } = DatePicker;
 const searchFields = [
   { key: 'spCode', label: '服务商编码', placeholder: '请输入' },
   { key: 'spName', label: '服务商名称', placeholder: '请输入' },
-  { key: 'mgmtType', label: '服务商管理类型', type: 'select' as const, options: ['请选择', '所属企业管理', '总部管理'] },
   { key: 'flowStatus', label: '流程状态', type: 'select' as const, options: ['请选择', '待提交', '审批中', '已通过', '已驳回'] },
   { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停交易权限', '取消服务商准入资格'] },
   { key: 'applyTime', label: '申请时间', type: 'range' as const },
@@ -21,7 +20,6 @@ const columns = [
   { key: 'applyType', title: '申请类型', width: 160, dataIndex: 'applyType', ellipsis: true },
   { key: 'spCode', title: '服务商编码', width: 120, dataIndex: 'spCode', sorter: true, ellipsis: true },
   { key: 'spName', title: '服务商名称', width: 200, dataIndex: 'spName', sorter: true, ellipsis: true },
-  { key: 'mgmtType', title: '服务商管理类型', width: 140, dataIndex: 'mgmtType', sorter: true, ellipsis: true },
   { key: 'freezeReason', title: '冻结原因', width: 180, dataIndex: 'freezeReason', ellipsis: true },
   { key: 'flowStatus', title: '流程状态', width: 100, dataIndex: 'flowStatus', ellipsis: true },
   { key: 'action', title: '操作', width: 240, align: 'center' as const, fixed: 'right' as const },
@@ -44,7 +42,6 @@ const categoryColumns = [
   { key: 'categoryName', title: '服务品类名称', width: 140, dataIndex: 'categoryName', ellipsis: true },
   { key: 'catalogLevel', title: '目录级别', width: 80, dataIndex: 'catalogLevel', ellipsis: true },
   { key: 'spType', title: '服务商类型', width: 100, dataIndex: 'spType', ellipsis: true },
-  { key: 'mgmtType', title: '服务商管理类型', width: 120, dataIndex: 'mgmtType', ellipsis: true },
   { key: 'action', title: '操作', width: 100, align: 'center' as const, fixed: 'right' as const },
 ];
 

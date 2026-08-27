@@ -1,5 +1,5 @@
 /**
- * @name 信息编辑
+ * @name 配码编辑
  */
 import React from 'react';
 import { useState } from 'react';
@@ -25,26 +25,22 @@ const statusColors: Record<string, string> = {
 export default function InfoEdit() {
   const { token: t } = theme.useToken();
   const [nameFilter, setNameFilter] = useState('');
-  const [typeFilter, setTypeFilter] = useState('');
   const [statusFilter, setStatusFilter] = useState('');
   const [submitterFilter, setSubmitterFilter] = useState('');
   const { setFilter, filteredData, clearFilters } = useFilterData(rawData, [
     { key: 'name', label: '服务商名称' },
-    { key: 'type', label: '服务商管理类型' },
     { key: 'status', label: '流程状态' },
     { key: 'submitter', label: '提交人' },
   ]);
 
   const handleSearch = () => {
     setFilter('name', nameFilter);
-    setFilter('type', typeFilter);
     setFilter('status', statusFilter);
     setFilter('submitter', submitterFilter);
   };
 
   const handleReset = () => {
     setNameFilter('');
-    setTypeFilter('');
     setStatusFilter('');
     setSubmitterFilter('');
     clearFilters();
@@ -57,7 +53,6 @@ export default function InfoEdit() {
   const columns = [
     { key: 'idx', title: '序号', width: 50, align: 'center' as const, dataIndex: 'idx' },
     { key: 'name', title: '服务商名称', width: 200, dataIndex: 'name', ellipsis: true },
-    { key: 'type', title: '服务商管理类型', width: 120, dataIndex: 'type', ellipsis: true },
     {
       key: 'status', title: '流程状态', width: 80, align: 'center' as const, dataIndex: 'status',
       render: (val: string) => val ? <Tag color={statusColors[val] || 'default'}>{val}</Tag> : '—',
@@ -100,17 +95,13 @@ export default function InfoEdit() {
     <div>
       <Card size="small" variant="outlined" style={{ marginBottom: 16 }}>
         <Space direction="vertical" style={{ width: '100%' }} size={8}>
-          <Typography.Title level={4} style={{ margin: 0 }}>服务商信息编辑</Typography.Title>
+          <Typography.Title level={4} style={{ margin: 0 }}>配码编辑</Typography.Title>
           <Card size="small" variant="outlined" style={{ marginBottom: 0 }}>
             <Space direction="vertical" style={{ width: '100%' }} size={12}>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr) auto', gap: 12, alignItems: 'end' }}>
                 <div>
                   <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>服务商名称</Typography.Text>
                   <Input placeholder="请输入服务商名称" value={nameFilter} onChange={e => setNameFilter(e.target.value)} />
-                </div>
-                <div>
-                  <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>服务商管理类型</Typography.Text>
-                  <Input placeholder="请输入服务商管理类型" value={typeFilter} onChange={e => setTypeFilter(e.target.value)} />
                 </div>
                 <div>
                   <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block', marginBottom: 4 }}>流程状态</Typography.Text>

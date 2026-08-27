@@ -5,19 +5,20 @@
 import React from 'react';
 import { useState } from 'react';
 import { Typography, Card, Space, Button, Table, Tabs, Tag, Input, Modal, message } from 'antd';
-import { calculateServiceTags } from '../common/tag-utils';
+import { calculateServiceTags, ServiceCategory } from '../common/tag-utils';
 import { PlusOutlined } from '@ant-design/icons';
 
 const serviceDirColumns = [
   { key: 'code', title: '服务类目编码', width: 130, dataIndex: 'code' },
   { key: 'name', title: '服务类目名称', dataIndex: 'name' },
   { key: 'type', title: '目录类型', width: 100, align: 'center' as const, dataIndex: 'type', render: (v: string) => <Tag color={v === '专业' ? 'blue' : 'default'}>{v}</Tag> },
-  { key: 'level', title: '目录等级', width: 90, align: 'center' as const, dataIndex: 'level' },
+  { key: 'status', title: '状态', width: 100, align: 'center' as const, dataIndex: 'status', render: (v: string) => <Tag color={v === '正常' ? 'success' : v === '暂停' ? 'warning' : 'default'}>{v}</Tag> },
+  { key: 'certType', title: '认证标签', width: 100, align: 'center' as const, dataIndex: 'certType', render: (v: string) => v ? <Tag color={v === '专业认证' ? 'red' : 'blue'} style={{ fontSize: 11, padding: '0 4px', lineHeight: '18px' }}>{v}</Tag> : '—' },
 ];
 
 const serviceDirData = [
-  { code: '502010', name: '工程技术服务 / 生产及维修服务', type: '专业', level: '一级' },
-  { code: '601010', name: '办公服务 / 物业管理', type: '通用', level: '二级' },
+  { code: '502010', name: '工程技术服务 / 生产及维修服务', type: '专业', status: '正常', certType: '专业认证' },
+  { code: '601010', name: '办公服务 / 物业管理', type: '通用', status: '正常', certType: '通用认证' },
 ];
 
 const qualColumns = [
@@ -121,7 +122,11 @@ export default function SpQueryFormalDetail() {
   /* 根据状态+品类自动计算标签 */
   const spStatus = 'formal';
   const categoryCodes = ['502010', '601010'];
-  const autoTags = calculateServiceTags(spStatus, categoryCodes);
+  const categories: ServiceCategory[] = [
+    { code: '502010', name: '工程技术服务', type: '专业', certified: true },
+    { code: '601010', name: '办公服务', type: '通用', certified: true },
+  ];
+  const autoTags = calculateServiceTags(spStatus, categoryCodes, categories);
 
   const tabItems = [
     {
@@ -144,7 +149,6 @@ export default function SpQueryFormalDetail() {
               <FormField label="是否内部服务商"><ReadonlyInput value="内部服务商" /></FormField>
               <FormField label="授权关系证明"><ReadonlyInput value="长庆油田" /></FormField>
               <FormField label="服务商编码"><ReadonlyInput value="1000020022" /></FormField>
-              <FormField label="服务商管理类型"><ReadonlyInput value="所属企业管理" /></FormField>
               <FormField label="服务商状态"><ReadonlyInput value="正常" /></FormField>
               <FormField label="准入方式"><ReadonlyInput value="公开招标采购中标" /></FormField>
             </div>

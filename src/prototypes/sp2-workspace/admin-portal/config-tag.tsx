@@ -25,7 +25,7 @@ interface TagConfig {
 const colorOptions = [
   { label: '蓝色', value: 'blue', color: '#1677ff' },
   { label: '绿色', value: 'green', color: '#52c41a' },
-  { label: '橙色', value: 'orange', value: 'orange', color: '#fa8c16' },
+  { label: '橙色', value: 'orange', color: '#fa8c16' },
   { label: '紫色', value: 'purple', color: '#722ed1' },
   { label: '青色', value: 'cyan', color: '#13c2c2' },
   { label: '红色', value: 'red', color: '#ff4d4f' },

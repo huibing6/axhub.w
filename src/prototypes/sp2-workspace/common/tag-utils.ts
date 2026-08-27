@@ -11,9 +11,10 @@ export interface TagConfig {
   enabled: boolean;
   description?: string;
   rule: {
-    type: 'status' | 'integration';
+    type: 'status' | 'integration' | 'categoryCert';
     statusValue?: 'qualified' | 'formal' | 'pending' | 'frozen';
     integrationSystemId?: string;
+    certType?: 'professional' | 'general';
   };
 }
 
@@ -21,6 +22,14 @@ export interface TagItem {
   name: string;
   color: string;
   level: 'L1' | 'L2';
+}
+
+/** 服务商品类信息 */
+export interface ServiceCategory {
+  code: string;
+  name: string;
+  type: '专业' | '通用';
+  certified: boolean;
 }
 
 /** 集成系统配置（从 config-thirdparty 同步） */
@@ -90,18 +99,38 @@ export const defaultTagConfigs: TagConfig[] = [
     enabled: true,
     rule: { type: 'integration', integrationSystemId: 'WHT-FW' },
   },
+  {
+    id: '7',
+    name: '专',
+    color: 'red',
+    level: 'L2',
+    enabled: true,
+    description: '专业认证：有专业品类且已通过资质认证',
+    rule: { type: 'categoryCert', certType: 'professional' },
+  },
+  {
+    id: '8',
+    name: '通',
+    color: 'blue',
+    level: 'L2',
+    enabled: true,
+    description: '通用认证：有通用品类且使用单位已认证',
+    rule: { type: 'categoryCert', certType: 'general' },
+  },
 ];
 
 /**
  * 根据服务商状态和品类列表计算标签
  * @param status 服务商准入状态
  * @param categoryCodes 服务商注册的品类编码列表
+ * @param categories 服务商品类详细信息（含类型和认证状态）
  * @param tagConfigs 标签配置列表（可选，默认使用 defaultTagConfigs）
  * @returns 匹配的标签列表
  */
 export function calculateServiceTags(
   status: string,
   categoryCodes: string[],
+  categories?: ServiceCategory[],
   tagConfigs: TagConfig[] = defaultTagConfigs,
 ): TagItem[] {
   const matchedTags: TagItem[] = [];
@@ -122,6 +151,18 @@ export function calculateServiceTags(
           matchedTags.push({ name: tag.name, color: tag.color, level: tag.level });
           break;
         }
+      }
+    }
+
+    if (tag.rule.type === 'categoryCert' && categories) {
+      const certType = tag.rule.certType;
+      const hasMatch = categories.some(c =>
+        certType === 'professional'
+          ? c.type === '专业' && c.certified
+          : c.type === '通用' && c.certified,
+      );
+      if (hasMatch) {
+        matchedTags.push({ name: tag.name, color: tag.color, level: tag.level });
       }
     }
   }

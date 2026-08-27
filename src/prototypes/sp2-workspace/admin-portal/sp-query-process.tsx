@@ -6,12 +6,12 @@ import { useState } from 'react';
 import { Typography, Input, Select, Button, Table, Card, Row, Col, Tabs, Tag, Space } from 'antd';
 
 const spFlowData = [
-  { seq: 1, code: '1000020022', name: '中海油能源发展股份有限公司', mgmtType: '所属企业管理', unit: '长庆油田', spStatus: '正常', flow: '注册流程', flowStatus: '待提交', submitter: '阿三', submitTime: '2025-12-19 09:15', flowUnit: '', creditCode: '91420000706802345X' },
-  { seq: 2, code: '1000020022', name: '杰瑞石油装备技术有限公司', mgmtType: '总部管理', unit: '', spStatus: '暂停', flow: '准入流程', flowStatus: '待复核', submitter: '', submitTime: '2025-12-17 15:03', flowUnit: '', creditCode: '91420000706802345X' },
-  { seq: 3, code: '1000020022', name: '中海油能源发展股份有限公司', mgmtType: '所属企业管理', unit: '', spStatus: '取消', flow: '服务商信息变更流程', flowStatus: '已拒绝', submitter: '', submitTime: '2025-12-19 09:15', flowUnit: '', creditCode: '91420000706802345X' },
-  { seq: 4, code: '1000020022', name: '杰瑞石油装备技术有限公司', mgmtType: '总部管理', unit: '', spStatus: '', flow: '资质变更流程', flowStatus: '', submitter: '', submitTime: '2025-12-17 15:03', flowUnit: '', creditCode: '91420000706802345X' },
-  { seq: 5, code: '1000020022', name: '中海油能源发展股份有限公司', mgmtType: '', unit: '', spStatus: '', flow: '冻结流程', flowStatus: '', submitter: '', submitTime: '2025-12-19 09:15', flowUnit: '', creditCode: '91420000706802345X' },
-  { seq: 6, code: '', name: '杰瑞石油装备技术有限公司', mgmtType: '', unit: '', spStatus: '', flow: '解冻流程', flowStatus: '', submitter: '', submitTime: '', flowUnit: '', creditCode: '91420000706802345X' },
+  { seq: 1, code: '1000020022', name: '中海油能源发展股份有限公司', unit: '长庆油田', spStatus: '正常', flow: '注册流程', flowStatus: '待提交', submitter: '阿三', submitTime: '2025-12-19 09:15', flowUnit: '', creditCode: '91420000706802345X' },
+  { seq: 2, code: '1000020022', name: '杰瑞石油装备技术有限公司', unit: '', spStatus: '暂停', flow: '准入流程', flowStatus: '待复核', submitter: '', submitTime: '2025-12-17 15:03', flowUnit: '', creditCode: '91420000706802345X' },
+  { seq: 3, code: '1000020022', name: '中海油能源发展股份有限公司', unit: '', spStatus: '取消', flow: '服务商信息变更流程', flowStatus: '已拒绝', submitter: '', submitTime: '2025-12-19 09:15', flowUnit: '', creditCode: '91420000706802345X' },
+  { seq: 4, code: '1000020022', name: '杰瑞石油装备技术有限公司', unit: '', spStatus: '', flow: '资质变更流程', flowStatus: '', submitter: '', submitTime: '2025-12-17 15:03', flowUnit: '', creditCode: '91420000706802345X' },
+  { seq: 5, code: '1000020022', name: '中海油能源发展股份有限公司', unit: '', spStatus: '', flow: '冻结流程', flowStatus: '', submitter: '', submitTime: '2025-12-19 09:15', flowUnit: '', creditCode: '91420000706802345X' },
+  { seq: 6, code: '', name: '杰瑞石油装备技术有限公司', unit: '', spStatus: '', flow: '解冻流程', flowStatus: '', submitter: '', submitTime: '', flowUnit: '', creditCode: '91420000706802345X' },
 ];
 
 const catFlowData = [
@@ -29,7 +29,6 @@ const spFlowStatusColors: Record<string, string> = {
 export default function SpQueryProcess() {
   const [activeTab, setActiveTab] = useState('sp');
   const [searchName, setSearchName] = useState('');
-  const [searchMgmtType, setSearchMgmtType] = useState<string | undefined>(undefined);
   const [searchFlowStatus, setSearchFlowStatus] = useState<string | undefined>(undefined);
 
   const currentData = activeTab === 'sp' ? spFlowData : catFlowData;
@@ -40,7 +39,6 @@ export default function SpQueryProcess() {
 
   const handleReset = () => {
     setSearchName('');
-    setSearchMgmtType(undefined);
     setSearchFlowStatus(undefined);
   };
 
@@ -48,7 +46,6 @@ export default function SpQueryProcess() {
     { key: 'seq', title: '序号', width: 60, align: 'center' as const, dataIndex: 'seq' },
     { key: 'code', title: '服务商编码', dataIndex: 'code', width: 120 },
     { key: 'name', title: '服务商名称', dataIndex: 'name', ellipsis: true },
-    { key: 'mgmtType', title: '服务商管理类型', dataIndex: 'mgmtType', width: 140 },
     { key: 'spStatus', title: '服务商状态', dataIndex: 'spStatus', width: 100, align: 'center' as const, render: (val: string) => val ? <Tag color={spFlowStatusColors[val]}>{val}</Tag> : '—' },
     { key: 'flow', title: '流程', dataIndex: 'flow', width: 160, ellipsis: true },
     { key: 'flowStatus', title: '流程状态', dataIndex: 'flowStatus', width: 100, align: 'center' as const, render: (val: string) => val ? <Tag color={spFlowStatusColors[val]}>{val}</Tag> : '—' },
@@ -95,7 +92,6 @@ export default function SpQueryProcess() {
       <Card size="small" variant="outlined" style={{ marginBottom: 16 }}>
         <Row gutter={24} style={{ marginBottom: 12 }}>
           <Col><Space size={8}><Typography.Text style={{ whiteSpace: 'nowrap' }}>服务商名称</Typography.Text><Input placeholder="请输入服务商名称" style={{ width: 200 }} value={searchName} onChange={e => setSearchName(e.target.value)} /></Space></Col>
-          <Col><Space size={8}><Typography.Text style={{ whiteSpace: 'nowrap' }}>服务商管理类型</Typography.Text><Select style={{ width: 200 }} placeholder="全部" allowClear value={searchMgmtType} onChange={setSearchMgmtType} options={[{ value: '所属企业管理', label: '所属企业管理' }, { value: '总部管理', label: '总部管理' }]} /></Space></Col>
           <Col><Space size={8}><Typography.Text style={{ whiteSpace: 'nowrap' }}>流程状态</Typography.Text><Select style={{ width: 200 }} placeholder="全部" allowClear value={searchFlowStatus} onChange={setSearchFlowStatus} options={[{ value: '待提交', label: '待提交' }, { value: '待复核', label: '待复核' }, { value: '已拒绝', label: '已拒绝' }, { value: '已通过', label: '已通过' }]} /></Space></Col>
         </Row>
         <Row>

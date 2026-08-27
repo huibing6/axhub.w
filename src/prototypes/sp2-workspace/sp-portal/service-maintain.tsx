@@ -17,10 +17,10 @@ interface RegisteredRow {
   index: number;
   code: string;
   name: string;
-  level: string;
   type: string;
   units: string[];
-  changeType: string;
+  status: string;
+  submitter: string;
 }
 
 interface PendingRow {
@@ -29,21 +29,21 @@ interface PendingRow {
   code: string;
   name: string;
   type: string;
-  level: string;
   saveTime: string;
+  status: string;
 }
 
 const registeredData: RegisteredRow[] = [
-  { key: 1, index: 1, code: 'S1001000', name: '租赁服务', level: '一级', type: '专业', units: ['长庆油田', '西南油气田分公司'], changeType: '新增' },
-  { key: 2, index: 2, code: 'S1001000', name: '租赁服务', level: '二级', type: '通用', units: ['长庆油田'], changeType: '新增' },
-  { key: 3, index: 3, code: 'S1001000', name: '租赁服务', level: '二级', type: '专业', units: ['大庆油田有限责任公司', '塔里木油田分公司'], changeType: '' },
-  { key: 4, index: 4, code: 'S0401000', name: '仓储服务', level: '二级', type: '通用', units: ['长庆油田', '青海油田分公司'], changeType: '' },
-  { key: 5, index: 5, code: 'S0101000', name: '咨询', level: '一级', type: '专业', units: ['西南油气田分公司'], changeType: '' },
+  { key: 1, index: 1, code: 'S1001000', name: '租赁服务', type: '专业', units: ['长庆油田', '西南油气田分公司'], status: '正常', submitter: '张三' },
+  { key: 2, index: 2, code: 'S1001000', name: '租赁服务', type: '通用', units: ['长庆油田'], status: '正常', submitter: '李四' },
+  { key: 3, index: 3, code: 'S1001000', name: '租赁服务', type: '专业', units: ['大庆油田有限责任公司', '塔里木油田分公司'], status: '暂停', submitter: '王五' },
+  { key: 4, index: 4, code: 'S0401000', name: '仓储服务', type: '通用', units: ['长庆油田', '青海油田分公司'], status: '正常', submitter: '张三' },
+  { key: 5, index: 5, code: 'S0101000', name: '咨询', type: '专业', units: ['西南油气田分公司'], status: '暂停', submitter: '赵六' },
 ];
 
 const pendingData: PendingRow[] = [
-  { key: 1, no: 'WG2026-0001', code: 'S0401001', name: '仓储包装服务', type: '通用', level: '三级', saveTime: '2026-06-14 10:20' },
-  { key: 2, no: 'WG2026-0002', code: 'S0102001', name: '劳务勘查', type: '专业', level: '三级', saveTime: '2026-06-13 16:45' },
+  { key: 1, no: 'WG2026-0001', code: 'S0401001', name: '仓储包装服务', type: '通用', saveTime: '2026-06-14 10:20', status: '正常' },
+  { key: 2, no: 'WG2026-0002', code: 'S0102001', name: '劳务勘查', type: '专业', saveTime: '2026-06-13 16:45', status: '暂停' },
 ];
 
 function TypeTag({ type }: { type: string }) {
@@ -75,8 +75,7 @@ export default function SpServiceMaintain() {
 
   const { filters, setFilter, clearFilters, filteredData } = useFilterData(registered, [
     { key: 'code', label: '服务品类编码' },
-    { key: 'level', label: '级别' },
-    { key: 'changeType', label: '变更类型' },
+    { key: 'status', label: '状态' },
     { key: 'submitter', label: '提交人' },
   ]);
 
@@ -146,14 +145,12 @@ export default function SpServiceMaintain() {
   };
 
   const pendingColumns = [
-    { key: 'no', title: '暂存单号', width: 130, dataIndex: 'no' },
     { key: 'code', title: '服务品类码', width: 120, dataIndex: 'code' },
     { key: 'name', title: '服务品类名称', dataIndex: 'name' },
     {
       key: 'type', title: '品类类型', width: 100, align: 'center' as const, dataIndex: 'type',
       render: (v: string) => <TypeTag type={v} />,
     },
-    { key: 'level', title: '品类等级', width: 90, align: 'center' as const, dataIndex: 'level' },
     { key: 'saveTime', title: '暂存时间', width: 160, dataIndex: 'saveTime' },
     {
       key: 'action', title: '操作', width: 180, align: 'center' as const,
@@ -173,7 +170,6 @@ export default function SpServiceMaintain() {
     { key: 'index', title: '序号', width: 60, align: 'center' as const, dataIndex: 'index' },
     { key: 'code', title: '服务分类编码', dataIndex: 'code' },
     { key: 'name', title: '服务分类名称', dataIndex: 'name' },
-    { key: 'level', title: '级别', dataIndex: 'level' },
     {
       key: 'type', title: '目录类型', dataIndex: 'type',
       render: (v: string) => <TypeTag type={v} />,
@@ -186,7 +182,10 @@ export default function SpServiceMaintain() {
         </Space>
       ) : '',
     },
-    { key: 'changeType', title: '服务变更类型', dataIndex: 'changeType' },
+    {
+      key: 'status', title: '状态', width: 80, align: 'center' as const, dataIndex: 'status',
+      render: (v: string) => <Tag color={v === '正常' ? 'success' : 'warning'}>{v}</Tag>,
+    },
     {
       key: 'action',
       title: '操作',
@@ -234,18 +233,10 @@ export default function SpServiceMaintain() {
                       </Col>
                       <Col span={6}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                          <Typography.Text style={{ whiteSpace: 'nowrap' }}>级别</Typography.Text>
-                          <Input size="small" style={{ flex: 1 }} value={filters.level || ''} onChange={e => setFilter('level', e.target.value)} />
+                          <Typography.Text style={{ whiteSpace: 'nowrap' }}>状态</Typography.Text>
+                          <Input size="small" style={{ flex: 1 }} value={filters.status || ''} onChange={e => setFilter('status', e.target.value)} />
                         </div>
                       </Col>
-                      <Col span={6}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                          <Typography.Text style={{ whiteSpace: 'nowrap' }}>变更类型</Typography.Text>
-                          <Input size="small" style={{ flex: 1 }} value={filters.changeType || ''} onChange={e => setFilter('changeType', e.target.value)} />
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row gutter={16}>
                       <Col span={6}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                           <Typography.Text style={{ whiteSpace: 'nowrap' }}>提交人</Typography.Text>
