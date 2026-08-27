@@ -13,6 +13,7 @@ import { createRoot } from 'react-dom/client';
 import { ConfigProvider, Layout, theme, Typography, Segmented } from 'antd';
 import PortalLayout from './common/portal-layout';
 import { spGroups, adminGroups } from './common/menu-data';
+import flowchartPng from './assets/服务商管理流程图V2.0.png';
 
 /* ─── 服务商端页面（懒加载） ─── */
 const SpWorkspace = lazy(() => import('./sp-portal/workspace'));
@@ -150,9 +151,10 @@ const adminPageMap: Record<string, React.LazyExoticComponent<any>> = {
 const { Text } = Typography;
 
 function App() {
-  const [portal, setPortal] = useState<'sp' | 'admin'>(() => {
+  const [portal, setPortal] = useState<'sp' | 'admin' | 'flowchart'>(() => {
     if (typeof window !== 'undefined') {
       const hash = window.location.hash.slice(1);
+      if (hash === '/flowchart') return 'flowchart';
       if (hash.startsWith('/admin')) return 'admin';
     }
     return 'sp';
@@ -165,7 +167,9 @@ function App() {
   useEffect(() => {
     const onHashChange = () => {
       const hash = window.location.hash.slice(1);
-      if (hash.startsWith('/admin')) {
+      if (hash === '/flowchart') {
+        setPortal('flowchart');
+      } else if (hash.startsWith('/admin')) {
         setPortal('admin');
       } else {
         setPortal('sp');
@@ -177,11 +181,16 @@ function App() {
   }, []);
 
   const handlePortalChange = (val: string) => {
-    const next = val as 'sp' | 'admin';
+    const next = val as 'sp' | 'admin' | 'flowchart';
     setPortal(next);
-    const defaultKey = next === 'sp' ? '/sp/workspace' : '/admin';
-    setSelectedKey(defaultKey);
-    window.location.hash = '#' + defaultKey;
+    if (next === 'flowchart') {
+      setSelectedKey('/flowchart');
+      window.location.hash = '#/flowchart';
+    } else {
+      const defaultKey = next === 'sp' ? '/sp/workspace' : '/admin';
+      setSelectedKey(defaultKey);
+      window.location.hash = '#' + defaultKey;
+    }
   };
 
   const handleMenuSelect = (key: string) => {
@@ -190,9 +199,9 @@ function App() {
   };
 
   const pageMap = portal === 'sp' ? spPageMap : adminPageMap;
-  const groups = portal === 'sp' ? spGroups : adminGroups;
+  const groups = portal === 'sp' ? spGroups : portal === 'admin' ? adminGroups : [];
   const routeKey = selectedKey.split('?')[0];
-  const PageComponent = pageMap[routeKey] || null;
+  const PageComponent = portal === 'flowchart' ? null : (pageMap[routeKey] || null);
 
   return (
     <ConfigProvider
@@ -227,7 +236,7 @@ function App() {
       }}
     >
       <PortalLayout
-        title={portal === 'sp' ? '服务商工作台2.0' : '服务商管理工作台2.0'}
+        title={portal === 'flowchart' ? '服务商管理流程图' : portal === 'sp' ? '服务商工作台2.0' : '服务商管理工作台2.0'}
         groups={groups}
         selectedKey={selectedKey}
         onMenuSelect={handleMenuSelect}
@@ -240,11 +249,29 @@ function App() {
             options={[
               { label: '服务商端', value: 'sp' },
               { label: '管理端', value: 'admin' },
+              { label: '流程图', value: 'flowchart' },
             ]}
           />
         </div>
 
-        {PageComponent ? (
+        {portal === 'flowchart' ? (
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            minHeight: 'calc(100vh - 56px)',
+            padding: 24,
+            background: '#fff',
+            overflow: 'auto',
+          }}>
+            <img
+              src={flowchartPng}
+              alt="服务商管理流程图"
+              style={{ maxWidth: '100%', height: 'auto', cursor: 'zoom-in', borderRadius: 4 }}
+              onClick={() => window.open(flowchartPng, '_blank')}
+            />
+          </div>
+        ) : PageComponent ? (
           <Suspense fallback={
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 200 }}>
               <Text type="secondary">加载中...</Text>
