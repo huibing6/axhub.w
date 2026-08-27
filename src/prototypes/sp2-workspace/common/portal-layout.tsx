@@ -75,20 +75,22 @@ export default function PortalLayout({ title, groups, logo = '/prototypes/assets
         <span style={{ marginLeft: 16, fontSize: 14, fontWeight: 600, color: t.colorText }}>{title}</span>
       </Header>
       <Layout>
-        <SideMenu
-          title=""
-          width={240}
-          collapsible={false}
-          items={menuItems}
-          defaultSelectedKey=""
-          onMenuSelect={(key: string) => {
-            setInternalKey(key);
-            onMenuSelect?.(key);
-            window.location.hash = '#' + key;
-          }}
-        />
+        {groups.length > 0 && (
+          <SideMenu
+            title=""
+            width={240}
+            collapsible={false}
+            items={menuItems}
+            defaultSelectedKey=""
+            onMenuSelect={(key: string) => {
+              setInternalKey(key);
+              onMenuSelect?.(key);
+              window.location.hash = '#' + key;
+            }}
+          />
+        )}
         <Content style={{
-          padding: 24,
+          padding: groups.length > 0 ? 24 : 0,
           minHeight: 'calc(100vh - 56px)',
           background: t.colorBgLayout,
         }}>
