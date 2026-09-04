@@ -153,8 +153,8 @@ export function QualAttachCard({ categoryCode, categoryName }: { categoryCode: s
                 </Upload>
               )}
             </div>
-            {/* 有效期填写：仅在 hasValidityPeriod 且已上传文件后显示 */}
-            {item.hasValidityPeriod && fileName && (
+            {/* 有效期填写：hasValidityPeriod 时默认展示 */}
+            {item.hasValidityPeriod && (
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 8, paddingLeft: 272 }}>
                 <Typography.Text style={{ fontSize: 12, color: '#666', whiteSpace: 'nowrap' }}>有效期：</Typography.Text>
                 <Input
