@@ -1,12 +1,14 @@
 /**
- * 专业目录资质附件配置（共享数据）
- * 管理端在"参数配置 → 专业服务目录配置 → 目录品类设置"中维护，
- * 服务商端注册/服务目录编辑区按服务品类编码读取并展示上传。
+ * 专业品类资质附件配置（共享数据）
+ * 管理端在"参数配置 → 专业品类配置"中维护，
+ * 服务商端注册/品类编辑区按服务品类编码读取并展示上传。
  */
 export interface QualAttachItem {
   name: string;
   required: boolean;
   desc?: string;
+  /** 是否要求服务商填写该附件的有效期 */
+  hasValidityPeriod?: boolean;
 }
 
 /**
@@ -15,27 +17,27 @@ export interface QualAttachItem {
  */
 export const categoryQualConfig: Record<string, QualAttachItem[]> = {
   'S0101000': [
-    { name: '咨询服务资质证书', required: true, desc: '咨询类企业应具备的行业资质证书' },
-    { name: '专业人员执业资格证明', required: true, desc: '主要咨询人员的执业资格证书' },
-    { name: '质量管理体系认证证书', required: false, desc: 'ISO 9001 等质量管理体系认证' },
+    { name: '咨询服务资质证书', required: true, desc: '咨询类企业应具备的行业资质证书', hasValidityPeriod: true },
+    { name: '专业人员执业资格证明', required: true, desc: '主要咨询人员的执业资格证书', hasValidityPeriod: true },
+    { name: '质量管理体系认证证书', required: false, desc: 'ISO 9001 等质量管理体系认证', hasValidityPeriod: true },
   ],
   'S0102000': [
-    { name: '勘查资质证书', required: true, desc: '对应级别的勘查类资质证书' },
-    { name: '安全生产许可证', required: true, desc: '有效期内的安全生产许可证明' },
-    { name: '主要设备检测报告', required: false, desc: '勘查设备的检验检测合格报告' },
+    { name: '勘查资质证书', required: true, desc: '对应级别的勘查类资质证书', hasValidityPeriod: true },
+    { name: '安全生产许可证', required: true, desc: '有效期内的安全生产许可证明', hasValidityPeriod: true },
+    { name: '主要设备检测报告', required: false, desc: '勘查设备的检验检测合格报告', hasValidityPeriod: true },
   ],
   'S0301000': [
-    { name: '生产许可证', required: true, desc: '相关生产加工环节的生产许可证' },
-    { name: '特种设备制造许可', required: false, desc: '涉及特种设备制造时提供' },
-    { name: '产品质量检测报告', required: false, desc: '主要产品的质量检验报告' },
+    { name: '生产许可证', required: true, desc: '相关生产加工环节的生产许可证', hasValidityPeriod: true },
+    { name: '特种设备制造许可', required: false, desc: '涉及特种设备制造时提供', hasValidityPeriod: true },
+    { name: '产品质量检测报告', required: false, desc: '主要产品的质量检验报告', hasValidityPeriod: false },
   ],
   'S0201000': [
-    { name: '物化探专业资质证书', required: true, desc: '地震勘探类专业资质证书' },
-    { name: '安全生产许可证', required: true, desc: '有效期内的安全生产许可证明' },
+    { name: '物化探专业资质证书', required: true, desc: '地震勘探类专业资质证书', hasValidityPeriod: true },
+    { name: '安全生产许可证', required: true, desc: '有效期内的安全生产许可证明', hasValidityPeriod: true },
   ],
   'S0501000': [
-    { name: '科技服务资质证书', required: true, desc: '科技项目服务类资质证书' },
-    { name: '研发团队人员资质证明', required: false, desc: '主要研发人员的技术职称证明' },
+    { name: '科技服务资质证书', required: true, desc: '科技项目服务类资质证书', hasValidityPeriod: true },
+    { name: '研发团队人员资质证明', required: false, desc: '主要研发人员的技术职称证明', hasValidityPeriod: false },
   ],
 };
 

@@ -66,9 +66,9 @@ const mockData: Record<number, { name: string; description: string; instructions
       { id: 4, name: '擅长领域', type: '下拉', required: true },
     ],
     quals: [
-      { id: 1, name: '律师事务所执业许可证', required: true, desc: '有效期内的执业许可证扫描件' },
-      { id: 2, name: '律师资格证书', required: true, desc: '不少于3名执业律师' },
-      { id: 3, name: '企业营业执照副本', required: true, desc: '彩色扫描件' },
+      { id: 1, name: '律师事务所执业许可证', required: true, desc: '有效期内的执业许可证扫描件', hasValidityPeriod: true },
+      { id: 2, name: '律师资格证书', required: true, desc: '不少于3名执业律师', hasValidityPeriod: false },
+      { id: 3, name: '企业营业执照副本', required: true, desc: '彩色扫描件', hasValidityPeriod: true },
     ],
     members: [
       { id: 1, name: '王建国', empNo: 'T0345123', dept: '专业管理部' },
@@ -90,11 +90,11 @@ const mockData: Record<number, { name: string; description: string; instructions
       { id: 6, name: '设备检验有效期', type: '日期', required: true },
     ],
     quals: [
-      { id: 1, name: '钻井工程技术服务资质证书', required: true, desc: '有效期内资质证书' },
-      { id: 2, name: '安全生产许可证', required: true, desc: '有效期内' },
-      { id: 3, name: '企业营业执照副本', required: true, desc: '彩色扫描件' },
-      { id: 4, name: '钻井设备清单及检验报告', required: true, desc: '主要设备' },
-      { id: 5, name: '近三年同类项目业绩证明', required: true, desc: '至少3份合同' },
+      { id: 1, name: '钻井工程技术服务资质证书', required: true, desc: '有效期内资质证书', hasValidityPeriod: true },
+      { id: 2, name: '安全生产许可证', required: true, desc: '有效期内', hasValidityPeriod: true },
+      { id: 3, name: '企业营业执照副本', required: true, desc: '彩色扫描件', hasValidityPeriod: true },
+      { id: 4, name: '钻井设备清单及检验报告', required: true, desc: '主要设备', hasValidityPeriod: false },
+      { id: 5, name: '近三年同类项目业绩证明', required: true, desc: '至少3份合同', hasValidityPeriod: false },
     ],
     members: [
       { id: 1, name: '张伟', empNo: 'T0345125', dept: '钻井技术部' },
@@ -110,7 +110,7 @@ const mockData: Record<number, { name: string; description: string; instructions
 
 /* ─── 类型 ─── */
 interface FieldItem { id: number; name: string; type: string; required: boolean; }
-interface QualItem { id: number; name: string; required: boolean; desc: string; }
+interface QualItem { id: number; name: string; required: boolean; desc: string; hasValidityPeriod: boolean; }
 interface MemberItem { id: number; name: string; empNo: string; dept: string; }
 
 const fieldTypeOptions = [
@@ -178,6 +178,7 @@ export default function ConfigDirEdit() {
   const [newQualName, setNewQualName] = useState('');
   const [newQualRequired, setNewQualRequired] = useState(true);
   const [newQualDesc, setNewQualDesc] = useState('');
+  const [newQualHasValidityPeriod, setNewQualHasValidityPeriod] = useState(false);
 
   const [newMemberName, setNewMemberName] = useState('');
   const [newMemberEmpNo, setNewMemberEmpNo] = useState('');
@@ -210,8 +211,8 @@ export default function ConfigDirEdit() {
 
   const addQual = () => {
     if (!newQualName) return;
-    setQuals([...quals, { id: Date.now(), name: newQualName, required: newQualRequired, desc: newQualDesc }]);
-    setNewQualName(''); setNewQualRequired(true); setNewQualDesc('');
+    setQuals([...quals, { id: Date.now(), name: newQualName, required: newQualRequired, desc: newQualDesc, hasValidityPeriod: newQualHasValidityPeriod }]);
+    setNewQualName(''); setNewQualRequired(true); setNewQualDesc(''); setNewQualHasValidityPeriod(false);
   };
   const removeQual = (id: number) => setQuals(quals.filter(q => q.id !== id));
 
@@ -231,7 +232,7 @@ export default function ConfigDirEdit() {
   return (
     <div style={{ minHeight: 'calc(100vh - 56px - 48px)' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-        <Typography.Title level={4} style={{ margin: 0 }}>{isEdit ? '编辑' : '新建'}专业类型</Typography.Title>
+        <Typography.Title level={4} style={{ margin: 0 }}>{isEdit ? '编辑' : '新建'}专业品类</Typography.Title>
         <Button onClick={() => window.location.hash = '#/admin/config-dir'}>返回列表</Button>
       </div>
 
@@ -302,8 +303,9 @@ export default function ConfigDirEdit() {
         </div>
         <Table
           columns={[
-            { key: 'name', title: '附件名称', dataIndex: 'name', width: 240 },
-            { key: 'required', title: '是否必填', dataIndex: 'required', width: 100, align: 'center' as const, render: (val: boolean) => <Tag color={val ? 'red' : 'default'}>{val ? '必填' : '选填'}</Tag> },
+            { key: 'name', title: '附件名称', dataIndex: 'name', width: 200 },
+            { key: 'required', title: '是否必填', dataIndex: 'required', width: 90, align: 'center' as const, render: (val: boolean) => <Tag color={val ? 'red' : 'default'}>{val ? '必填' : '选填'}</Tag> },
+            { key: 'hasValidityPeriod', title: '有效期要求', dataIndex: 'hasValidityPeriod', width: 100, align: 'center' as const, render: (val: boolean) => <Tag color={val ? 'orange' : 'default'}>{val ? '需要' : '不需要'}</Tag> },
             { key: 'desc', title: '说明', dataIndex: 'desc', ellipsis: true },
             { key: 'action', title: '操作', width: 80, align: 'center' as const, render: (_: unknown, record: QualItem) => <Typography.Link style={{ color: '#ff4d4f' }} onClick={() => removeQual(record.id)}>删除</Typography.Link> },
           ]}
@@ -311,10 +313,11 @@ export default function ConfigDirEdit() {
         />
         <Row gutter={12} style={{ marginTop: 12 }} align="middle">
           <Col flex="auto">
-            <Space size={8}>
-              <Input placeholder="附件名称" style={{ width: 200 }} value={newQualName} onChange={e => setNewQualName(e.target.value)} />
+            <Space size={8} wrap>
+              <Input placeholder="附件名称" style={{ width: 180 }} value={newQualName} onChange={e => setNewQualName(e.target.value)} />
               <Checkbox checked={newQualRequired} onChange={e => setNewQualRequired(e.target.checked)}>必填</Checkbox>
-              <Input placeholder="说明（选填）" style={{ width: 200 }} value={newQualDesc} onChange={e => setNewQualDesc(e.target.value)} />
+              <Checkbox checked={newQualHasValidityPeriod} onChange={e => setNewQualHasValidityPeriod(e.target.checked)}>要求填写有效期</Checkbox>
+              <Input placeholder="说明（选填）" style={{ width: 180 }} value={newQualDesc} onChange={e => setNewQualDesc(e.target.value)} />
             </Space>
           </Col>
           <Col><Button type="dashed" icon={<PlusOutlined />} onClick={addQual}>添加附件</Button></Col>

@@ -76,10 +76,25 @@ export function ConfirmAction({ title, content, onOk }: { title: string; content
   });
 }
 
-/* ─── 资质附件（按专业目录配置，服务目录编辑区使用） ─── */
+/* ─── 资质附件（按专业品类配置，品类编辑区使用） ─── */
+interface AttachFileState {
+  fileName: string;
+  startDate: string;
+  endDate: string;
+  permanent: boolean;
+}
+
 export function QualAttachCard({ categoryCode, categoryName }: { categoryCode: string; categoryName: string }) {
   const items = getQualAttachList(categoryCode);
-  const [fileNames, setFileNames] = useState<Record<string, string>>({});
+  const [fileStates, setFileStates] = useState<Record<string, AttachFileState>>({});
+
+  const updateFile = (name: string, patch: Partial<AttachFileState>) => {
+    setFileStates(prev => ({ ...prev, [name]: { ...prev[name], fileName: '', startDate: '', endDate: '', permanent: false, ...prev[name], ...patch } }));
+  };
+
+  const removeFile = (name: string) => {
+    setFileStates(prev => ({ ...prev, [name]: { fileName: '', startDate: '', endDate: '', permanent: false } }));
+  };
 
   if (items.length === 0) {
     return (
@@ -87,11 +102,11 @@ export function QualAttachCard({ categoryCode, categoryName }: { categoryCode: s
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
           <Typography.Text strong style={{ fontSize: 14 }}>资质附件</Typography.Text>
           <span style={{ background: '#e6f7ff', color: '#1677ff', fontSize: 11, padding: '0 6px', borderRadius: 3, border: '1px solid #91d5ff' }}>
-            按专业目录配置
+            按专业品类配置
           </span>
         </div>
         <Typography.Text type="secondary" style={{ fontSize: 13 }}>
-          该品类（{categoryName}）为通用目录，无需上传资质附件。
+          该品类（{categoryName}）为通用品类，无需上传资质附件。
         </Typography.Text>
       </Card>
     );
@@ -102,38 +117,73 @@ export function QualAttachCard({ categoryCode, categoryName }: { categoryCode: s
       <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 16 }}>
         <Typography.Text strong style={{ fontSize: 14 }}>资质附件</Typography.Text>
         <span style={{ background: '#e6f7ff', color: '#1677ff', fontSize: 11, padding: '0 6px', borderRadius: 3, border: '1px solid #91d5ff' }}>
-          按专业目录配置
+          按专业品类配置
         </span>
-        <Typography.Text type="secondary" style={{ fontSize: 12 }}>根据管理端为该专业目录配置的清单上传</Typography.Text>
+        <Typography.Text type="secondary" style={{ fontSize: 12 }}>根据管理端为该专业品类配置的清单上传</Typography.Text>
       </div>
       {items.map((item, idx) => {
-        const fileName = fileNames[item.name];
+        const state = fileStates[item.name];
+        const fileName = state?.fileName;
         return (
-          <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 0', borderBottom: idx < items.length - 1 ? '1px solid #f5f5f5' : 'none' }}>
-            <div style={{ width: 260, fontSize: 13 }}>
-              {item.required && <span style={{ color: '#ff4d4f', marginRight: 4 }}>*</span>}
-              {item.name}
-              {item.desc && (
-                <div style={{ fontSize: 12, color: '#999', marginTop: 2 }}>{item.desc}</div>
+          <div key={idx} style={{ padding: '10px 0', borderBottom: idx < items.length - 1 ? '1px solid #f5f5f5' : 'none' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div style={{ width: 260, fontSize: 13 }}>
+                {item.required && <span style={{ color: '#ff4d4f', marginRight: 4 }}>*</span>}
+                {item.name}
+                {item.desc && (
+                  <div style={{ fontSize: 12, color: '#999', marginTop: 2 }}>{item.desc}</div>
+                )}
+              </div>
+              {fileName ? (
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 1 }}>
+                  <Typography.Text style={{ fontSize: 13 }}>{fileName}</Typography.Text>
+                  <Typography.Link style={{ fontSize: 12 }}>预览</Typography.Link>
+                  <Typography.Link style={{ fontSize: 12, marginLeft: 8 }} onClick={() => removeFile(item.name)}>替换</Typography.Link>
+                  <Typography.Link style={{ fontSize: 12, marginLeft: 8, color: '#ff4d4f' }} onClick={() => removeFile(item.name)}>删除</Typography.Link>
+                </div>
+              ) : (
+                <Upload
+                  showUploadList={false}
+                  beforeUpload={(file) => {
+                    updateFile(item.name, { fileName: file.name });
+                    return false;
+                  }}
+                >
+                  <Button size="small" icon={<UploadOutlined />}>上传文件</Button>
+                </Upload>
               )}
             </div>
-            {fileName ? (
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 1 }}>
-                <Typography.Text style={{ fontSize: 13 }}>{fileName}</Typography.Text>
-                <Typography.Link style={{ fontSize: 12 }}>预览</Typography.Link>
-                <Typography.Link style={{ fontSize: 12, marginLeft: 8 }} onClick={() => setFileNames(prev => ({ ...prev, [item.name]: '' }))}>替换</Typography.Link>
-                <Typography.Link style={{ fontSize: 12, marginLeft: 8, color: '#ff4d4f' }} onClick={() => setFileNames(prev => ({ ...prev, [item.name]: '' }))}>删除</Typography.Link>
+            {/* 有效期填写：仅在 hasValidityPeriod 且已上传文件后显示 */}
+            {item.hasValidityPeriod && fileName && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 8, paddingLeft: 272 }}>
+                <Typography.Text style={{ fontSize: 12, color: '#666', whiteSpace: 'nowrap' }}>有效期：</Typography.Text>
+                <Input
+                  size="small"
+                  value={state?.startDate || ''}
+                  onChange={e => updateFile(item.name, { startDate: e.target.value })}
+                  placeholder="年/月/日"
+                  style={{ width: 110 }}
+                  disabled={state?.permanent}
+                />
+                <Typography.Text type="secondary" style={{ fontSize: 12 }}>至</Typography.Text>
+                <Input
+                  size="small"
+                  value={state?.endDate || ''}
+                  onChange={e => updateFile(item.name, { endDate: e.target.value })}
+                  placeholder="年/月/日"
+                  style={{ width: 110 }}
+                  disabled={state?.permanent}
+                />
+                <label style={{ fontSize: 12, display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    checked={state?.permanent || false}
+                    onChange={e => updateFile(item.name, { permanent: e.target.checked, startDate: '', endDate: '' })}
+                    style={{ accentColor: '#ff4d4f' }}
+                  />
+                  永久有效
+                </label>
               </div>
-            ) : (
-              <Upload
-                showUploadList={false}
-                beforeUpload={(file) => {
-                  setFileNames(prev => ({ ...prev, [item.name]: file.name }));
-                  return false;
-                }}
-              >
-                <Button size="small" icon={<UploadOutlined />}>上传文件</Button>
-              </Upload>
             )}
           </div>
         );

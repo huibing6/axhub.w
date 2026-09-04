@@ -143,7 +143,7 @@ export default function ConfigDir() {
   return (
     <div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-        <Typography.Title level={4} style={{ margin: 0 }}>专业类型管理</Typography.Title>
+        <Typography.Title level={4} style={{ margin: 0 }}>专业品类配置</Typography.Title>
         <Button type="primary" danger onClick={() => window.location.hash = '#/admin/config-dir-edit'}>+ 新建</Button>
       </div>
 

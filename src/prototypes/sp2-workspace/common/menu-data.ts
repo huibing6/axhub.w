@@ -88,7 +88,7 @@ export const adminGroups: MenuGroup[] = [
   {
     title: '参数配置',
     items: [
-      { label: '专业服务目录配置', path: '/admin/config-dir' },
+      { label: '专业品类配置', path: '/admin/config-dir' },
       { label: '冻结资质文件设定', path: '/admin/config-freeze' },
       { label: '通知配置', path: '/admin/config-notice' },
       { label: '系统通知配置', path: '/admin/system-notice' },
