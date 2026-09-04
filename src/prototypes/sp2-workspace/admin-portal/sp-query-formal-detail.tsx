@@ -150,7 +150,7 @@ export default function SpQueryFormalDetail() {
               <FormField label="授权关系证明"><ReadonlyInput value="长庆油田" /></FormField>
               <FormField label="服务商编码"><ReadonlyInput value="1000020022" /></FormField>
               <FormField label="服务商状态"><ReadonlyInput value="正常" /></FormField>
-              <FormField label="准入方式"><ReadonlyInput value="公开招标采购中标" /></FormField>
+              <FormField label="方式"><ReadonlyInput value="公开招标采购中标" /></FormField>
             </div>
           </div>
           <div>
@@ -367,7 +367,7 @@ export default function SpQueryFormalDetail() {
             <Space size={16} style={{ marginTop: 4 }}>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>统一社会信用代码 91110000100012345X</Typography.Text>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>服务商编码: 1000020022</Typography.Text>
-              <Typography.Text type="secondary" style={{ fontSize: 12 }}>准入时间: 2025-12-20 14:32:18</Typography.Text>
+              <Typography.Text type="secondary" style={{ fontSize: 12 }}>时间: 2025-12-20 14:32:18</Typography.Text>
             </Space>
           </Space>
           <Tag color="success" style={{ fontSize: 13, padding: '4px 12px' }}>正常</Tag>

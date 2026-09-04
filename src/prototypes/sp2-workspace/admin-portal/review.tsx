@@ -42,7 +42,7 @@ const categorySearchFields = [
   { key: 'categoryCode', label: '服务品类编码', placeholder: '请输入' },
   { key: 'categoryName', label: '服务品类名称', placeholder: '请输入' },
   { key: 'catalogLevel', label: '目录级别', type: 'select' as const, options: ['请选择', '一级', '二级', '三级'] },
-  { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停准入服务品类交易权限', '恢复准入服务品类交易权限'] },
+  { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停服务品类交易权限', '恢复服务品类交易权限'] },
   { key: 'applyTime', label: '申请时间', type: 'range' as const },
 ];
 
@@ -58,10 +58,10 @@ const categoryColumns = [
 ];
 
 const categoryData = [
-  { index: 1, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0301000', categoryName: '工序外协加工服务', catalogLevel: '一级', spType: '制造商' },
-  { index: 2, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0401001', categoryName: '仓储包装服务', catalogLevel: '一级', spType: '制造商' },
-  { index: 3, applyType: '暂停准入服务品类交易权限', spCode: '1000200490', spName: '北方大气公司', categoryCode: 'S0501000', categoryName: '科技项目服务', catalogLevel: '二级', spType: '制造商' },
-  { index: 4, applyType: '暂停准入服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0601001', categoryName: '基础软件开发服务', catalogLevel: '一级', spType: '制造商' },
+  { index: 1, applyType: '暂停服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0301000', categoryName: '工序外协加工服务', catalogLevel: '一级', spType: '制造商' },
+  { index: 2, applyType: '暂停服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0401001', categoryName: '仓储包装服务', catalogLevel: '一级', spType: '制造商' },
+  { index: 3, applyType: '暂停服务品类交易权限', spCode: '1000200490', spName: '北方大气公司', categoryCode: 'S0501000', categoryName: '科技项目服务', catalogLevel: '二级', spType: '制造商' },
+  { index: 4, applyType: '暂停服务品类交易权限', spCode: '1000802855', spName: '渤海石油装备（天津）中…', categoryCode: 'S0601001', categoryName: '基础软件开发服务', catalogLevel: '一级', spType: '制造商' },
 ];
 
 export default function Review() {

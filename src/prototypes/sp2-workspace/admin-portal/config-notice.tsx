@@ -1,5 +1,5 @@
 /**
- * @name 准入通知配置（列表页）
+ * @name 通知配置（列表页）
  */
 import React from 'react';
 import { useState } from 'react';
@@ -17,7 +17,7 @@ interface NoticeTemplate {
 
 const initialData: NoticeTemplate[] = [
   { seq: 1, name: '注册补充资料通知', unit: '长庆油田分公司', category: '注册流程', fillCount: 3, fileDescCount: 1, qualCount: 2 },
-  { seq: 2, name: '准入补充资料通知', unit: '西南油气田分公司', category: '准入流程', fillCount: 2, fileDescCount: 1, qualCount: 2 },
+  { seq: 2, name: '补充资料通知', unit: '西南油气田分公司', category: '流程', fillCount: 2, fileDescCount: 1, qualCount: 2 },
   { seq: 3, name: '变更补充资料通知', unit: '大庆油田有限责任公司', category: '变更流程', fillCount: 1, fileDescCount: 0, qualCount: 1 },
 ];
 
@@ -43,7 +43,7 @@ export default function ConfigNotice() {
   return (
     <div>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 16 }}>
-        <Typography.Title level={4} style={{ margin: 0 }}>准入通知配置</Typography.Title>
+        <Typography.Title level={4} style={{ margin: 0 }}>通知配置</Typography.Title>
         <Button type="primary" danger onClick={() => window.location.hash = '#/admin/config-notice-edit'}>+ 新增模板</Button>
       </div>
 

@@ -1,6 +1,6 @@
 /**
  * @name 维护复核
- * 对齐原版：双Tab（服务商信息复核/服务目录复核）+ 独立列配置
+ * 对齐原版：双Tab（服务商信息复核/服务品类复核）+ 独立列配置
  */
 import React from 'react';
 import { useState } from 'react';
@@ -8,9 +8,9 @@ import { theme, Typography, Card, Space, Input, Button, Table, Tabs } from 'antd
 import { useFilterData } from '../common/hooks';
 
 const infoRawData = [
-  { idx: 1, code: '1000020022', name: '中海油能源发展股份有限公司', mgmtType: '所属企业管理', flowStatus: '待复核', changeType: '非更名的重要信息变更', dataSource: '准入信息管理', submitter: '张三', submitTime: '2025-12-19 09:15', editor: '张三', editTime: '2025-12-19 09:15' },
+  { idx: 1, code: '1000020022', name: '中海油能源发展股份有限公司', mgmtType: '所属企业管理', flowStatus: '待复核', changeType: '非更名的重要信息变更', dataSource: '信息管理', submitter: '张三', submitTime: '2025-12-19 09:15', editor: '张三', editTime: '2025-12-19 09:15' },
   { idx: 2, code: '1000020022', name: '杰瑞石油装备技术有限公司', mgmtType: '总部管理', flowStatus: '待复核', changeType: '更名', dataSource: '自助服务管理', submitter: '李四', submitTime: '2025-12-17 15:03', editor: '李四', editTime: '2025-12-17 15:03' },
-  { idx: 3, code: '1000020022', name: '中海油能源发展股份有限公司', mgmtType: '所属企业管理', flowStatus: '待复核', changeType: '一般信息变更', dataSource: '准入信息管理', submitter: '张三', submitTime: '2025-12-19 09:15', editor: '张三', editTime: '2025-12-19 09:15' },
+  { idx: 3, code: '1000020022', name: '中海油能源发展股份有限公司', mgmtType: '所属企业管理', flowStatus: '待复核', changeType: '一般信息变更', dataSource: '信息管理', submitter: '张三', submitTime: '2025-12-19 09:15', editor: '张三', editTime: '2025-12-19 09:15' },
   { idx: 4, code: '1000020022', name: '杰瑞石油装备技术有限公司', mgmtType: '总部管理', flowStatus: '待复核', changeType: '自助维护资质', dataSource: '自助服务管理', submitter: '李四', submitTime: '2025-12-17 15:03', editor: '李四', editTime: '2025-12-17 15:03' },
   { idx: 5, code: '1000020022', name: '中海油能源发展股份有限公司', mgmtType: '', flowStatus: '', changeType: '', dataSource: '', submitter: '张三', submitTime: '2025-12-19 09:15', editor: '张三', editTime: '2025-12-19 09:15' },
   { idx: 6, code: '', name: '杰瑞石油装备技术有限公司', mgmtType: '', flowStatus: '', changeType: '', dataSource: '', submitter: '李四', submitTime: '2025-12-17 15:03', editor: '李四', editTime: '2025-12-17 15:03' },
@@ -118,7 +118,7 @@ export default function MaintReview() {
 
   const tabItems = [
     { key: 'info', label: '服务商信息复核' },
-    { key: 'catalog', label: '服务目录复核' },
+    { key: 'catalog', label: '服务品类复核' },
   ];
 
   return (

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Typography, Input, Select, Button, Table, Card, Row, Col, Checkbox, Space } from 'antd';
 
 const allDocData = [
-  { seq: 1, type: '服务商新增准入', noApproval: false },
+  { seq: 1, type: '服务商新增', noApproval: false },
   { seq: 2, type: '公开招标采购项目中标', noApproval: false },
   { seq: 3, type: '服务商更名', noApproval: false },
   { seq: 4, type: '所属企业评审增项', noApproval: false },

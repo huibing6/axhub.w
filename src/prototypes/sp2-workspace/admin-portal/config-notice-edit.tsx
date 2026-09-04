@@ -1,5 +1,5 @@
 /**
- * @name 准入通知模板维护（新建/编辑）
+ * @name 通知模板维护（新建/编辑）
  * 区块：基本信息 / 分组表单配置 / 文件描述 / 资质附件
  */
 import React from 'react';
@@ -149,7 +149,7 @@ export default function ConfigNoticeEdit() {
               <Select placeholder="请选择流程" value={category || undefined} onChange={setCategory} style={{ width: '100%' }}
                 options={[
                   { value: '注册流程', label: '注册流程' },
-                  { value: '准入流程', label: '准入流程' },
+                  { value: '流程', label: '流程' },
                   { value: '变更流程', label: '变更流程' },
                   { value: '冻结流程', label: '冻结流程' },
                 ]} />

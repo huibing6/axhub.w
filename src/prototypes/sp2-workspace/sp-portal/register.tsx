@@ -403,7 +403,7 @@ function StepBasicInfo({ form }: { form: any }) {
   );
 }
 
-/* ─── 步骤 2：服务目录 ─── */
+/* ─── 步骤 2：服务品类 ─── */
 interface ServiceItem {
   id: number;
   code: string;
@@ -619,7 +619,7 @@ function ServiceCatalogModal({ open, onClose, onConfirm }: {
 
   return (
     <Modal
-      title="选择服务目录"
+      title="选择服务品类"
       open={open}
       onCancel={onClose}
       width={640}
@@ -640,7 +640,7 @@ function ServiceCatalogModal({ open, onClose, onConfirm }: {
             fontWeight: activeTab === 'professional' ? 600 : 400,
           }}
         >
-          专业目录 <span style={{ fontSize: 11, background: '#fff1f0', color: '#ff4d4f', padding: '0 4px', borderRadius: 3, marginLeft: 4 }}>需审查</span>
+          专业品类 <span style={{ fontSize: 11, background: '#fff1f0', color: '#ff4d4f', padding: '0 4px', borderRadius: 3, marginLeft: 4 }}>需审查</span>
         </div>
         <div
           onClick={() => setActiveTab('general')}
@@ -651,13 +651,13 @@ function ServiceCatalogModal({ open, onClose, onConfirm }: {
             fontWeight: activeTab === 'general' ? 600 : 400,
           }}
         >
-          通用目录
+          通用品类
         </div>
       </div>
 
       <div style={{ marginBottom: 12 }}>
         <Typography.Text strong style={{ fontSize: 13 }}>
-          {activeTab === 'professional' ? '📁 专业目录分类' : '📁 通用目录分类'}
+          {activeTab === 'professional' ? '📁 专业品类分类' : '📁 通用品类分类'}
         </Typography.Text>
         {activeTab === 'professional' && (
           <Typography.Text style={{ fontSize: 12, color: '#ff4d4f', marginLeft: 8 }}>需资格审查</Typography.Text>
@@ -720,14 +720,14 @@ function StepServiceCatalog() {
         display: 'flex', alignItems: 'center', gap: 8,
       }}>
         <span style={{ fontSize: 16 }}>⚠️</span>
-        选择专业目录下需要进行专业资格审查，请按要求填写服务品类的资质信用、服务能力
+        选择专业品类下需要进行专业资格审查，请按要求填写服务品类的资质信用、服务能力
       </div>
 
-      {/* 已添加的服务目录 */}
+      {/* 已添加的服务品类 */}
       <Card
         variant="outlined"
         size="small"
-        title={<span style={{ fontSize: 14 }}>☑ 已添加的服务目录</span>}
+        title={<span style={{ fontSize: 14 }}>☑ 已添加的服务品类</span>}
         extra={
           <AntButton type="primary" danger icon={<PlusOutlined />} onClick={() => setModalOpen(true)}>
             添加服务品类
@@ -861,7 +861,7 @@ function StepServiceCatalog() {
             </Row>
           </Card>
 
-          {/* 资质附件（按专业目录配置） */}
+          {/* 资质附件（按专业品类配置） */}
           <QualAttachCard categoryCode={svc.code} categoryName={svc.name} />
 
           {/* 服务能力 */}
@@ -1092,7 +1092,7 @@ export default function SpRegister() {
 
   const steps = [
     { title: '基本信息' },
-    { title: '服务目录' },
+    { title: '服务品类' },
     { title: '资质信息' },
     { title: '审批中' },
   ];
@@ -1132,7 +1132,7 @@ export default function SpRegister() {
     <div>
       <Typography.Title level={4} style={{ marginTop: 0, marginBottom: 4 }}>注册服务商</Typography.Title>
       <Typography.Text type="secondary" style={{ display: 'block', marginBottom: 20 }}>
-        完善服务商信息、选择服务目录并上传资质材料。所有带 * 的为必填项。
+        完善服务商信息、选择服务品类并上传资质材料。所有带 * 的为必填项。
       </Typography.Text>
 
       <Steps current={currentStep} items={steps} size="small" style={{ marginBottom: 24 }} />

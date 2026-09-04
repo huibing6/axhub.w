@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { theme, Typography, Card, Space, Input, Button, Table, Tag } from 'antd';
 
 const rawData = [
-  { idx: 1, name: '中海油能源发展股份有限公司', type: '所属企业管理', status: '待复核', source: '公开招标采购中标', category: '新增准入供应商', time: '2025-12-19 09:15', submitter: '张三', editor: '张三', dataSource: '准入信息管理', workCode: '', workType: '其他公开方式准入' },
-  { idx: 2, name: '杰瑞石油装备技术有限公司', type: '总部管理', status: '待复核', source: '其他采购形式', category: '新增服务产品', time: '2025-12-17 15:03', submitter: '李四', editor: '李四', dataSource: '自助服务管理', workCode: '', workType: '公开招标采购中标准入' },
-  { idx: 3, name: '中海油能源发展股份有限公司', type: '所属企业管理', status: '待复核', source: '公开招标采购中标', category: '新增准入供应商', time: '2025-12-19 09:15', submitter: '张三', editor: '张三', dataSource: '准入信息管理', workCode: '', workType: '' },
+  { idx: 1, name: '中海油能源发展股份有限公司', type: '所属企业管理', status: '待复核', source: '公开招标采购中标', category: '新增供应商', time: '2025-12-19 09:15', submitter: '张三', editor: '张三', dataSource: '信息管理', workCode: '', workType: '其他公开方式' },
+  { idx: 2, name: '杰瑞石油装备技术有限公司', type: '总部管理', status: '待复核', source: '其他采购形式', category: '新增服务产品', time: '2025-12-17 15:03', submitter: '李四', editor: '李四', dataSource: '自助服务管理', workCode: '', workType: '公开招标采购中标' },
+  { idx: 3, name: '中海油能源发展股份有限公司', type: '所属企业管理', status: '待复核', source: '公开招标采购中标', category: '新增供应商', time: '2025-12-19 09:15', submitter: '张三', editor: '张三', dataSource: '信息管理', workCode: '', workType: '' },
   { idx: 4, name: '杰瑞石油装备技术有限公司', type: '总部管理', status: '待复核', source: '其他采购形式', category: '新增服务产品', time: '2025-12-17 15:03', submitter: '李四', editor: '李四', dataSource: '自助服务管理', workCode: '', workType: '' },
   { idx: 5, name: '中海油能源发展股份有限公司', type: '', status: '', source: '', category: '', time: '2025-12-19 09:15', submitter: '张三', editor: '张三', dataSource: '', workCode: '', workType: '' },
   { idx: 6, name: '杰瑞石油装备技术有限公司', type: '', status: '', source: '', category: '', time: '2025-12-17 15:03', submitter: '李四', editor: '李四', dataSource: '', workCode: '', workType: '' },
@@ -50,8 +50,8 @@ export default function AdmissionReview() {
       key: 'status', title: '流程状态', width: 80, align: 'center' as const, dataIndex: 'status',
       render: (val: string) => val ? <Tag color={statusColors[val] || 'default'}>{val}</Tag> : '—',
     },
-    { key: 'source', title: '准入来源', width: 140, dataIndex: 'source', ellipsis: true },
-    { key: 'category', title: '准入类别', width: 120, dataIndex: 'category', ellipsis: true },
+    { key: 'source', title: '来源', width: 140, dataIndex: 'source', ellipsis: true },
+    { key: 'category', title: '类别', width: 120, dataIndex: 'category', ellipsis: true },
     { key: 'time', title: '提交时间', width: 130, dataIndex: 'time' },
     { key: 'submitter', title: '提交人', width: 70, dataIndex: 'submitter' },
     { key: 'editor', title: '编辑人', width: 70, dataIndex: 'editor' },

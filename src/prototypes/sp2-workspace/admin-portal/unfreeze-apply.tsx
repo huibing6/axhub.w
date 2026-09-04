@@ -13,7 +13,7 @@ const searchFields = [
   { key: 'spName', label: '服务商名称', placeholder: '请输入' },
   { key: 'spType', label: '服务商类型', type: 'select' as const, options: ['请选择', '代理商', '贸易商', '制造商'] },
   { key: 'freezeStatus', label: '冻结状态', type: 'select' as const, options: ['请选择', '冻结', '临时冻结'] },
-  { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '恢复交易权限', '恢复准入产品交易权限'] },
+  { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '恢复交易权限', '恢复产品交易权限'] },
   { key: 'applyTime', label: '申请时间', type: 'range' as const },
 ];
 
@@ -32,9 +32,9 @@ const spData = [
   { index: 1, applyType: '恢复交易权限', spCode: '1003240949', spName: '乌鲁木齐金宏升电子科…', mgmtType: '所属企业管理', freezeReason: '临时冻结', flowStatus: '冻结（总部未通过）', workType: '恢复交易权限', spType: '代理商' },
   { index: 2, applyType: '恢复交易权限', spCode: '1001400492', spName: '济南中友欣安科技有…', mgmtType: '所属企业管理', freezeReason: '临时冻结', flowStatus: '冻结（总部未通过）', workType: '恢复交易权限', spType: '贸易商' },
   { index: 3, applyType: '恢复交易权限', spCode: '1003286269', spName: '九厨伟德（北京）科…', mgmtType: '所属企业管理', freezeReason: '临时冻结', flowStatus: '冻结（总部未通过）', workType: '恢复交易权限', spType: '代理商' },
-  { index: 4, applyType: '恢复交易权限', spCode: '1000886614', spName: '门源广汇天然气有…', mgmtType: '所属企业管理', freezeReason: '冻结', flowStatus: '已通过（总部通过）', workType: '恢复准入产品交易权限', spType: '贸易商' },
-  { index: 5, applyType: '恢复交易权限', spCode: '1001186265', spName: '庆阳亿凡工贸有限…', mgmtType: '所属企业管理', freezeReason: '冻结', flowStatus: '已通过（总部通过）', workType: '恢复准入产品交易权限', spType: '贸易商' },
-  { index: 6, applyType: '恢复交易权限', spCode: '1001656831', spName: '华电广汇能源装备…', mgmtType: '所属企业管理', freezeReason: '未审核', flowStatus: '待提交', workType: '恢复准入产品交易权限', spType: '贸易商' },
+  { index: 4, applyType: '恢复交易权限', spCode: '1000886614', spName: '门源广汇天然气有…', mgmtType: '所属企业管理', freezeReason: '冻结', flowStatus: '已通过（总部通过）', workType: '恢复产品交易权限', spType: '贸易商' },
+  { index: 5, applyType: '恢复交易权限', spCode: '1001186265', spName: '庆阳亿凡工贸有限…', mgmtType: '所属企业管理', freezeReason: '冻结', flowStatus: '已通过（总部通过）', workType: '恢复产品交易权限', spType: '贸易商' },
+  { index: 6, applyType: '恢复交易权限', spCode: '1001656831', spName: '华电广汇能源装备…', mgmtType: '所属企业管理', freezeReason: '未审核', flowStatus: '待提交', workType: '恢复产品交易权限', spType: '贸易商' },
 ];
 
 const productColumns = [
@@ -45,14 +45,14 @@ const productColumns = [
   { key: 'categoryCode', title: '服务品类编码', width: 120, dataIndex: 'categoryCode', ellipsis: true },
   { key: 'categoryName', title: '服务品类名称', width: 180, dataIndex: 'categoryName', ellipsis: true },
   { key: 'catalogLevel', title: '目录级别', width: 100, dataIndex: 'catalogLevel', ellipsis: true },
-  { key: 'source', title: '准入类型', width: 100, dataIndex: 'source', ellipsis: true },
+  { key: 'source', title: '类型', width: 100, dataIndex: 'source', ellipsis: true },
   { key: 'action', title: '操作', width: 200, align: 'center' as const, fixed: 'right' as const },
 ];
 
 const productData = [
-  { index: 1, applyType: '恢复准入服务品类交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'S1001001', categoryName: '油气水井设施租赁服务', catalogLevel: '一级', source: '其它' },
-  { index: 2, applyType: '恢复准入服务品类交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'S1001002', categoryName: '油气水集输处理设施租赁服务', catalogLevel: '一级', source: '其它' },
-  { index: 3, applyType: '恢复准入服务品类交易权限', spCode: '1000816195', spName: '成都新宝科技有限公司', spType: '制造商', categoryCode: 'S0102001', categoryName: '劳务勘查', catalogLevel: '一级', source: '资质到期' },
+  { index: 1, applyType: '恢复服务品类交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'S1001001', categoryName: '油气水井设施租赁服务', catalogLevel: '一级', source: '其它' },
+  { index: 2, applyType: '恢复服务品类交易权限', spCode: '1000562192', spName: '山东大方电气有限公司', spType: '制造商', categoryCode: 'S1001002', categoryName: '油气水集输处理设施租赁服务', catalogLevel: '一级', source: '其它' },
+  { index: 3, applyType: '恢复服务品类交易权限', spCode: '1000816195', spName: '成都新宝科技有限公司', spType: '制造商', categoryCode: 'S0102001', categoryName: '劳务勘查', catalogLevel: '一级', source: '资质到期' },
 ];
 
 export default function UnfreezeApply() {

@@ -19,7 +19,7 @@ interface NoticeTemplate {
 /* ─── 模拟模板数据 ─── */
 const templateOptions = [
   { label: '注册补充资料通知', value: '1' },
-  { label: '准入补充资料通知', value: '2' },
+  { label: '补充资料通知', value: '2' },
   { label: '变更补充资料通知', value: '3' },
 ];
 
@@ -45,7 +45,7 @@ const mockTemplates: Record<string, NoticeTemplate> = {
     qualAttachItems: [{ id: 1, label: '营业执照扫描件', required: true }, { id: 2, label: '法人身份证扫描件', required: true }],
   },
   '2': {
-    seq: 2, name: '准入补充资料通知', unit: '西南油气田分公司', category: '准入流程',
+    seq: 2, name: '补充资料通知', unit: '西南油气田分公司', category: '流程',
     sections: [
       { id: 1, icon: '📋', title: '基本信息补充', required: true, fields: [
         { id: 1, label: '企业简介', type: 'textarea', placeholder: '请简要介绍企业背景、主营业务', span: 24 },
@@ -55,7 +55,7 @@ const mockTemplates: Record<string, NoticeTemplate> = {
         { id: 3, label: '主要设备清单', type: 'textarea', placeholder: '请列举主要设备名称、型号、数量', span: 24 },
       ]},
     ],
-    fileDescItems: [{ id: 1, label: '准入申请表', required: true }],
+    fileDescItems: [{ id: 1, label: '申请表', required: true }],
     qualAttachItems: [{ id: 1, label: '资质证书', required: true }, { id: 2, label: '安全生产许可证', required: false }],
   },
   '3': {
@@ -96,7 +96,7 @@ export default function PendingNotify() {
     const tmpl = mockTemplates[val];
     if (!tmpl) return;
     setNotifyTitle(tmpl.name);
-    setNotifyBody(`尊敬的服务商：\n\n根据您的准入申请，需要补充以下资料，请在规定时间内完成提交。\n\n使用单位：${tmpl.unit}\n`);
+    setNotifyBody(`尊敬的服务商：\n\n根据您的申请，需要补充以下资料，请在规定时间内完成提交。\n\n使用单位：${tmpl.unit}\n`);
     setSections(JSON.parse(JSON.stringify(tmpl.sections)));
     setFileDescItems(JSON.parse(JSON.stringify(tmpl.fileDescItems)));
     setQualAttachItems(JSON.parse(JSON.stringify(tmpl.qualAttachItems)));

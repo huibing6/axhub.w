@@ -61,9 +61,9 @@ export default function CategoryFreezeCreate() {
                     </Select>
                   </Form.Item>
                   <Form.Item label="申请类型" required>
-                    <Select defaultValue="暂停准入产品交易权限">
-                      <Select.Option value="暂停准入产品交易权限">暂停准入产品交易权限</Select.Option>
-                      <Select.Option value="取消准入资格">取消准入资格</Select.Option>
+                    <Select defaultValue="暂停产品交易权限">
+                      <Select.Option value="暂停产品交易权限">暂停产品交易权限</Select.Option>
+                      <Select.Option value="取消资格">取消资格</Select.Option>
                     </Select>
                   </Form.Item>
                   <Form.Item label="冻结原因">

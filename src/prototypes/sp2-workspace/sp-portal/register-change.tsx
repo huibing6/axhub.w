@@ -539,7 +539,7 @@ function ServiceCatalogModal({ open, onClose, onConfirm }: {
   };
 
   return (
-    <Modal title="选择服务目录" open={open} onCancel={onClose} width={640} footer={
+    <Modal title="选择服务品类" open={open} onCancel={onClose} width={640} footer={
       <Space><AntButton onClick={onClose}>取消</AntButton><AntButton type="primary" danger onClick={handleConfirm}>确认选择</AntButton></Space>
     }>
       <div style={{ display: 'flex', borderBottom: '1px solid #f0f0f0', marginBottom: 16 }}>
@@ -549,7 +549,7 @@ function ServiceCatalogModal({ open, onClose, onConfirm }: {
             borderBottom: activeTab === tab ? '2px solid #ff4d4f' : '2px solid transparent',
             color: activeTab === tab ? '#ff4d4f' : '#666', fontWeight: activeTab === tab ? 600 : 400,
           }}>
-            {tab === 'professional' ? '专业目录' : '通用目录'}
+            {tab === 'professional' ? '专业品类' : '通用品类'}
             {tab === 'professional' && <span style={{ fontSize: 11, background: '#fff1f0', color: '#ff4d4f', padding: '0 4px', borderRadius: 3, marginLeft: 4 }}>需审查</span>}
           </div>
         ))}
@@ -584,10 +584,10 @@ function ServiceCatalogTab() {
     <>
       <div style={{ background: '#fffbe6', border: '1px solid #ffe58f', borderRadius: 4, padding: '10px 16px', marginBottom: 16, fontSize: 13, color: '#ad6800', display: 'flex', alignItems: 'center', gap: 8 }}>
         <span style={{ fontSize: 16 }}>⚠️</span>
-        选择专业目录下需要进行专业资格审查，请按要求填写服务品类的资质信用、服务能力
+        选择专业品类下需要进行专业资格审查，请按要求填写服务品类的资质信用、服务能力
       </div>
 
-      <Card variant="outlined" size="small" title={<span style={{ fontSize: 14 }}>☑ 已添加的服务目录</span>}
+      <Card variant="outlined" size="small" title={<span style={{ fontSize: 14 }}>☑ 已添加的服务品类</span>}
         extra={<AntButton type="primary" danger icon={<PlusOutlined />} onClick={() => setModalOpen(true)}>添加服务品类</AntButton>}
         style={{ marginBottom: 16 }}>
         <Table

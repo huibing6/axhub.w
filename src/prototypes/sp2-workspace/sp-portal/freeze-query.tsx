@@ -24,7 +24,7 @@ export default function FreezeQuery() {
   const spData = [
     { key: 1, index: 1, applicant: '系统自动', applyTime: '2026-02-25 09:56:42', applyUnit: '长庆油田', applyType: '暂停交易权限', freezeReason: '资质到期', freezeDuration: '', effectiveTime: '2026-02-25 09:56:42', remark: '' },
     { key: 2, index: 2, applicant: '张三', applyTime: '2026-02-25 09:56:42', applyUnit: '中国石油天然气集团有限公司', applyType: '恢复交易权限', freezeReason: '未年审', freezeDuration: '36', effectiveTime: '2026-02-25 09:56:42', remark: '' },
-    { key: 3, index: 3, applicant: '中海油能源发展股份有限公司', applyTime: '', applyUnit: '长庆油田', applyType: '取消准入资质', freezeReason: '违法违规', freezeDuration: '', effectiveTime: '2026-02-25 09:56:42', remark: '' },
+    { key: 3, index: 3, applicant: '中海油能源发展股份有限公司', applyTime: '', applyUnit: '长庆油田',       applyType: '取消资质', freezeReason: '违法违规', freezeDuration: '', effectiveTime: '2026-02-25 09:56:42', remark: '' },
     { key: 4, index: 4, applicant: '杰瑞石油装备技术有限公司', applyTime: '', applyUnit: '中国石油天然气集团有限公司', applyType: '', freezeReason: '取消资格', freezeDuration: '12', effectiveTime: '', remark: '' },
     { key: 5, index: 5, applicant: '中海油能源发展股份有限公司', applyTime: '', applyUnit: '长庆油田', applyType: '', freezeReason: '', freezeDuration: '', effectiveTime: '', remark: '' },
     { key: 6, index: 6, applicant: '杰瑞石油装备技术有限公司', applyTime: '', applyUnit: '', applyType: '', freezeReason: '', freezeDuration: '', effectiveTime: '', remark: '' },

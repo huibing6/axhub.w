@@ -65,7 +65,7 @@ const noticeList: AdmissionNotice[] = [
   {
     id: 2,
     unitName: '西南油气田分公司',
-    templateName: '准入补充资料通知',
+    templateName: '补充资料通知',
     itemCount: 2,
     noticeTime: '2026-06-12 10:15',
     deadline: '2026-06-22 18:00',
@@ -482,7 +482,7 @@ function BasicInfoTab({ readonly = false }: { readonly?: boolean }) {
 }
 
 /* ════════════════════════════════════════════════════════════════
-   Tab 2：服务目录（readonly 时回显注册已选品类及已填信息）
+   Tab 2：服务品类（readonly 时回显注册已选品类及已填信息）
    ════════════════════════════════════════════════════════════════ */
 interface ServiceItem {
   id: number;
@@ -631,7 +631,7 @@ function ServiceCatalogModal({ open, onClose, onConfirm }: {
   };
 
   return (
-    <Modal title="选择服务目录" open={open} onCancel={onClose} width={640} footer={
+    <Modal title="选择服务品类" open={open} onCancel={onClose} width={640} footer={
       <Space><AntButton onClick={onClose}>取消</AntButton><AntButton type="primary" danger onClick={handleConfirm}>确认选择</AntButton></Space>
     }>
       <div style={{ display: 'flex', gap: 0, borderBottom: '1px solid #f0f0f0', marginBottom: 16 }}>
@@ -640,19 +640,19 @@ function ServiceCatalogModal({ open, onClose, onConfirm }: {
           borderBottom: activeTab === 'professional' ? '2px solid #ff4d4f' : '2px solid transparent',
           color: activeTab === 'professional' ? '#ff4d4f' : '#666', fontWeight: activeTab === 'professional' ? 600 : 400,
         }}>
-          专业目录 <span style={{ fontSize: 11, background: '#fff1f0', color: '#ff4d4f', padding: '0 4px', borderRadius: 3, marginLeft: 4 }}>需审查</span>
+          专业品类 <span style={{ fontSize: 11, background: '#fff1f0', color: '#ff4d4f', padding: '0 4px', borderRadius: 3, marginLeft: 4 }}>需审查</span>
         </div>
         <div onClick={() => setActiveTab('general')} style={{
           padding: '10px 16px', cursor: 'pointer', fontSize: 14,
           borderBottom: activeTab === 'general' ? '2px solid #ff4d4f' : '2px solid transparent',
           color: activeTab === 'general' ? '#ff4d4f' : '#666', fontWeight: activeTab === 'general' ? 600 : 400,
         }}>
-          通用目录
+          通用品类
         </div>
       </div>
       <div style={{ marginBottom: 12 }}>
         <Typography.Text strong style={{ fontSize: 13 }}>
-          {activeTab === 'professional' ? '📁 专业目录分类' : '📁 通用目录分类'}
+          {activeTab === 'professional' ? '📁 专业品类分类' : '📁 通用品类分类'}
         </Typography.Text>
         {activeTab === 'professional' && <Typography.Text style={{ fontSize: 12, color: '#ff4d4f', marginLeft: 8 }}>需资格审查</Typography.Text>}
       </div>
@@ -705,11 +705,11 @@ function ServiceCatalogTab({ readonly = false }: { readonly?: boolean }) {
       {!readonly && (
         <div style={{ background: '#fffbe6', border: '1px solid #ffe58f', borderRadius: 4, padding: '10px 16px', marginBottom: 16, fontSize: 13, color: '#ad6800', display: 'flex', alignItems: 'center', gap: 8 }}>
           <span style={{ fontSize: 16 }}>⚠️</span>
-          选择专业目录下需要进行专业资格审查，请按要求填写服务品类的资质信用、服务能力
+          选择专业品类下需要进行专业资格审查，请按要求填写服务品类的资质信用、服务能力
         </div>
       )}
 
-      <Card variant="outlined" size="small" title={<span style={{ fontSize: 14 }}>☑ 已添加的服务目录</span>}
+      <Card variant="outlined" size="small" title={<span style={{ fontSize: 14 }}>☑ 已添加的服务品类</span>}
         extra={!readonly ? <AntButton type="primary" danger icon={<PlusOutlined />} onClick={() => setModalOpen(true)}>添加服务品类</AntButton> : null}
         style={{ marginBottom: 16 }}>
         <Table
@@ -797,10 +797,10 @@ function ServiceCatalogTab({ readonly = false }: { readonly?: boolean }) {
               <Card variant="outlined" size="small" style={{ marginBottom: 16 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
                   <Typography.Text strong style={{ fontSize: 14 }}>资质附件</Typography.Text>
-                  <span style={{ background: '#e6f7ff', color: '#1677ff', fontSize: 11, padding: '0 6px', borderRadius: 3, border: '1px solid #91d5ff' }}>按专业目录配置</span>
+                  <span style={{ background: '#e6f7ff', color: '#1677ff', fontSize: 11, padding: '0 6px', borderRadius: 3, border: '1px solid #91d5ff' }}>按专业品类配置</span>
                 </div>
                 {Object.keys(reg.qualAttach).length === 0 ? (
-                  <Typography.Text type="secondary" style={{ fontSize: 13 }}>该品类（{svc.name}）为通用目录，无需上传资质附件。</Typography.Text>
+                  <Typography.Text type="secondary" style={{ fontSize: 13 }}>该品类（{svc.name}）为通用品类，无需上传资质附件。</Typography.Text>
                 ) : (
                   Object.entries(reg.qualAttach).map(([name, file]) => (
                     <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '8px 0', borderBottom: '1px solid #f5f5f5' }}>
@@ -1059,7 +1059,7 @@ function NoticeList({ onEnter }: { onEnter: (notice: AdmissionNotice) => void })
             <Typography.Text style={{ fontSize: 14 }}>100001231</Typography.Text>
           </div>
           <div>
-            <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block' }}>准入状态</Typography.Text>
+            <Typography.Text type="secondary" style={{ fontSize: 12, display: 'block' }}>状态</Typography.Text>
             <Tag color="processing" style={{ marginTop: 2 }}>注册成功，待配码</Tag>
           </div>
         </div>
@@ -1157,7 +1157,7 @@ export default function Admission() {
         <Tabs
           items={[
             { key: 'basic', label: '基本信息' },
-            { key: 'catalog', label: '服务目录' },
+            { key: 'catalog', label: '服务品类' },
             { key: 'qual', label: '资质信息' },
             { key: 'supplement', label: '补充资料填写' },
           ]}

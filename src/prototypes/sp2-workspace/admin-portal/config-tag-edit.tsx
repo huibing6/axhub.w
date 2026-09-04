@@ -20,7 +20,7 @@ const colorOptions = [
 const statusOptions = [
   { label: '合格', value: 'qualified' },
   { label: '正式', value: 'formal' },
-  { label: '待准入', value: 'pending' },
+  { label: '待配码', value: 'pending' },
   { label: '已冻结', value: 'frozen' },
 ];
 
@@ -32,7 +32,7 @@ const integrationSystems = [
 ];
 
 const levelOptions = [
-  { label: 'L1 状态标签', value: 'L1', description: '由准入状态触发' },
+  { label: 'L1 状态标签', value: 'L1', description: '由状态触发' },
   { label: 'L2 集成系统标签', value: 'L2', description: '由集成系统触发（可自定义名称）' },
 ];
 
@@ -140,8 +140,8 @@ export default function ConfigTagEdit() {
           </Form.Item>
 
           {ruleType === 'status' && (
-            <Form.Item name="statusValue" label="匹配准入状态" rules={[{ required: true, message: '请选择准入状态' }]}>
-              <Select placeholder="请选择准入状态" style={{ width: 300 }}>
+            <Form.Item name="statusValue" label="匹配状态" rules={[{ required: true, message: '请选择状态' }]}>
+              <Select placeholder="请选择状态" style={{ width: 300 }}>
                 {statusOptions.map(opt => (
                   <Select.Option key={opt.value} value={opt.value}>{opt.label}</Select.Option>
                 ))}
@@ -163,7 +163,7 @@ export default function ConfigTagEdit() {
         <div style={{ marginTop: 16, padding: 16, background: '#f5f5f5', borderRadius: 6 }}>
           <Typography.Text type="secondary" style={{ fontSize: 13 }}>
             {ruleType === 'status'
-              ? '当服务商准入状态匹配所选值时，自动打上此标签。'
+              ? '当服务商状态匹配所选值时，自动打上此标签。'
               : '当服务商包含的品类关联了所选集成系统时，自动打上此标签。'}
           </Typography.Text>
         </div>

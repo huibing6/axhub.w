@@ -100,7 +100,7 @@ export default function InfoEditDetail() {
             <Typography.Title level={4} style={{ margin: '4px 0 0 0' }}>湖北江汉石油机械制造有限公司</Typography.Title>
             <Space size={16} style={{ marginTop: 4 }}>
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>统一社会信用代码 91420000706802345X</Typography.Text>
-              <Typography.Text type="secondary" style={{ fontSize: 12 }}>准入来源: 公开招标采购中标</Typography.Text>
+              <Typography.Text type="secondary" style={{ fontSize: 12 }}>来源: 公开招标采购中标</Typography.Text>
             </Space>
           </Space>
           <Tag color="processing" style={{ fontSize: 13, padding: '4px 12px' }}>待提交</Tag>

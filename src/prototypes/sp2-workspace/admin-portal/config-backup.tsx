@@ -8,7 +8,7 @@ import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import { categoryQualConfig, type QualAttachItem } from '../common/qualification-config';
 
 /* ================================================================
-   Tab 1: 专业服务目录配置
+   Tab 1: 专业服务品类配置
    ================================================================ */
 
 interface TreeNode {
@@ -325,7 +325,7 @@ function DirConfigTab() {
         <Col span={6}>
           <Card size="small" variant="outlined" style={{ height: '100%' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
-              <Typography.Text strong style={{ fontSize: 14 }}>服务目录</Typography.Text>
+              <Typography.Text strong style={{ fontSize: 14 }}>服务品类</Typography.Text>
               <Space size={8}>
                 <Typography.Link style={{ fontSize: 12 }} onClick={() => setAllExpanded(true)}>全部展开</Typography.Link>
                 <Typography.Text type="secondary" style={{ fontSize: 12, cursor: 'pointer' }} onClick={() => setAllExpanded(false)}>全部收起</Typography.Text>
@@ -340,7 +340,7 @@ function DirConfigTab() {
               ))}
             </div>
             <div style={{ marginTop: 16 }}>
-              <Typography.Text type="secondary" style={{ fontSize: 12 }}>共 18 个目录，其中 4 个已标记为专业目录</Typography.Text>
+              <Typography.Text type="secondary" style={{ fontSize: 12 }}>共 18 个目录，其中 4 个已标记为专业品类</Typography.Text>
             </div>
           </Card>
         </Col>
@@ -370,10 +370,10 @@ function DirConfigTab() {
                       <div style={{ marginBottom: 20 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 12 }}>
                           <div style={{ width: 4, height: 16, borderRadius: 4, background: '#ff4d4f' }} />
-                          <Typography.Text strong style={{ fontSize: 14 }}>专业目录配置</Typography.Text>
+                          <Typography.Text strong style={{ fontSize: 14 }}>专业品类配置</Typography.Text>
                         </div>
                         <Space size={12} style={{ marginBottom: 16 }}>
-                          <Typography.Text style={{ fontSize: 14 }}>是否标记为专业目录</Typography.Text>
+                          <Typography.Text style={{ fontSize: 14 }}>是否标记为专业品类</Typography.Text>
                           <Switch checked={isProDir} onChange={setIsProDir} />
                         </Space>
                         <Row gutter={16}>
@@ -397,7 +397,7 @@ function DirConfigTab() {
                         </Row>
                       </div>
                       <div style={{ borderRadius: 8, padding: 12, marginBottom: 20, background: '#E3F2FD', display: 'flex', alignItems: 'flex-start', gap: 8 }}>
-                        <Typography.Text style={{ color: '#ff4d4f', fontSize: 12 }}>标记为专业目录后，该目录将进入专业审核流程，需要指定对应的审核小组</Typography.Text>
+                        <Typography.Text style={{ color: '#ff4d4f', fontSize: 12 }}>标记为专业品类后，该目录将进入专业审核流程，需要指定对应的审核小组</Typography.Text>
                       </div>
 
                       {/* 资质附件配置 */}
@@ -442,7 +442,7 @@ function DirConfigTab() {
                             </div>
                           </div>
                         ) : (
-                          <Typography.Text type="secondary" style={{ fontSize: 13 }}>通用目录无需上传资质附件，如需服务商上传请先标记为专业目录。</Typography.Text>
+                          <Typography.Text type="secondary" style={{ fontSize: 13 }}>通用品类无需上传资质附件，如需服务商上传请先标记为专业品类。</Typography.Text>
                         )}
                       </div>
 
@@ -573,7 +573,7 @@ function DirConfigTab() {
    Tab 2: 要件配置
    ================================================================ */
 const allDocData = [
-  { seq: 1, type: '服务商新增准入', noApproval: false },
+  { seq: 1, type: '服务商新增', noApproval: false },
   { seq: 2, type: '公开招标采购项目中标', noApproval: false },
   { seq: 3, type: '服务商更名', noApproval: false },
   { seq: 4, type: '所属企业评审增项', noApproval: false },
@@ -653,7 +653,7 @@ const rightColumns = [
   { name: '变更核准通知书', checked: false },
   { name: '安全管理体系认证证书', checked: true },
   { name: '环保管理体系认证证书', checked: true },
-  { name: '供应商准入承诺书', checked: false },
+    { name: '供应商承诺书', checked: false },
   { name: '统一社会信用代码证', checked: true },
   { name: '其它材料', checked: false },
 ];
@@ -727,7 +727,7 @@ function FreezeDocTab() {
 }
 
 /* ================================================================
-   Tab 4: 准入通知配置（新增）
+    Tab 4: 通知配置（新增）
    ================================================================ */
 const unitOptions = [
   { value: '长庆油田分公司', label: '长庆油田分公司' },
@@ -745,7 +745,7 @@ interface NoticeTemplate {
 
 const initialNoticeData: NoticeTemplate[] = [
   { seq: 1, name: '注册补充资料通知', unit: '长庆油田分公司', category: '注册流程', items: ['营业执照', '法人身份证', '银行开户证明'] },
-  { seq: 2, name: '准入补充资料通知', unit: '西南油气田分公司', category: '准入流程', items: ['资质证书', '业绩证明', '安全生产许可证'] },
+  { seq: 2, name: '补充资料通知', unit: '西南油气田分公司', category: '流程', items: ['资质证书', '业绩证明', '安全生产许可证'] },
   { seq: 3, name: '变更补充资料通知', unit: '大庆油田有限责任公司', category: '变更流程', items: ['变更说明函', '新营业执照'] },
 ];
 
@@ -860,7 +860,7 @@ function NoticeConfigTab() {
         <Typography.Text type="secondary" style={{ fontSize: 12 }}>上次保存：2025-06-20 15:30</Typography.Text>
         <Space size={12}>
           <Button>取消</Button>
-          <Button type="primary" danger onClick={() => message.success('准入通知配置已保存')}>保存配置</Button>
+          <Button type="primary" danger onClick={() => message.success('通知配置已保存')}>保存配置</Button>
         </Space>
       </div>
 
@@ -881,7 +881,7 @@ function NoticeConfigTab() {
             <Input placeholder="请输入模板名称" value={editName} onChange={e => setEditName(e.target.value)} />
           </Form.Item>
           <Form.Item label="适用品类" required>
-            <Select placeholder="请选择品类" value={editCategory} onChange={setEditCategory} options={[{ value: '注册流程', label: '注册流程' }, { value: '准入流程', label: '准入流程' }, { value: '变更流程', label: '变更流程' }, { value: '冻结流程', label: '冻结流程' }]} style={{ width: '100%' }} />
+            <Select placeholder="请选择品类" value={editCategory} onChange={setEditCategory} options={[{ value: '注册流程', label: '注册流程' }, { value: '流程', label: '流程' }, { value: '变更流程', label: '变更流程' }, { value: '冻结流程', label: '冻结流程' }]} style={{ width: '100%' }} />
           </Form.Item>
           <Form.Item label="资料项列表">
             <div style={{ display: 'flex', gap: 8, marginBottom: 8 }}>
@@ -915,10 +915,10 @@ export default function Config() {
         activeKey={activeTab}
         onChange={setActiveTab}
         items={[
-          { key: 'dir', label: '专业服务目录配置', children: <DirConfigTab /> },
+          { key: 'dir', label: '专业服务品类配置', children: <DirConfigTab /> },
           { key: 'doc', label: '要件配置', children: <DocConfigTab /> },
           { key: 'freeze', label: '冻结资质文件设定', children: <FreezeDocTab /> },
-          { key: 'notice', label: '准入通知配置', children: <NoticeConfigTab /> },
+          { key: 'notice', label: '通知配置', children: <NoticeConfigTab /> },
         ]}
       />
     </div>

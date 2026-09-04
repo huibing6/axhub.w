@@ -50,7 +50,7 @@ export default function ProgressQuery() {
   ];
 
   const spData = [
-    { key: 1, index: 1, name: '中海油能源发展股份有限公司', applyDept: '所属企业管理', applyType: '新增准入', handler: '服务商', status: '待提交' },
+    { key: 1, index: 1, name: '中海油能源发展股份有限公司', applyDept: '所属企业管理',       applyType: '新增', handler: '服务商', status: '待提交' },
     { key: 2, index: 2, name: '杰瑞石油装备技术有限公司', applyDept: '总部管理', applyType: '变更申请', handler: '管理单位处理中', status: '待审核' },
     { key: 3, index: 3, name: '中海油能源发展股份有限公司', applyDept: '', applyType: '资质维护申请', handler: '', status: '已退回' },
     { key: 4, index: 4, name: '杰瑞石油装备技术有限公司', applyDept: '', applyType: '', handler: '', status: '已终止' },

@@ -96,7 +96,7 @@ export default function InfoEntry() {
   const handleSubmit = () => {
     setPreviewOpen(false);
     localStorage.removeItem(DRAFT_KEY);
-    message.success('正式准入申请已提交审核');
+    message.success('正式申请已提交审核');
   };
 
   const stepItems = STEPS.map((title, i) => {
@@ -133,8 +133,8 @@ export default function InfoEntry() {
         <Space direction="vertical" style={{ width: '100%' }} size={16}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
-              <Typography.Title level={4} style={{ margin: 0 }}>正式准入申请</Typography.Title>
-              <Typography.Text type="secondary">基于中标结果的准入申请，请完善相关信息并提交审核</Typography.Text>
+              <Typography.Title level={4} style={{ margin: 0 }}>正式申请</Typography.Title>
+              <Typography.Text type="secondary">基于中标结果的申请，请完善相关信息并提交审核</Typography.Text>
             </div>
             {hasDraft && (
               <Tag color="warning" style={{ fontSize: 12 }}>有未提交的草稿</Tag>
@@ -153,7 +153,7 @@ export default function InfoEntry() {
       </Card>
 
       <Modal
-        title="预览确认 - 正式准入申请"
+        title="预览确认 - 正式申请"
         open={previewOpen}
         onOk={handleSubmit}
         onCancel={() => setPreviewOpen(false)}
@@ -163,7 +163,7 @@ export default function InfoEntry() {
         width={640}
       >
         <Descriptions column={2} bordered size="small" style={{ marginTop: 16 }}>
-          <Descriptions.Item label="申请类型">正式准入</Descriptions.Item>
+          <Descriptions.Item label="申请类型">正式</Descriptions.Item>
           <Descriptions.Item label="申请步骤">5 步（已完成）</Descriptions.Item>
           <Descriptions.Item label="资质信息">{qualDocs.length} 条记录</Descriptions.Item>
           <Descriptions.Item label="要件信息">{requiredDocs.filter(d => d.name).length} 条记录</Descriptions.Item>

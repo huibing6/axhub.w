@@ -41,7 +41,7 @@ const mockTemplates: Record<string, NoticeTemplate> = {
     qualAttachItems: [{ id: 1, label: '开户许可证', required: true }, { id: 2, label: '法人身份证', required: true }],
   },
   '2': {
-    seq: 2, name: 'MDG编码补充通知', unit: '西南油气田分公司', category: '准入流程',
+    seq: 2, name: 'MDG编码补充通知', unit: '西南油气田分公司', category: '流程',
     sections: [
       { id: 1, icon: '📝', title: '编码信息补充', required: true, fields: [
         { id: 1, label: '供应商编码', type: 'input', placeholder: '请输入MDG供应商编码', span: 24 },

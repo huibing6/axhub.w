@@ -73,7 +73,7 @@ const templateMap: Record<number, TemplateData> = {
     ],
   },
   2: {
-    seq: 2, name: '准入补充资料通知', unit: '西南油气田分公司', category: '准入流程',
+    seq: 2, name: '补充资料通知', unit: '西南油气田分公司', category: '流程',
     sections: [
       {
         id: 1, icon: '👥', title: '人员情况', required: true,

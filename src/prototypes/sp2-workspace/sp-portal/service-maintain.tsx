@@ -4,7 +4,7 @@
  * 功能要素：
  * 1) 待提交（暂存）数据：编辑后暂存未提交的品类，可继续编辑/提交审核/删除；
  * 2) 已注册服务品类：可剔除（即时生效，需填写剔除原因并记录）；
- * 3) 未注册品类新增入口：维护服务品类 → 从完整服务目录（专业+通用）自由选择新增。
+ * 3) 未注册品类新增入口：维护服务品类 → 从完整服务品类（专业+通用）自由选择新增。
  */
 import React from 'react';
 import { useState } from 'react';
@@ -272,7 +272,7 @@ export default function SpServiceMaintain() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                       <Typography.Text strong style={{ fontSize: 14 }}>未注册服务品类</Typography.Text>
                       <Typography.Text type="secondary" style={{ fontSize: 13 }}>
-                        可从完整服务目录（专业+通用）中自由选择任意品类注册，专业品类需填写资质审查资料
+                        可从完整服务品类（专业+通用）中自由选择任意品类注册，专业品类需填写资质审查资料
                       </Typography.Text>
                     </div>
                     <Button type="primary" danger onClick={() => { window.location.hash = '#/sp/service-maintain/add'; }}>

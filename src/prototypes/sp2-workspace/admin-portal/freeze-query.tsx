@@ -50,7 +50,7 @@ const categorySearchFields = [
   { key: 'spName', label: '服务商名称', placeholder: '请输入' },
   { key: 'categoryCode', label: '服务品类编码', placeholder: '请输入' },
   { key: 'categoryName', label: '服务品类名称', placeholder: '请输入' },
-  { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停准入服务品类交易权限', '恢复准入服务品类交易权限'] },
+  { key: 'applyType', label: '申请类型', type: 'select' as const, options: ['请选择', '暂停服务品类交易权限', '恢复服务品类交易权限'] },
   { key: 'applyUnit', label: '申请单位', placeholder: '请输入' },
   { key: 'spStatus', label: '服务商状态', type: 'select' as const, options: ['请选择', '正常', '已冻结'] },
   { key: 'disposeRange', label: '处置范围', type: 'select' as const, options: ['请选择', '全集团', '本单位'] },
@@ -80,8 +80,8 @@ const categoryColumns = [
 ];
 
 const categoryData = [
-  { index: 1, categoryCode: 'S0101000', categoryName: '咨询', spName: '大庆拓邦龙达科技有限公司', spType: '贸易商', mgmtType: '所属企业管理', workType: '暂停准入服务品类交易权限', applyType: '暂停准入服务品类交易权限', freezeReason: '资质到期', flowStatus: '待复核', catalogLevel: '二级' },
-  { index: 2, categoryCode: 'S0201000', categoryName: '物化探服务', spName: '四川伯尔塔石油科技有限…', spType: '代理商', mgmtType: '所属企业管理', workType: '', applyType: '暂停准入服务品类交易权限', freezeReason: '其它', flowStatus: '已完成', catalogLevel: '一级' },
+  { index: 1, categoryCode: 'S0101000', categoryName: '咨询', spName: '大庆拓邦龙达科技有限公司', spType: '贸易商', mgmtType: '所属企业管理', workType: '暂停服务品类交易权限', applyType: '暂停服务品类交易权限', freezeReason: '资质到期', flowStatus: '待复核', catalogLevel: '二级' },
+  { index: 2, categoryCode: 'S0201000', categoryName: '物化探服务', spName: '四川伯尔塔石油科技有限…', spType: '代理商', mgmtType: '所属企业管理', workType: '', applyType: '暂停服务品类交易权限', freezeReason: '其它', flowStatus: '已完成', catalogLevel: '一级' },
 ];
 
 export default function FreezeQuery() {

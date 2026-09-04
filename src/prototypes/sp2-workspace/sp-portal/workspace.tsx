@@ -9,7 +9,7 @@ import { getPublishedNotifications, getPublishedManuals } from '../common/qualif
 /* 通知模板数据（模拟从管理端配置读取） */
 const noticeTemplates = [
   { seq: 1, name: '注册补充资料通知', unit: '长庆油田分公司', category: '注册流程' },
-  { seq: 2, name: '准入补充资料通知', unit: '西南油气田分公司', category: '准入流程' },
+  { seq: 2, name: '补充资料通知', unit: '西南油气田分公司', category: '流程' },
   { seq: 3, name: '变更补充资料通知', unit: '大庆油田有限责任公司', category: '变更流程' },
 ];
 

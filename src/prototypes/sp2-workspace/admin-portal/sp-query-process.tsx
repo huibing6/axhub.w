@@ -7,7 +7,7 @@ import { Typography, Input, Select, Button, Table, Card, Row, Col, Tabs, Tag, Sp
 
 const spFlowData = [
   { seq: 1, code: '1000020022', name: '中海油能源发展股份有限公司', unit: '长庆油田', spStatus: '正常', flow: '注册流程', flowStatus: '待提交', submitter: '阿三', submitTime: '2025-12-19 09:15', flowUnit: '', creditCode: '91420000706802345X' },
-  { seq: 2, code: '1000020022', name: '杰瑞石油装备技术有限公司', unit: '', spStatus: '暂停', flow: '准入流程', flowStatus: '待复核', submitter: '', submitTime: '2025-12-17 15:03', flowUnit: '', creditCode: '91420000706802345X' },
+  { seq: 2, code: '1000020022', name: '杰瑞石油装备技术有限公司', unit: '', spStatus: '暂停', flow: '流程', flowStatus: '待复核', submitter: '', submitTime: '2025-12-17 15:03', flowUnit: '', creditCode: '91420000706802345X' },
   { seq: 3, code: '1000020022', name: '中海油能源发展股份有限公司', unit: '', spStatus: '取消', flow: '服务商信息变更流程', flowStatus: '已拒绝', submitter: '', submitTime: '2025-12-19 09:15', flowUnit: '', creditCode: '91420000706802345X' },
   { seq: 4, code: '1000020022', name: '杰瑞石油装备技术有限公司', unit: '', spStatus: '', flow: '资质变更流程', flowStatus: '', submitter: '', submitTime: '2025-12-17 15:03', flowUnit: '', creditCode: '91420000706802345X' },
   { seq: 5, code: '1000020022', name: '中海油能源发展股份有限公司', unit: '', spStatus: '', flow: '冻结流程', flowStatus: '', submitter: '', submitTime: '2025-12-19 09:15', flowUnit: '', creditCode: '91420000706802345X' },

@@ -143,14 +143,14 @@ export default function SpServiceMaintainEdit() {
         display: 'flex', alignItems: 'center', gap: 8,
       }}>
         <span style={{ fontSize: 16 }}>⚠️</span>
-        选择专业目录下需要进行专业资格审查，请按要求填写服务品类的资质信用、服务能力；通用目录品类无需上传资质附件
+        选择专业品类下需要进行专业资格审查，请按要求填写服务品类的资质信用、服务能力；通用品类品类无需上传资质附件
       </div>
 
-      {/* 已添加的服务目录 */}
+      {/* 已添加的服务品类 */}
       <Card
         variant="outlined"
         size="small"
-        title={<span style={{ fontSize: 14 }}>☑ 已添加的服务目录</span>}
+        title={<span style={{ fontSize: 14 }}>☑ 已添加的服务品类</span>}
         extra={
           <Space>
             <Button onClick={handleBatchDelete}>批量删除</Button>
@@ -222,7 +222,7 @@ export default function SpServiceMaintainEdit() {
             </Form>
           </Card>
 
-          {/* 资质附件（按专业目录配置；通用目录显示无需上传） */}
+          {/* 资质附件（按专业品类配置；通用品类显示无需上传） */}
           <QualAttachCard categoryCode={svc.code} categoryName={svc.name} />
 
           <Card variant="outlined" size="small">
@@ -249,7 +249,7 @@ export default function SpServiceMaintainEdit() {
         <Button type="primary" danger onClick={handleSubmitReview}>提交审核</Button>
       </div>
 
-      {/* 选择服务目录弹框（专业/通用，无限制） */}
+      {/* 选择服务品类弹框（专业/通用，无限制） */}
       <ServiceCatalogModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}

@@ -121,7 +121,7 @@ export const defaultTagConfigs: TagConfig[] = [
 
 /**
  * 根据服务商状态和品类列表计算标签
- * @param status 服务商准入状态
+ * @param status 服务商状态
  * @param categoryCodes 服务商注册的品类编码列表
  * @param categories 服务商品类详细信息（含类型和认证状态）
  * @param tagConfigs 标签配置列表（可选，默认使用 defaultTagConfigs）

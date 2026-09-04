@@ -7,9 +7,9 @@ import { theme, Typography, Card, Space, Input, Button, Table, Tag, message } fr
 import { useFilterData } from '../common/hooks';
 
 const rawData = [
-  { idx: 1, name: '中海油能源发展股份有限公司', type: '所属企业管理', status: '待提交', source: '公开招标采购中标', time: '2025-12-19 09:15', submitter: '张三', editor: '张三', dataSource: '准入信息管理', code: '91440300MA5F1234AB' },
+  { idx: 1, name: '中海油能源发展股份有限公司', type: '所属企业管理', status: '待提交', source: '公开招标采购中标', time: '2025-12-19 09:15', submitter: '张三', editor: '张三', dataSource: '信息管理', code: '91440300MA5F1234AB' },
   { idx: 2, name: '杰瑞石油装备技术有限公司', type: '总部管理', status: '待提交', source: '其他公开方式', time: '2025-12-17 15:03', submitter: '李四', editor: '李四', dataSource: '自助服务管理', code: '913706005971234523' },
-  { idx: 3, name: '中海油能源发展股份有限公司', type: '所属企业管理', status: '已拒绝', source: '公开招标采购中标', time: '2025-12-19 09:15', submitter: '张三', editor: '张三', dataSource: '准入信息管理', code: '91440300MA5F1234AB' },
+  { idx: 3, name: '中海油能源发展股份有限公司', type: '所属企业管理', status: '已拒绝', source: '公开招标采购中标', time: '2025-12-19 09:15', submitter: '张三', editor: '张三', dataSource: '信息管理', code: '91440300MA5F1234AB' },
   { idx: 4, name: '杰瑞石油装备技术有限公司', type: '总部管理', status: '已拒绝', source: '其他公开方式', time: '2025-12-17 15:03', submitter: '李四', editor: '李四', dataSource: '自助服务管理', code: '913706005971234523' },
   { idx: 5, name: '中海油能源发展股份有限公司', type: '', status: '', source: '', time: '2025-12-19 09:15', submitter: '张三', editor: '张三', dataSource: '', code: '' },
   { idx: 6, name: '杰瑞石油装备技术有限公司', type: '', status: '', source: '', time: '2025-12-17 15:03', submitter: '李四', editor: '李四', dataSource: '', code: '' },
@@ -57,7 +57,7 @@ export default function InfoEdit() {
       key: 'status', title: '流程状态', width: 80, align: 'center' as const, dataIndex: 'status',
       render: (val: string) => val ? <Tag color={statusColors[val] || 'default'}>{val}</Tag> : '—',
     },
-    { key: 'source', title: '准入来源', width: 140, dataIndex: 'source', ellipsis: true },
+    { key: 'source', title: '来源', width: 140, dataIndex: 'source', ellipsis: true },
     { key: 'time', title: '提交时间', width: 150, dataIndex: 'time' },
     { key: 'submitter', title: '提交人', width: 80, dataIndex: 'submitter' },
     { key: 'editor', title: '编辑人', width: 80, dataIndex: 'editor' },

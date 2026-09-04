@@ -35,7 +35,7 @@ const colorOptions = [
 const statusOptions = [
   { label: '合格', value: 'qualified' },
   { label: '正式', value: 'formal' },
-  { label: '待准入', value: 'pending' },
+  { label: '待配码', value: 'pending' },
   { label: '已冻结', value: 'frozen' },
 ];
 
@@ -59,7 +59,7 @@ const levelLabels: Record<string, string> = {
 const getRuleDescription = (tag: TagConfig): string => {
   if (tag.rule.type === 'status') {
     const status = statusOptions.find(s => s.value === tag.rule.statusValue);
-    return `准入状态 = ${status?.label || tag.rule.statusValue}`;
+    return `状态 = ${status?.label || tag.rule.statusValue}`;
   }
   if (tag.rule.type === 'integration') {
     const system = integrationSystems.find(s => s.id === tag.rule.integrationSystemId);
@@ -75,7 +75,7 @@ const initialTags: TagConfig[] = [
     color: 'blue',
     level: 'L1',
     enabled: true,
-    description: '准入状态为已生效的服务商',
+    description: '状态为已生效的服务商',
     rule: { type: 'status', statusValue: 'formal' },
   },
   {
@@ -84,7 +84,7 @@ const initialTags: TagConfig[] = [
     color: 'green',
     level: 'L1',
     enabled: true,
-    description: '通过资质审查，待准入的服务商',
+    description: '通过资质审查，待配码的服务商',
     rule: { type: 'status', statusValue: 'qualified' },
   },
   {

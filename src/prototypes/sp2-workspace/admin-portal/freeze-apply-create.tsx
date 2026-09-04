@@ -44,7 +44,7 @@ export default function FreezeApplyCreate() {
                   <Form.Item label="申请类型" required>
                     <Select defaultValue="暂停交易权限">
                       <Select.Option value="暂停交易权限">暂停交易权限</Select.Option>
-                      <Select.Option value="取消服务商准入资格">取消服务商准入资格</Select.Option>
+                      <Select.Option value="取消服务商资格">取消服务商资格</Select.Option>
                     </Select>
                   </Form.Item>
                   <Form.Item label="服务商状态">

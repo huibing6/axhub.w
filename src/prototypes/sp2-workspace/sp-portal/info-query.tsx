@@ -32,13 +32,13 @@ export default function InfoQuery() {
       <Card variant="outlined" size="small" style={{ marginBottom: 16 }}>
         <SectionTitle icon="📋" title="信息查询" />
         <Form layout="vertical">
-          {/* 准入信息 */}
+           {/* 信息 */}
           <Row gutter={16}>
             <Col span={12}>
-              <ReadonlyField label="准入来源" value="公开招标采购中标" required />
+              <ReadonlyField label="来源" value="公开招标采购中标" required />
             </Col>
             <Col span={12}>
-              <ReadonlyField label="准入类别" value="新增准入服务商" required />
+              <ReadonlyField label="类别" value="新增服务商" required />
             </Col>
             <Col span={12}>
               <ReadonlyField label="中标项目" value="2026年度江汉油田钻采设备维保服务项目" required />

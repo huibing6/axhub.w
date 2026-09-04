@@ -1,7 +1,7 @@
 /**
  * 专业目录资质附件配置（共享数据）
  * 管理端在"参数配置 → 专业服务目录配置 → 目录品类设置"中维护，
- * 服务商端注册/准入的服务目录编辑区按服务品类编码读取并展示上传。
+ * 服务商端注册/服务目录编辑区按服务品类编码读取并展示上传。
  */
 export interface QualAttachItem {
   name: string;
@@ -142,9 +142,9 @@ export const systemNoticeData: SystemNotice[] = [
     attachments: [{ name: '服务商注册操作手册0618V.pdf', url: '#' }], createTime: '2026-05-20 09:00', status: '已发布',
   },
   {
-    seq: 6, type: '操作手册', title: '服务商准入操作手册',
-    content: '本手册详细介绍了服务商准入的完整流程，包括：\n\n1. 准入通知查看\n2. 补充资料填写\n3. 资质文件上传\n4. 进度查询',
-    attachments: [{ name: '服务商正式准入操作手册0618V.pdf', url: '#' }], createTime: '2026-05-18 16:00', status: '已发布',
+    seq: 6, type: '操作手册', title: '服务商操作手册',
+    content: '本手册详细介绍了服务商的完整流程，包括：\n\n1. 通知查看\n2. 补充资料填写\n3. 资质文件上传\n4. 进度查询',
+    attachments: [{ name: '服务商正式操作手册0618V.pdf', url: '#' }], createTime: '2026-05-18 16:00', status: '已发布',
   },
   {
     seq: 7, type: '操作手册', title: '服务商日常管理操作手册',
