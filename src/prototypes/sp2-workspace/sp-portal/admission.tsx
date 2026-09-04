@@ -101,7 +101,7 @@ const registeredBasic = {
   creditCode: '91110000100012345X',
   establishDate: '2008-06-18',
   isInternal: 'external',
-  ownershipProof: '权属关系证明.pdf',
+  ownershipProof: '所属企业证明.pdf',
   internalOrg: '',
   contactName: '李明',
   contactPhone: '13912345678',
@@ -187,9 +187,9 @@ function BasicInfoTab({ readonly = false }: { readonly?: boolean }) {
           </Form.Item>
           <Row gutter={16}>
             <Col span={12}>
-              <Form.Item label="权属关系证明" name="ownershipProof">
+              <Form.Item label="所属企业证明" name="ownershipProof">
                 {readonly ? (
-                  <Input value="权属关系证明.pdf" disabled />
+                  <Input value="所属企业证明.pdf" disabled />
                 ) : (
                   <Upload beforeUpload={() => false}>
                     <AntButton icon={<UploadOutlined />}>上传文件</AntButton>

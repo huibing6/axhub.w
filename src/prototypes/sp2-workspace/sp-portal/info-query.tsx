@@ -86,7 +86,7 @@ export default function InfoQuery() {
               <ReadonlyField label="内部组织" value="" />
             </Col>
           </Row>
-          <Form.Item label="权属关系证明">
+          <Form.Item label="所属企业证明">
             <Button disabled style={{ background: '#fafafa' }}>上传文件</Button>
           </Form.Item>
         </Form>

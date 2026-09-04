@@ -86,7 +86,7 @@ function StepBasicInfo({ form }: { form: any }) {
           </Form.Item>
           <Row gutter={16}>
             <Col span={12}>
-              <Form.Item label="权属关系证明" name="ownershipProof">
+              <Form.Item label="所属企业证明" name="ownershipProof">
                 <Upload
                   fileList={fileList}
                   onChange={({ fileList }) => setFileList(fileList)}

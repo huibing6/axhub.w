@@ -82,7 +82,7 @@ function BasicInfoTab() {
           </Form.Item>
           <Row gutter={16}>
             <Col span={12}>
-              <Form.Item label="权属关系证明" name="ownershipProof">
+              <Form.Item label="所属企业证明" name="ownershipProof">
                 <Upload beforeUpload={() => false}>
                   <AntButton icon={<UploadOutlined />}>上传文件</AntButton>
                 </Upload>
