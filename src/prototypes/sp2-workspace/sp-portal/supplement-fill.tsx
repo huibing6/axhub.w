@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import { useState } from 'react';
-import { Typography, Input, Button, Card, Row, Col, Upload, Tag, message, Divider } from 'antd';
+import { Typography, Input, Button, Card, Row, Col, Upload, Tag, message, Divider, Space } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadFile } from 'antd';
 
